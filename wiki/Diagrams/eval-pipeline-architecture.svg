@@ -1,0 +1,220 @@
+<svg viewBox="0 0 1100 720" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1100" height="720" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="550" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#1E293B">LLM Evaluation Pipeline Architecture</text>
+  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#64748B">Use Case 1: Complaint Theme Classification (50k+ complaints/year)</text>
+
+  <!-- LANE BACKGROUNDS -->
+  <!-- Lane 1: Data Ingestion -->
+  <rect x="20" y="75" width="160" height="590" rx="8" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="100" y="95" text-anchor="middle" font-size="11" font-weight="bold" fill="#1D4ED8">DATA INGESTION</text>
+
+  <!-- Lane 2: LLM System -->
+  <rect x="195" y="75" width="180" height="590" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.5"/>
+  <text x="285" y="95" text-anchor="middle" font-size="11" font-weight="bold" fill="#15803D">LLM SYSTEM</text>
+
+  <!-- Lane 3: Evals -->
+  <rect x="390" y="75" width="360" height="590" rx="8" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1.5"/>
+  <text x="570" y="95" text-anchor="middle" font-size="11" font-weight="bold" fill="#C2410C">EVALUATION LAYER</text>
+
+  <!-- Lane 4: Observability -->
+  <rect x="765" y="75" width="180" height="590" rx="8" fill="#FDF4FF" stroke="#E9D5FF" stroke-width="1.5"/>
+  <text x="855" y="95" text-anchor="middle" font-size="11" font-weight="bold" fill="#7E22CE">OBSERVABILITY</text>
+
+  <!-- Lane 5: Action -->
+  <rect x="960" y="75" width="120" height="590" rx="8" fill="#FFF1F2" stroke="#FECDD3" stroke-width="1.5"/>
+  <text x="1020" y="95" text-anchor="middle" font-size="11" font-weight="bold" fill="#BE123C">ACTION</text>
+
+  <!-- ========== DATA INGESTION COLUMN ========== -->
+  <!-- Raw Complaints -->
+  <rect x="30" y="110" width="140" height="60" rx="8" fill="#1D4ED8" stroke="#1E40AF" stroke-width="1.5"/>
+  <text x="100" y="136" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Raw Complaints</text>
+  <text x="100" y="153" text-anchor="middle" font-size="10" fill="#BFDBFE">50k+ per year</text>
+
+  <!-- Arrow down -->
+  <line x1="100" y1="170" x2="100" y2="200" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Preprocessing -->
+  <rect x="30" y="200" width="140" height="60" rx="8" fill="#3B82F6" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="100" y="224" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Pre-processing</text>
+  <text x="100" y="241" text-anchor="middle" font-size="10" fill="#BFDBFE">Clean, deduplicate</text>
+
+  <!-- Arrow down -->
+  <line x1="100" y1="260" x2="100" y2="290" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Sample Strategy -->
+  <rect x="30" y="290" width="140" height="60" rx="8" fill="#60A5FA" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="100" y="314" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Sampling</text>
+  <text x="100" y="331" text-anchor="middle" font-size="10" fill="white">Stratified / random</text>
+
+  <!-- Arrow down -->
+  <line x1="100" y1="350" x2="100" y2="380" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Gold Set -->
+  <rect x="30" y="380" width="140" height="60" rx="8" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1.5"/>
+  <text x="100" y="404" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E40AF">Human Labeling</text>
+  <text x="100" y="421" text-anchor="middle" font-size="10" fill="#1D4ED8">Gold set (200-500)</text>
+
+  <!-- ========== LLM SYSTEM COLUMN ========== -->
+  <!-- Prompt Template -->
+  <rect x="205" y="110" width="160" height="60" rx="8" fill="#15803D" stroke="#166534" stroke-width="1.5"/>
+  <text x="285" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Prompt Template</text>
+  <text x="285" y="151" text-anchor="middle" font-size="10" fill="#BBF7D0">Theme taxonomy + few-shot</text>
+
+  <!-- Arrow down -->
+  <line x1="285" y1="170" x2="285" y2="200" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- LLM Call -->
+  <rect x="205" y="200" width="160" height="60" rx="8" fill="#16A34A" stroke="#15803D" stroke-width="1.5"/>
+  <text x="285" y="224" text-anchor="middle" font-size="11" font-weight="bold" fill="white">LLM Classifier</text>
+  <text x="285" y="241" text-anchor="middle" font-size="10" fill="#BBF7D0">Claude / GPT / Gemini</text>
+
+  <!-- Arrow down -->
+  <line x1="285" y1="260" x2="285" y2="290" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Output -->
+  <rect x="205" y="290" width="160" height="60" rx="8" fill="#4ADE80" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="285" y="314" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532D">Structured Output</text>
+  <text x="285" y="331" text-anchor="middle" font-size="10" fill="#14532D">Themes + confidence</text>
+
+  <!-- Arrow down -->
+  <line x1="285" y1="350" x2="285" y2="380" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Iteration -->
+  <rect x="205" y="380" width="160" height="60" rx="8" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="285" y="404" text-anchor="middle" font-size="11" font-weight="bold" fill="#15803D">Prompt Iteration</text>
+  <text x="285" y="421" text-anchor="middle" font-size="10" fill="#15803D">Version controlled</text>
+
+  <!-- ========== EVALUATION COLUMN ========== -->
+  <!-- Three eval boxes side by side -->
+  <!-- Unit Evals -->
+  <rect x="400" y="110" width="100" height="80" rx="8" fill="#EA580C" stroke="#C2410C" stroke-width="1.5"/>
+  <text x="450" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Unit Evals</text>
+  <text x="450" y="157" text-anchor="middle" font-size="9.5" fill="#FED7AA">Known inputs</text>
+  <text x="450" y="172" text-anchor="middle" font-size="9.5" fill="#FED7AA">-&gt; exact labels</text>
+
+  <!-- Model-based Evals -->
+  <rect x="515" y="110" width="100" height="80" rx="8" fill="#DC2626" stroke="#B91C1C" stroke-width="1.5"/>
+  <text x="565" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="white">LLM Judge</text>
+  <text x="565" y="157" text-anchor="middle" font-size="9.5" fill="#FCA5A5">Criteria-based</text>
+  <text x="565" y="172" text-anchor="middle" font-size="9.5" fill="#FCA5A5">binary scoring</text>
+
+  <!-- Human Evals -->
+  <rect x="630" y="110" width="100" height="80" rx="8" fill="#9F1239" stroke="#881337" stroke-width="1.5"/>
+  <text x="680" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Human Evals</text>
+  <text x="680" y="157" text-anchor="middle" font-size="9.5" fill="#FECDD3">Spot checks</text>
+  <text x="680" y="172" text-anchor="middle" font-size="9.5" fill="#FECDD3">disagreements</text>
+
+  <!-- Metrics box -->
+  <rect x="400" y="215" width="330" height="75" rx="8" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5"/>
+  <text x="565" y="238" text-anchor="middle" font-size="11" font-weight="bold" fill="#C2410C">Metrics Dashboard</text>
+  <text x="450" y="258" text-anchor="middle" font-size="10" fill="#7C2D12">Accuracy</text>
+  <text x="520" y="258" text-anchor="middle" font-size="10" fill="#7C2D12">Precision</text>
+  <text x="590" y="258" text-anchor="middle" font-size="10" fill="#7C2D12">Recall</text>
+  <text x="660" y="258" text-anchor="middle" font-size="10" fill="#7C2D12">F1-Score</text>
+  <text x="565" y="279" text-anchor="middle" font-size="10" fill="#9A3412">Confusion matrix | Cohen kappa | Cost per label</text>
+
+  <!-- Arrow down -->
+  <line x1="565" y1="290" x2="565" y2="310" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Error Analysis -->
+  <rect x="400" y="310" width="330" height="70" rx="8" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="565" y="335" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400E">Error Analysis</text>
+  <text x="565" y="355" text-anchor="middle" font-size="10" fill="#78350F">Cluster failures | Find systematic patterns | Prioritise fixes</text>
+  <text x="565" y="372" text-anchor="middle" font-size="10" fill="#78350F">Hamel: look at data, not just scores</text>
+
+  <!-- Arrow down -->
+  <line x1="565" y1="380" x2="565" y2="400" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Regression Guard -->
+  <rect x="400" y="400" width="330" height="60" rx="8" fill="#FFEDD5" stroke="#FB923C" stroke-width="1.5"/>
+  <text x="565" y="426" text-anchor="middle" font-size="11" font-weight="bold" fill="#9A3412">Regression Guard (CI/CD)</text>
+  <text x="565" y="445" text-anchor="middle" font-size="10" fill="#7C2D12">Run evals on every prompt change | Block regressions automatically</text>
+
+  <!-- Feedback loop -->
+  <rect x="400" y="485" width="330" height="60" rx="8" fill="#FDE68A" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="565" y="510" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350F">Evaluation-Driven Development</text>
+  <text x="565" y="529" text-anchor="middle" font-size="10" fill="#78350F">Fix evals first, improve model second (Decodingai.com)</text>
+
+  <!-- ========== OBSERVABILITY COLUMN ========== -->
+  <rect x="775" y="110" width="160" height="60" rx="8" fill="#7E22CE" stroke="#6B21A8" stroke-width="1.5"/>
+  <text x="855" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Logging</text>
+  <text x="855" y="151" text-anchor="middle" font-size="10" fill="#E9D5FF">All inputs + outputs</text>
+
+  <line x1="855" y1="170" x2="855" y2="200" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="775" y="200" width="160" height="60" rx="8" fill="#9333EA" stroke="#7E22CE" stroke-width="1.5"/>
+  <text x="855" y="224" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Tracing</text>
+  <text x="855" y="241" text-anchor="middle" font-size="10" fill="#E9D5FF">Token use, latency, cost</text>
+
+  <line x1="855" y1="260" x2="855" y2="290" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="775" y="290" width="160" height="60" rx="8" fill="#A855F7" stroke="#9333EA" stroke-width="1.5"/>
+  <text x="855" y="314" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Drift Detection</text>
+  <text x="855" y="331" text-anchor="middle" font-size="10" fill="#F3E8FF">Score drop alerts</text>
+
+  <line x1="855" y1="350" x2="855" y2="380" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="775" y="380" width="160" height="60" rx="8" fill="#C084FC" stroke="#A855F7" stroke-width="1.5"/>
+  <text x="855" y="404" text-anchor="middle" font-size="11" font-weight="bold" fill="#3B0764">Online Evals</text>
+  <text x="855" y="421" text-anchor="middle" font-size="10" fill="#3B0764">Sample prod traffic</text>
+
+  <!-- ========== ACTION COLUMN ========== -->
+  <rect x="970" y="110" width="100" height="60" rx="8" fill="#BE123C" stroke="#9F1239" stroke-width="1.5"/>
+  <text x="1020" y="134" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Alert</text>
+  <text x="1020" y="151" text-anchor="middle" font-size="10" fill="#FECDD3">Threshold breach</text>
+
+  <line x1="1020" y1="170" x2="1020" y2="200" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="970" y="200" width="100" height="60" rx="8" fill="#E11D48" stroke="#BE123C" stroke-width="1.5"/>
+  <text x="1020" y="224" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Rollback</text>
+  <text x="1020" y="241" text-anchor="middle" font-size="10" fill="#FECDD3">Prior prompt v.</text>
+
+  <line x1="1020" y1="260" x2="1020" y2="290" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="970" y="290" width="100" height="60" rx="8" fill="#F43F5E" stroke="#E11D48" stroke-width="1.5"/>
+  <text x="1020" y="314" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Re-label</text>
+  <text x="1020" y="331" text-anchor="middle" font-size="10" fill="#FECDD3">Expand gold set</text>
+
+  <line x1="1020" y1="350" x2="1020" y2="380" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="970" y="380" width="100" height="60" rx="8" fill="#FB7185" stroke="#F43F5E" stroke-width="1.5"/>
+  <text x="1020" y="404" text-anchor="middle" font-size="11" font-weight="bold" fill="#4C0519">Deploy</text>
+  <text x="1020" y="421" text-anchor="middle" font-size="10" fill="#4C0519">New version</text>
+
+  <!-- CROSS-LANE ARROWS -->
+  <!-- Data -> LLM -->
+  <line x1="170" y1="230" x2="205" y2="230" stroke="#64748B" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowGray)"/>
+  <!-- LLM -> Eval -->
+  <line x1="365" y1="230" x2="400" y2="230" stroke="#64748B" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowGray)"/>
+  <!-- Eval -> Observability -->
+  <line x1="730" y1="260" x2="775" y2="260" stroke="#64748B" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowGray)"/>
+  <!-- Observability -> Action -->
+  <line x1="935" y1="260" x2="970" y2="260" stroke="#64748B" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowGray)"/>
+  <!-- Gold set -> LLM Eval -->
+  <line x1="170" y1="410" x2="400" y2="350" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowOrange)"/>
+  <!-- Feedback loop back arrow -->
+  <path d="M 400 515 Q 285 560 285 450" stroke="#F59E0B" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowOrange)"/>
+
+  <!-- LEGEND -->
+  <rect x="30" y="590" width="1040" height="95" rx="8" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="50" y="613" font-size="11" font-weight="bold" fill="#1E293B">KEY DESIGN PRINCIPLES (from references)</text>
+  <text x="50" y="633" font-size="10" fill="#475569">1. Start with unit evals before LLM judges (Hamel Husain) | 2. Binary scoring beats Likert scales for reliability (Decodingai) | 3. Error analysis is highest ROI technique</text>
+  <text x="50" y="651" font-size="10" fill="#475569">4. Eval-driven development: fix your evals first (Decodingai) | 5. LLM judges need validation against human labels (eugeneyan.com) | 6. Online evals close the feedback loop (Anthropic)</text>
+  <text x="50" y="669" font-size="10" fill="#475569">7. Avoid generic metrics; define task-specific criteria first (Decodingai: The Mirage of Generic AI Metrics) | 8. Evals alone are not enough - combine with observability (O'Reilly)</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F59E0B"/>
+    </marker>
+  </defs>
+</svg>

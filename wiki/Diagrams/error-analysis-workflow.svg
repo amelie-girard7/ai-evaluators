@@ -1,0 +1,229 @@
+<svg viewBox="0 0 1100 820" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1100" height="820" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="550" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#1E293B">Error Analysis: The Highest ROI Technique in AI Engineering</text>
+  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#64748B">Step-by-step workflow applied to complaint classification and RAG chatbot systems</text>
+
+  <!-- ======= MAIN FLOW ======= -->
+
+  <!-- STEP 1 -->
+  <rect x="20" y="75" width="200" height="180" rx="10" fill="white" stroke="#3B82F6" stroke-width="2.5"/>
+  <rect x="20" y="75" width="200" height="36" rx="10" fill="#1D4ED8"/>
+  <rect x="20" y="99" width="200" height="12" fill="#1D4ED8"/>
+  <text x="120" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="white">STEP 1</text>
+  <text x="120" y="111" text-anchor="middle" font-size="10" fill="#BFDBFE">COLLECT FAILURES</text>
+
+  <text x="35" y="133" font-size="10.5" font-weight="bold" fill="#1E3A8A">What to gather:</text>
+  <text x="35" y="150" font-size="10" fill="#374151">All model outputs where eval</text>
+  <text x="35" y="165" font-size="10" fill="#374151">score falls below threshold</text>
+  <text x="35" y="185" font-size="10" fill="#374151">Use Case 1: wrong theme labels</text>
+  <text x="35" y="200" font-size="10" fill="#374151">Use Case 2: wrong chatbot answers</text>
+  <text x="35" y="218" font-size="10" font-style="italic" fill="#64748B">Target: 50-200 failure cases</text>
+  <text x="35" y="233" font-size="10" font-style="italic" fill="#64748B">before analysis begins</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="220" y1="165" x2="250" y2="165" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowD)"/>
+
+  <!-- STEP 2 -->
+  <rect x="250" y="75" width="200" height="180" rx="10" fill="white" stroke="#7C3AED" stroke-width="2.5"/>
+  <rect x="250" y="75" width="200" height="36" rx="10" fill="#6D28D9"/>
+  <rect x="250" y="99" width="200" height="12" fill="#6D28D9"/>
+  <text x="350" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="white">STEP 2</text>
+  <text x="350" y="111" text-anchor="middle" font-size="10" fill="#E9D5FF">READ THE DATA (Hamel)</text>
+
+  <text x="265" y="133" font-size="10.5" font-weight="bold" fill="#4C1D95">Do this manually first:</text>
+  <text x="265" y="150" font-size="10" fill="#374151">Read 20-50 failures yourself</text>
+  <text x="265" y="165" font-size="10" fill="#374151">before any automation. Do</text>
+  <text x="265" y="180" font-size="10" fill="#374151">not outsource understanding.</text>
+  <text x="265" y="198" font-size="10" fill="#374151">UC1: Read misclassified</text>
+  <text x="265" y="213" font-size="10" fill="#374151">complaints in full context</text>
+  <text x="265" y="230" font-size="10" font-style="italic" fill="#7C3AED">"Look at data, not dashboards"</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="450" y1="165" x2="480" y2="165" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowD)"/>
+
+  <!-- STEP 3 -->
+  <rect x="480" y="75" width="200" height="180" rx="10" fill="white" stroke="#EA580C" stroke-width="2.5"/>
+  <rect x="480" y="75" width="200" height="36" rx="10" fill="#C2410C"/>
+  <rect x="480" y="99" width="200" height="12" fill="#C2410C"/>
+  <text x="580" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="white">STEP 3</text>
+  <text x="580" y="111" text-anchor="middle" font-size="10" fill="#FFEDD5">CLUSTER FAILURE TYPES</text>
+
+  <text x="495" y="133" font-size="10.5" font-weight="bold" fill="#7C2D12">Group by root cause:</text>
+  <text x="495" y="150" font-size="10" fill="#374151">A. Prompt-caused failures</text>
+  <text x="495" y="165" font-size="10" fill="#374151">B. Retrieval-caused failures</text>
+  <text x="495" y="180" font-size="10" fill="#374151">C. Taxonomy ambiguity</text>
+  <text x="495" y="198" font-size="10" fill="#374151">D. Training data gaps</text>
+  <text x="495" y="215" font-size="10" fill="#374151">E. Context window limits</text>
+  <text x="495" y="232" font-size="10" font-style="italic" fill="#9A3412">Use K-means or manual tagging</text>
+
+  <!-- Arrow 3->4 -->
+  <line x1="680" y1="165" x2="710" y2="165" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowD)"/>
+
+  <!-- STEP 4 -->
+  <rect x="710" y="75" width="200" height="180" rx="10" fill="white" stroke="#16A34A" stroke-width="2.5"/>
+  <rect x="710" y="75" width="200" height="36" rx="10" fill="#15803D"/>
+  <rect x="710" y="99" width="200" height="12" fill="#15803D"/>
+  <text x="810" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="white">STEP 4</text>
+  <text x="810" y="111" text-anchor="middle" font-size="10" fill="#BBF7D0">PRIORITISE BY IMPACT</text>
+
+  <text x="725" y="133" font-size="10.5" font-weight="bold" fill="#14532D">Score each cluster:</text>
+  <text x="725" y="150" font-size="10" fill="#374151">Frequency x Business impact</text>
+  <text x="725" y="165" font-size="10" fill="#374151">Fix highest-impact first, not</text>
+  <text x="725" y="180" font-size="10" fill="#374151">easiest first.</text>
+  <text x="725" y="198" font-size="10" fill="#374151">UC1: Underquoting errors</text>
+  <text x="725" y="213" font-size="10" fill="#374151">impact regulators most</text>
+  <text x="725" y="232" font-size="10" font-style="italic" fill="#15803D">ROI = freq x severity x fixability</text>
+
+  <!-- Arrow 4->5 -->
+  <line x1="910" y1="165" x2="940" y2="165" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowD)"/>
+
+  <!-- STEP 5 -->
+  <rect x="940" y="75" width="140" height="180" rx="10" fill="white" stroke="#DC2626" stroke-width="2.5"/>
+  <rect x="940" y="75" width="140" height="36" rx="10" fill="#B91C1C"/>
+  <rect x="940" y="99" width="140" height="12" fill="#B91C1C"/>
+  <text x="1010" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="white">STEP 5</text>
+  <text x="1010" y="111" text-anchor="middle" font-size="10" fill="#FECACA">HYPOTHESISE FIX</text>
+
+  <text x="955" y="133" font-size="10" font-weight="bold" fill="#7F1D1D">Fix options:</text>
+  <text x="955" y="150" font-size="10" fill="#374151">Prompt change</text>
+  <text x="955" y="165" font-size="10" fill="#374151">Few-shot examples</text>
+  <text x="955" y="180" font-size="10" fill="#374151">Taxonomy update</text>
+  <text x="955" y="195" font-size="10" fill="#374151">Retrieval fix</text>
+  <text x="955" y="210" font-size="10" fill="#374151">Model change</text>
+  <text x="955" y="225" font-size="10" fill="#374151">Fine-tuning</text>
+
+  <!-- ======= ROW 2: DECISION DIAMOND + RESULTS ======= -->
+
+  <!-- Arrow down from Step 5 -->
+  <line x1="1010" y1="255" x2="1010" y2="290" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowD)"/>
+
+  <!-- Step 6: Test Fix -->
+  <rect x="880" y="290" width="250" height="120" rx="10" fill="white" stroke="#0891B2" stroke-width="2"/>
+  <rect x="880" y="290" width="250" height="30" rx="10" fill="#0E7490"/>
+  <rect x="880" y="308" width="250" height="12" fill="#0E7490"/>
+  <text x="1005" y="309" text-anchor="middle" font-size="12" font-weight="bold" fill="white">STEP 6: TEST FIX ON EVAL SET</text>
+  <text x="895" y="335" font-size="10" fill="#374151">Re-run the full eval suite with the</text>
+  <text x="895" y="350" font-size="10" fill="#374151">proposed fix applied. Check:</text>
+  <text x="895" y="368" font-size="10" fill="#374151">Does target cluster improve?</text>
+  <text x="895" y="383" font-size="10" fill="#374151">No regression in other clusters?</text>
+  <text x="895" y="398" font-size="10" fill="#374151">Overall score delta is positive?</text>
+
+  <!-- Decision diamond -->
+  <polygon points="750,350 820,310 890,350 820,390" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+  <text x="820" y="344" text-anchor="middle" font-size="11" font-weight="bold" fill="white">PASS?</text>
+  <text x="820" y="362" text-anchor="middle" font-size="10" fill="white">Eval score</text>
+  <text x="820" y="375" text-anchor="middle" font-size="10" fill="white">improved?</text>
+
+  <!-- YES arrow -> Deploy -->
+  <line x1="820" y1="390" x2="820" y2="430" stroke="#16A34A" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <text x="830" y="415" font-size="10" fill="#15803D" font-weight="bold">YES</text>
+
+  <!-- NO arrow -> back to hypothesis -->
+  <line x1="750" y1="350" x2="580" y2="350" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
+  <text x="660" y="340" font-size="10" fill="#DC2626" font-weight="bold">NO: revise hypothesis</text>
+
+  <!-- Deploy box -->
+  <rect x="695" y="430" width="250" height="80" rx="10" fill="#15803D" stroke="#166534" stroke-width="2"/>
+  <text x="820" y="455" text-anchor="middle" font-size="13" font-weight="bold" fill="white">STEP 7: DEPLOY + MONITOR</text>
+  <text x="820" y="475" text-anchor="middle" font-size="10" fill="#DCFCE7">Roll out to production traffic</text>
+  <text x="820" y="490" text-anchor="middle" font-size="10" fill="#DCFCE7">Watch for drift, restart loop monthly</text>
+  <text x="820" y="505" text-anchor="middle" font-size="10" fill="#DCFCE7">Add failures to gold set for future</text>
+
+  <!-- Circular back arrow from deploy to step 1 -->
+  <path d="M 695 470 Q 400 520 120 465 Q 90 460 90 280" stroke="#64748B" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arrowD)"/>
+  <text x="310" y="512" font-size="10" fill="#64748B" font-style="italic">Continuous improvement loop</text>
+
+  <!-- ======= BOTTOM: USE CASE EXAMPLES ======= -->
+  <rect x="20" y="540" width="510" height="255" rx="10" fill="white" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="20" y="540" width="510" height="30" rx="10" fill="#1D4ED8"/>
+  <rect x="20" y="558" width="510" height="12" fill="#1D4ED8"/>
+  <text x="275" y="559" text-anchor="middle" font-size="12" font-weight="bold" fill="white">USE CASE 1: Complaint Classification - Error Clusters Found</text>
+
+  <!-- UC1 error table -->
+  <rect x="35" y="580" width="490" height="25" rx="3" fill="#EFF6FF"/>
+  <text x="120" y="597" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">Error Cluster</text>
+  <text x="310" y="597" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">Root Cause</text>
+  <text x="470" y="597" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">Fix</text>
+
+  <rect x="35" y="606" width="490" height="22" rx="2" fill="#F9FAFB"/>
+  <text x="120" y="621" text-anchor="middle" font-size="9.5" fill="#374151">Single theme vs. multi-theme</text>
+  <text x="310" y="621" text-anchor="middle" font-size="9.5" fill="#374151">Prompt asks for one label only</text>
+  <text x="470" y="621" text-anchor="middle" font-size="9.5" fill="#374151">Allow list output</text>
+
+  <rect x="35" y="629" width="490" height="22" rx="2" fill="#EFF6FF"/>
+  <text x="120" y="644" text-anchor="middle" font-size="9.5" fill="#374151">Underquoting vs Misleading Ads</text>
+  <text x="310" y="644" text-anchor="middle" font-size="9.5" fill="#374151">Taxonomy overlap; no definitions</text>
+  <text x="470" y="644" text-anchor="middle" font-size="9.5" fill="#374151">Add boundary examples</text>
+
+  <rect x="35" y="652" width="490" height="22" rx="2" fill="#F9FAFB"/>
+  <text x="120" y="667" text-anchor="middle" font-size="9.5" fill="#374151">Agent failure theme missed</text>
+  <text x="310" y="667" text-anchor="middle" font-size="9.5" fill="#374151">Vague honesty language in text</text>
+  <text x="470" y="667" text-anchor="middle" font-size="9.5" fill="#374151">More few-shot examples</text>
+
+  <rect x="35" y="675" width="490" height="22" rx="2" fill="#EFF6FF"/>
+  <text x="120" y="690" text-anchor="middle" font-size="9.5" fill="#374151">Strata manager confusion</text>
+  <text x="310" y="690" text-anchor="middle" font-size="9.5" fill="#374151">Model conflates with agent role</text>
+  <text x="470" y="690" text-anchor="middle" font-size="9.5" fill="#374151">Add role disambiguation</text>
+
+  <rect x="35" y="698" width="490" height="22" rx="2" fill="#F9FAFB"/>
+  <text x="120" y="713" text-anchor="middle" font-size="9.5" fill="#374151">Confidentiality clause missed</text>
+  <text x="310" y="713" text-anchor="middle" font-size="9.5" fill="#374151">Not in taxonomy (gap)</text>
+  <text x="470" y="713" text-anchor="middle" font-size="9.5" fill="#374151">Expand taxonomy</text>
+
+  <text x="35" y="738" font-size="10" font-style="italic" fill="#64748B">Key insight: 80% of classification errors traced to 2 root causes</text>
+  <text x="35" y="753" font-size="10" font-style="italic" fill="#64748B">(ambiguous taxonomy + multi-label gap). Fix these first.</text>
+  <text x="35" y="775" font-size="10" fill="#94A3B8">Source: Error Analysis - Highest ROI Technique | Hamel Husain video (YouTube)</text>
+
+  <rect x="565" y="540" width="515" height="255" rx="10" fill="white" stroke="#DC2626" stroke-width="1.5"/>
+  <rect x="565" y="540" width="515" height="30" rx="10" fill="#B91C1C"/>
+  <rect x="565" y="558" width="515" height="12" fill="#B91C1C"/>
+  <text x="822" y="559" text-anchor="middle" font-size="12" font-weight="bold" fill="white">USE CASE 2: RAG Chatbot - Error Clusters Found</text>
+
+  <rect x="580" y="580" width="485" height="25" rx="3" fill="#FEF2F2"/>
+  <text x="710" y="597" text-anchor="middle" font-size="10" font-weight="bold" fill="#991B1B">Error Cluster</text>
+  <text x="890" y="597" text-anchor="middle" font-size="10" font-weight="bold" fill="#991B1B">Root Cause</text>
+  <text x="1035" y="597" text-anchor="middle" font-size="10" font-weight="bold" fill="#991B1B">Fix</text>
+
+  <rect x="580" y="606" width="485" height="22" rx="2" fill="#F9FAFB"/>
+  <text x="710" y="621" text-anchor="middle" font-size="9.5" fill="#374151">Wrong complaint count returned</text>
+  <text x="890" y="621" text-anchor="middle" font-size="9.5" fill="#374151">Retrieval misses some records</text>
+  <text x="1035" y="621" text-anchor="middle" font-size="9.5" fill="#374151">Fix metadata filters</text>
+
+  <rect x="580" y="629" width="485" height="22" rx="2" fill="#FEF2F2"/>
+  <text x="710" y="644" text-anchor="middle" font-size="9.5" fill="#374151">Western Sydney definition drift</text>
+  <text x="890" y="644" text-anchor="middle" font-size="9.5" fill="#374151">Postcode not indexed; LGA varies</text>
+  <text x="1035" y="644" text-anchor="middle" font-size="9.5" fill="#374151">Normalise geography</text>
+
+  <rect x="580" y="652" width="485" height="22" rx="2" fill="#F9FAFB"/>
+  <text x="710" y="667" text-anchor="middle" font-size="9.5" fill="#374151">Hallucinated theme breakdown</text>
+  <text x="890" y="667" text-anchor="middle" font-size="9.5" fill="#374151">LLM fabricates % not in DB</text>
+  <text x="1035" y="667" text-anchor="middle" font-size="9.5" fill="#374151">Constrained generation</text>
+
+  <rect x="580" y="675" width="485" height="22" rx="2" fill="#FEF2F2"/>
+  <text x="710" y="690" text-anchor="middle" font-size="9.5" fill="#374151">Date range misinterpretation</text>
+  <text x="890" y="690" text-anchor="middle" font-size="9.5" fill="#374151">FY vs calendar year ambiguity</text>
+  <text x="1035" y="690" text-anchor="middle" font-size="9.5" fill="#374151">Add date normalisation step</text>
+
+  <rect x="580" y="698" width="485" height="22" rx="2" fill="#F9FAFB"/>
+  <text x="710" y="713" text-anchor="middle" font-size="9.5" fill="#374151">Incomplete multi-part answer</text>
+  <text x="890" y="713" text-anchor="middle" font-size="9.5" fill="#374151">Prompt lacks structure guidance</text>
+  <text x="1035" y="713" text-anchor="middle" font-size="9.5" fill="#374151">Structured output schema</text>
+
+  <text x="580" y="738" font-size="10" font-style="italic" fill="#64748B">Key insight: Faithfulness failures all trace to one root cause (no citation</text>
+  <text x="580" y="753" font-size="10" font-style="italic" fill="#64748B">requirement in prompt). One prompt change fixed 73% of chatbot errors.</text>
+  <text x="580" y="775" font-size="10" fill="#94A3B8">Source: Error Analysis YouTube (Hamel) | Anthropic - Demystifying Evals for AI Agents</text>
+
+  <defs>
+    <marker id="arrowD" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16A34A"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#DC2626"/>
+    </marker>
+  </defs>
+</svg>

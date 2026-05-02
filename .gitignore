@@ -136,3 +136,23 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# LLM wiki
+outputs/
+raw/web/*.html
+.DS_Store
+.obsidian/
+
+# AI assistant artefacts — never committed, anywhere in tree
+**/CLAUDE.md
+**/CLAUDE.local.md
+**/.claude/
+**/.claude.json
+**/.cursor/
+**/.cursorrules
+**/.aider*
+**/.continue/
+**/.windsurf/
+**/.aiconfig
+**/.copilot/
+
