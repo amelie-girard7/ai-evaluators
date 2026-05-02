@@ -38,19 +38,7 @@ Traditional software is deterministic: the same input produces the same output, 
 
 **AI evaluation** is the discipline of turning subjective quality judgments ("does this answer feel right?") into measurable, auditable evidence ("84% of complaints were classified using only valid taxonomy terms last week, down from 91% the week before"). Without it, teams operate on what the field calls **"vibe checking"** — the founder reads ten outputs, decides things look fine, and ships. Vibe checking does not survive contact with real users.
 
-```mermaid
-flowchart LR
-    subgraph T[Traditional software]
-        T1[Known input] --> T2[Deterministic logic] --> T3[Predictable output] --> T4[Pass/fail test]
-    end
-    subgraph A[AI application]
-        A1[Open-ended input] --> A2[Probabilistic model] --> A3[Variable output] --> A4[Quality judgment?]
-        A4 -.drift over time.-> A2
-    end
-    style T fill:#E0F2FE,stroke:#0284C7
-    style A fill:#FEF3C7,stroke:#D97706
-```
-
+![Traditional software](Diagrams/auto/home-1-f6512d57.svg)
 > *"Without evals, you are flying blind. With bad evals, you are flying with a broken altimeter."* — Hamel Husain
 
 Deeper reading: [Why Evals Matter](01-Foundations/Why-Evals-Matter.md), [Eval Types Overview](01-Foundations/Eval-Types-Overview.md), [Mirage of Generic Metrics](04-Metrics-and-Scoring/Mirage-of-Generic-Metrics.md).
@@ -61,22 +49,7 @@ Deeper reading: [Why Evals Matter](01-Foundations/Why-Evals-Matter.md), [Eval Ty
 
 AI evaluation runs across five phases that map onto how a feature actually moves from idea to live traffic. The phases are not stages in a Gantt chart — they are recurring activities. Every prompt change re-enters Develop; every released version gets monitored in Production; every novel failure spotted in Production loops back to refresh the Bootstrap dataset. The lifecycle is a circle, not a line.
 
-```mermaid
-flowchart LR
-    P1[1 Design<br/>Define what good means]
-    P2[2 Bootstrap<br/>Create the first eval set]
-    P3[3 Develop<br/>Iterate against the eval set]
-    P4[4 Pre-release<br/>Regression-gate the change]
-    P5[5 Production<br/>Watch real traffic]
-    P1 --> P2 --> P3 --> P4 --> P5
-    P5 -. novel failures rejoin the dataset .-> P2
-    style P1 fill:#1D4ED8,color:#fff
-    style P2 fill:#2563EB,color:#fff
-    style P3 fill:#3B82F6,color:#fff
-    style P4 fill:#15803D,color:#fff
-    style P5 fill:#16A34A,color:#fff
-```
-
+![1 Design Define what good means](Diagrams/auto/home-2-93722c3a.svg)
 In one sentence each:
 
 1. **Design** — agree on what "good" means before writing any code.
@@ -95,16 +68,7 @@ The next section walks each phase in depth.
 
 The most common cause of a failed AI eval programme is starting too late. Teams build the model, deploy it, then try to figure out how to measure it — by which point everyone has formed a private opinion of what the system "should" do, and those opinions disagree. Design phase prevents this by writing down the answer before code exists.
 
-```mermaid
-flowchart TD
-    A[Identify the<br/>Principal Domain Expert] --> B[Interview the PDE:<br/>what does success look like?]
-    B --> C[Translate success into<br/>binary, task-specific criteria]
-    C --> D[Collect 10–20 seed examples<br/>the PDE labels by hand]
-    D --> E[Document target thresholds<br/>per criterion]
-    style A fill:#7C3AED,color:#fff
-    style E fill:#15803D,color:#fff
-```
-
+![Identify the Principal Domain Expert](Diagrams/auto/home-3-d8faf501.svg)
 **Concepts introduced here:**
 
 - **Principal Domain Expert (PDE)** — *the single person whose judgment defines whether the AI's output is acceptable for this use case.* For a complaint classifier, the PDE is a regulatory officer. For a medical chatbot, a clinician. For a legal assistant, a lawyer. Teams that try to crowd-source "good" across a committee usually end up with criteria so vague nobody can apply them.
@@ -127,19 +91,7 @@ Deeper reading: [Why Evals Matter](01-Foundations/Why-Evals-Matter.md), [Eval Ma
 
 When a feature is brand new, there is no production traffic to learn from. Teams that wait for "real data" never start. The Bootstrap phase manufactures the dataset using **synthetic data** — model-generated inputs designed to cover the personas, scenarios, and failure modes the PDE expects in production — and pairs each synthetic input with a label produced by hand.
 
-```mermaid
-flowchart TD
-    A[List personas × scenarios ×<br/>failure modes with the PDE] --> B[Generate synthetic inputs<br/>covering each cell]
-    B --> C[PDE labels 50–100<br/>synthetic outputs by hand]
-    C --> D[Build the<br/>Minimum Viable Eval harness]
-    D --> E[Run baseline prompt<br/>through the harness]
-    E --> F{Stable score?}
-    F -->|No| G[Refine criteria<br/>or examples] --> C
-    F -->|Yes| H[Phase 2 complete:<br/>baseline + dataset + harness]
-    style A fill:#7C3AED,color:#fff
-    style H fill:#15803D,color:#fff
-```
-
+![List personas × scenarios × failure modes with the PDE](Diagrams/auto/home-4-a39ee507.svg)
 **Concepts introduced here:**
 
 - **Synthetic data** — *AI-generated inputs designed to fill gaps that real traffic has not produced yet.* Used correctly, it accelerates the cold start. Used naively, it produces an eval set that only tests inputs the model is already good at — because the same kind of model wrote them. The discipline is to generate against an explicit **persona × scenario × failure-mode** matrix rather than freeform.
@@ -163,22 +115,7 @@ Deeper reading: [build an ai evals dataset from scratch](02-Building-Evals/build
 
 Once the harness produces a stable score, every change to the application — a new prompt, a different model, a tweaked retrieval setting — is judged by whether the score moves up or down. Development becomes empirical instead of intuitive. This is the phase where most of the engineering effort lives, and where two distinct types of evaluator do the work: cheap deterministic checks called **unit evals**, and a second AI scoring the first AI, called an **LLM-as-judge**.
 
-```mermaid
-flowchart TD
-    Change[Engineer changes<br/>prompt or code] --> Unit[Unit evals run<br/>seconds, free]
-    Unit -->|fail| Fix[Fix and retry]
-    Unit -->|pass| Judge[LLM-as-judge runs<br/>on dev set]
-    Judge --> Compare[Compare new score<br/>to baseline]
-    Compare -->|regression| Errors[Error analysis:<br/>read 20 failures]
-    Errors --> Cluster[Cluster failures<br/>into themes] --> Change
-    Compare -->|improvement| Validate[Re-validate judge<br/>against PDE labels]
-    Validate --> Kappa{Kappa > 0.6?}
-    Kappa -->|No| Refine[Refine judge prompt<br/>or criteria] --> Validate
-    Kappa -->|Yes| Phase4[Ready for Pre-release]
-    style Change fill:#7C3AED,color:#fff
-    style Phase4 fill:#15803D,color:#fff
-```
-
+![Engineer changes prompt or code](Diagrams/auto/home-5-728fe7de.svg)
 **Concepts introduced here:**
 
 - **Unit eval** — *a deterministic, code-only check that returns true or false in milliseconds.* Examples: "the JSON parses", "the predicted theme appears in the official taxonomy", "the answer mentions the queried date range". Unit evals are free, fast, and unforgiving — exactly the qualities a regression test needs.
@@ -203,20 +140,7 @@ Deeper reading: [LLM as Judge Complete Guide](03-LLM-Judges/LLM-as-Judge-Complet
 
 Develop optimises against a known set of examples — the dev set. That creates a subtle hazard: prompts get tuned until they pass the dev set, even when the underlying behaviour has not generalised. Pre-release exists to catch this. The team holds back a **regression test set** the engineer never sees during Develop, runs the new version against it, and only promotes the change if the score clears a threshold *and* the PDE personally signs off on a sampled fraction.
 
-```mermaid
-flowchart TD
-    PR[Pull request opened] --> Frozen[Run new version against<br/>frozen regression test set]
-    Frozen --> Score{Every criterion<br/>above threshold?}
-    Score -->|No| Block[Block the PR<br/>back to Develop]
-    Score -->|Yes| Sample[PDE spot-checks<br/>10% of test outputs]
-    Sample --> Sign{PDE signs off?}
-    Sign -->|No| Block
-    Sign -->|Yes| Merge[Merge and tag<br/>release]
-    style PR fill:#7C3AED,color:#fff
-    style Merge fill:#15803D,color:#fff
-    style Block fill:#DC2626,color:#fff
-```
-
+![Pull request opened](Diagrams/auto/home-6-b600767b.svg)
 **Concepts introduced here:**
 
 - **Regression test set** — *a curated set of inputs and expected outcomes locked at a point in time, used to verify a new version does not silently break behaviour the previous version got right.* The defining property is that the engineer cannot peek at it during Develop. If the engineer can see it, they will tune to it, and its purpose collapses.
@@ -237,26 +161,7 @@ Deeper reading: [Integrating Evals](06-Eval-Lifecycle/Integrating-Evals.md), [Ev
 
 A version that passes Pre-release is not a finished system; it is a hypothesis. Production turns the hypothesis into evidence by sampling a slice of live traffic — typically 1–2% — and running the same judge that gated the release. Scores are tracked over time. When they fall, alerts fire. When the on-call engineer triages the alert, novel failure modes are added to the dataset, which feeds back into the next Bootstrap–Develop–Pre-release pass. That feedback arrow is what makes the lifecycle a loop instead of a one-way pipeline.
 
-```mermaid
-flowchart TD
-    Live[Live user traffic] --> Sample[Sample 1–2%]
-    Sample --> JudgeProd[LLM-as-judge<br/>scores sampled outputs]
-    JudgeProd --> Track[Score time series<br/>per criterion]
-    Track --> Drift{Score below<br/>alert threshold?}
-    Drift -->|No| Wait[Continue sampling]
-    Wait --> Sample
-    Drift -->|Yes| Alert[Page on-call]
-    Alert --> Triage[Read failing outputs,<br/>cluster failures]
-    Triage --> Decide{Known failure<br/>mode?}
-    Decide -->|Yes| Fix[Apply fix, redeploy]
-    Decide -->|No| NewMode[Add new failure mode<br/>to dataset]
-    NewMode -.-> Bootstrap[Rejoin Phase 2:<br/>generate synthetic coverage]
-    Fix -.-> Develop[Rejoin Phase 3]
-    style Live fill:#7C3AED,color:#fff
-    style Alert fill:#DC2626,color:#fff
-    style NewMode fill:#15803D,color:#fff
-```
-
+![Live user traffic](Diagrams/auto/home-7-935f58b5.svg)
 **Concepts introduced here:**
 
 - **Sampling rate** — *the fraction of live traffic on which the judge runs.* Industry practice settles around 1–2%; higher rates produce sharper drift signals but cost more in tokens and latency.
@@ -284,19 +189,7 @@ The five-phase lifecycle holds for any AI application. Two architectures add spe
 
 A RAG system answers user questions by first retrieving documents from a corpus and then asking a language model to compose an answer grounded in those documents. The lifecycle is the same; the criteria are richer because two pipeline stages can fail independently — retrieval can return the wrong documents, or the model can ignore the right ones. The field has settled on six specific evals that together cover the failure surface.
 
-```mermaid
-flowchart LR
-    Q[User question] --> R[Retriever] --> D[Documents] --> G[Generator] --> A[Answer]
-    R -. eval 1: Context Recall .-> D
-    R -. eval 2: Context Precision .-> D
-    G -. eval 3: Faithfulness .-> A
-    G -. eval 4: Answer Relevance .-> A
-    Q -. eval 5: Question Coverage .-> A
-    Q -. eval 6: Noise Sensitivity .-> A
-    style R fill:#1D4ED8,color:#fff
-    style G fill:#7C3AED,color:#fff
-```
-
+![User question](Diagrams/auto/home-8-f1efdfd3.svg)
 The six evals, in plain language:
 
 1. **Context Recall** — did the retriever fetch the documents that actually contain the answer?

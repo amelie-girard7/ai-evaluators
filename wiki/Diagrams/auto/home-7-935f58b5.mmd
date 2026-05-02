@@ -1,0 +1,17 @@
+flowchart TD
+    Live[Live user traffic] --> Sample[Sample 1–2%]
+    Sample --> JudgeProd[LLM-as-judge<br/>scores sampled outputs]
+    JudgeProd --> Track[Score time series<br/>per criterion]
+    Track --> Drift{Score below<br/>alert threshold?}
+    Drift -->|No| Wait[Continue sampling]
+    Wait --> Sample
+    Drift -->|Yes| Alert[Page on-call]
+    Alert --> Triage[Read failing outputs,<br/>cluster failures]
+    Triage --> Decide{Known failure<br/>mode?}
+    Decide -->|Yes| Fix[Apply fix, redeploy]
+    Decide -->|No| NewMode[Add new failure mode<br/>to dataset]
+    NewMode -.-> Bootstrap[Rejoin Phase 2:<br/>generate synthetic coverage]
+    Fix -.-> Develop[Rejoin Phase 3]
+    style Live fill:#7C3AED,color:#fff
+    style Alert fill:#DC2626,color:#fff
+    style NewMode fill:#15803D,color:#fff

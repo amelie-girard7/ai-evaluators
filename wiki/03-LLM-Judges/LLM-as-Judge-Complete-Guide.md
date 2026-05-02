@@ -92,15 +92,7 @@ Automate testing with an **evaluation harness** that:
 - Executes custom evaluators
 - Aggregates results and generates reports
 
-```mermaid
-graph TD
-    A[Load Tasks] --> B[Run Agent]
-    B --> C[Record Output]
-    C --> D[Run Graders]
-    D --> E[Aggregate Metrics]
-    E --> F[Generate Reports]
-```
-
+![Load Tasks](../Diagrams/auto/llm-as-judge-complete-guide-1-2fcc58e1.svg)
 > **Tip**: Use platforms like [Validation Protocol](Validation-Protocol.md) or Opik for scalable implementation.
 
 ---

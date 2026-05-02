@@ -1,0 +1,33 @@
+stateDiagram-v2
+    [*] --> DefineCriteria: Start
+    DefineCriteria: Define binary criteria\nper evaluation dimension
+    DefineCriteria --> WriteJudgePrompt: Criteria defined
+
+    WriteJudgePrompt: Write judge prompt\nRole + Criteria + Examples + CoT
+
+    WriteJudgePrompt --> RunOnGoldSet: Prompt ready
+
+    RunOnGoldSet: Run judge on gold set\n(200-500 human-labelled examples)
+
+    RunOnGoldSet --> ComputeKappa: Judge verdicts recorded
+
+    ComputeKappa: Compute Cohen kappa\nper criterion vs human labels
+
+    ComputeKappa --> KappaCheck: Kappa computed
+
+    state KappaCheck <<choice>>
+
+    KappaCheck --> AnalyseFailures: kappa < 0.6
+    KappaCheck --> DeployJudge: kappa >= 0.6 (all criteria)
+
+    AnalyseFailures: Read disagreements manually\nIdentify failure patterns\nAdd targeted examples
+
+    AnalyseFailures --> WriteJudgePrompt: Criteria refined
+
+    DeployJudge: Deploy judge for\nautomated production scoring
+
+    DeployJudge --> MonitorDrift: Deployed
+
+    MonitorDrift: Re-validate quarterly\nor after model updates
+
+    MonitorDrift --> KappaCheck: Re-validation complete

@@ -15,16 +15,7 @@ The evaluation and monitoring component of MLflow 3 is designed to help you iter
 
 ## Evaluation and Monitoring Workflow
 
-```mermaid
-graph LR
-    A[Development] --> B[Testing with Evaluation Datasets]
-    B --> C[Iterative Improvement]
-    C --> D[Production Deployment]
-    D --> E[Continuous Monitoring]
-    E --> F[Feedback Loop]
-    F --> A
-```
-
+![Development](../Diagrams/auto/evaluate-and-monitor-ai-agents-1-834530d7.svg)
 ## Key Features
 
 | Feature | Description |

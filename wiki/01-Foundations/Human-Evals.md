@@ -15,21 +15,7 @@ Human evaluation is the gold standard. It is also expensive and slow. Use it str
 
 ## When human eval is required
 
-```mermaid
-flowchart TD
-    A[New LLM system\nbeing built] -->|Always| B[Build initial gold set\n200-500 examples]
-    C[LLM judge designed] -->|Always| D[Validate judge\nagainst gold set]
-    E[Judge disagreements\naccumulating] -->|Weekly| F[Review sample\nof disagreements]
-    G[Model or prompt\nupdate deployed] -->|After every major change| H[Re-validate judge\nkappa check]
-    I[Novel complaint types\nemerging] -->|Quarterly| J[Taxonomy review\n+ gold set expansion]
-
-    style B fill:#C2410C,color:#fff
-    style D fill:#C2410C,color:#fff
-    style F fill:#D97706,color:#fff
-    style H fill:#D97706,color:#fff
-    style J fill:#15803D,color:#fff
-```
-
+![New LLM system\nbeing built](../Diagrams/auto/human-evals-1-10b79d98.svg)
 ---
 
 ## Human eval cadence (recommended)

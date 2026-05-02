@@ -1,0 +1,13 @@
+flowchart TD
+    Q1{Is there a known\ncorrect answer?}
+    Q1 -->|Yes| A[Unit Eval\nDeterministic check]
+    Q1 -->|No| Q2{Is the quality\nnuanced / contextual?}
+    Q2 -->|Yes, but scalable| B[LLM-as-Judge\nCriteria-based scoring]
+    Q2 -->|High stakes /\nedge case| C[Human Eval\nGold standard]
+    B --> D{Validated against\nhuman labels?}
+    D -->|No| C
+    D -->|Yes, kappa > 0.6| B
+
+    style A fill:#15803D,color:#fff
+    style B fill:#1D4ED8,color:#fff
+    style C fill:#C2410C,color:#fff

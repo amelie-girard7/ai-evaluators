@@ -1,0 +1,23 @@
+flowchart TD
+    F["An eval is failing"] --> Q1{Which eval?}
+
+    Q1 --> CP["Context Precision failing"]
+    Q1 --> CR["Context Recall failing"]
+    Q1 --> FA["Faithfulness failing"]
+    Q1 --> RE["Relevance failing"]
+    Q1 --> CO["Correctness failing"]
+    Q1 --> CM["Completeness failing"]
+
+    CP --> FCP["Fix retrieval:\nImprove chunking\nAdd metadata pre-filters\nReduce top-k noise"]
+    CR --> FCR["Fix retrieval:\nRe-index DB\nIncrease top-k\nImprove embeddings\nAdd keyword fallback"]
+    FA --> FFA["Fix generation:\nAdd citation requirement to prompt\nConstrained generation\nAdd faithfulness gate"]
+    RE --> FRE["Fix generation:\nStrengthen query scope in prompt\nFew-shot examples of focused answers"]
+    CO --> Q2{Is it a retrieval\nor generation failure?}
+    Q2 -->|"Recall low"| FCR
+    Q2 -->|"Retrieval OK"| FCO["Fix generation:\nStructured output\nDate normalisation\nGeography normalisation"]
+    CM --> FCM["Fix generation:\nStructured multi-part template\nExplicit schema in prompt"]
+
+    style FA fill:#DC2626,color:#fff
+    style CO fill:#DC2626,color:#fff
+    style FFA fill:#15803D,color:#fff
+    style FCO fill:#15803D,color:#fff

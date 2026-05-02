@@ -25,14 +25,7 @@ Avoid mode collapse by structuring synthetic data around **business-specific dim
 - **Context complexity** (e.g., "single document", "multi-source")
 - **Edge cases** (e.g., "ambiguous query", "missing data")
 
-```mermaid
-flowchart LR
-    A[Define dimensions] --> B[Anchor in business use case]
-    B --> C[Generate variations]
-    C --> D[Validate with human annotators]
-    D --> E[Expand dataset]
-```
-
+![Define dimensions](../Diagrams/auto/generate-synthetic-datasets-1-f5a313cb.svg)
 ---
 
 ### Strategy 2: Use Production Data as a Template

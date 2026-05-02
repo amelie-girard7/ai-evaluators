@@ -1,0 +1,13 @@
+flowchart TD
+    A[Offline Quality] --> B[LLM-as-Judge]
+    B --> C[Human Gold Sets]
+    C --> D[Model Training]
+    
+    E[Online Quality] --> F[Opik Traces]
+    F --> G[Custom Metrics]
+    G --> H[Production Monitoring]
+    
+    I[Continuous Improvement] --> J[Human Annotation]
+    J --> K[Kappa Checks]
+    K --> L[Judge Calibration]
+    L --> M[Model Updates]

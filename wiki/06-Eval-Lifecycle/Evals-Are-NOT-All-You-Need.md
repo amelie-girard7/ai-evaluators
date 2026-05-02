@@ -30,19 +30,7 @@ Traditional software testing assumes predictable inputs and deterministic output
 
 But AI products are fundamentally different:
 
-```mermaid
-flowchart TD
-    A[Traditional Software] --> B[Predictable Inputs]
-    B --> C[Deterministic Outputs]
-    C --> D[Traceable Logic]
-    D --> E[Clear Error Signals]
-    
-    F[AI Products] --> G[Unpredictable Inputs]
-    G --> H[Nondeterministic Outputs]
-    H --> I[Black Box Logic]
-    I --> J[No Clear Error Signals]
-```
-
+![Traditional Software](../Diagrams/auto/evals-are-not-all-you-need-1-80c35442.svg)
 **Key differences**:
 - User inputs are unbounded (e.g., "Find a pet-friendly hotel in Austin for next weekend")
 - Outputs are probabilistic (same input may yield different results)
@@ -98,22 +86,7 @@ AI product quality requires a system that addresses:
   - Kappa checks for judge calibration
   - [Validation Protocol](../03-LLM-Judges/Validation-Protocol.md)
 
-```mermaid
-flowchart TD
-    A[Offline Quality] --> B[LLM-as-Judge]
-    B --> C[Human Gold Sets]
-    C --> D[Model Training]
-    
-    E[Online Quality] --> F[Opik Traces]
-    F --> G[Custom Metrics]
-    G --> H[Production Monitoring]
-    
-    I[Continuous Improvement] --> J[Human Annotation]
-    J --> K[Kappa Checks]
-    K --> L[Judge Calibration]
-    L --> M[Model Updates]
-```
-
+![Offline Quality](../Diagrams/auto/evals-are-not-all-you-need-2-b5e68874.svg)
 ---
 
 ## The Mirage of "Good Evals"

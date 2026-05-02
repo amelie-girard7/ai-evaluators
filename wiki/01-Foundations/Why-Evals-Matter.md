@@ -50,20 +50,7 @@ For a chatbot answering regulatory queries, "good" means:
 
 ## The evaluation purpose hierarchy
 
-```mermaid
-graph TD
-    A[Catch regressions before deployment] --> B[Understand current failure modes]
-    B --> C[Guide improvement decisions]
-    C --> D[Monitor for drift in production]
-    D --> E[Build trust with stakeholders]
-
-    style A fill:#1D4ED8,color:#fff
-    style B fill:#2563EB,color:#fff
-    style C fill:#3B82F6,color:#fff
-    style D fill:#60A5FA,color:#fff
-    style E fill:#93C5FD,color:#1e3a8a
-```
-
+![Catch regressions before deployment](../Diagrams/auto/why-evals-matter-1-95e046a6.svg)
 ---
 
 ## Evals are NOT all you need

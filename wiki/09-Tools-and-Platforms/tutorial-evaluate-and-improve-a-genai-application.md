@@ -226,15 +226,5 @@ print(comparison)
 
 ## Offline Monitoring Workflow
 
-```mermaid
-graph TD
-    A[Deployed App] --> B[Collect Traces]
-    B --> C[Create Evaluation Dataset]
-    C --> D[Run LLM Judges]
-    D --> E[Analyze Results]
-    E --> F[Improve Model]
-    F --> G[Re-deploy App]
-    G --> H[Repeat]
-```
-
+![Deployed App](../Diagrams/auto/tutorial-evaluate-and-improve-a-genai-application-1-e836644b.svg)
 For a shorter introduction to evaluation, see the Databricks 10-minute demo source in `raw/web/`.

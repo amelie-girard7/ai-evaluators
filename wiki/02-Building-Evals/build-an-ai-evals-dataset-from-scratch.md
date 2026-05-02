@@ -100,11 +100,7 @@ Use error analysis to:
 - **Refine evaluators** to catch real-world issues
 
 ### Error Analysis Flywheel
-```mermaid
-graph LR
-    A[Collect Traces] --> B[Label Data] --> C[Identify Errors] --> D[Build Evaluators] --> E[Monitor Production] --> A
-```
-
+![Collect Traces](../Diagrams/auto/build-an-ai-evals-dataset-from-scratch-1-461cb91e.svg)
 ---
 
 ## Step 6: Transition to Specialized Evaluators

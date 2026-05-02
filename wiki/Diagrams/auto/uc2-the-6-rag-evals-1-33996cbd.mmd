@@ -1,0 +1,29 @@
+graph LR
+    Q["User query\n'Complaints from\nWestern Sydney\n2025-26?'"]
+    R["Retrieval\nVector search\non complaint DB"]
+    C["Retrieved context\nTop-k complaint\nrecords"]
+    G["LLM generation\nSynthesise answer"]
+    A["Answer\n'147 complaints\nfrom W. Sydney'"]
+
+    Q --> R --> C --> G --> A
+
+    E1["1. Context Precision\nAre retrieved records relevant?"]
+    E2["2. Context Recall\nAre ALL relevant records found?"]
+    E3["3. Answer Faithfulness\nNo hallucination?"]
+    E4["4. Answer Relevance\nAddresses the question?"]
+    E5["5. Answer Correctness\nFactually correct?"]
+    E6["6. Answer Completeness\nAll dimensions covered?"]
+
+    C -.->|"Eval"| E1
+    C -.->|"Eval"| E2
+    A -.->|"Eval"| E3
+    A -.->|"Eval"| E4
+    A -.->|"Eval"| E5
+    A -.->|"Eval"| E6
+
+    style E1 fill:#7C3AED,color:#fff
+    style E2 fill:#0891B2,color:#fff
+    style E3 fill:#15803D,color:#fff
+    style E4 fill:#EA580C,color:#fff
+    style E5 fill:#DC2626,color:#fff
+    style E6 fill:#B45309,color:#fff

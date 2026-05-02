@@ -1,0 +1,13 @@
+graph TB
+    subgraph Offline["Offline Evaluation"]
+        UE[Unit Evals\nRun on every commit] --> LJ[LLM Judge\nRun on dev set daily]
+        LJ --> HE[Human Eval\nRun on disagreements weekly]
+    end
+    subgraph Online["Online Evaluation"]
+        Prod[Production traffic] --> Sample[1-2% sampled] --> LJO[LLM Judge\nContinuous]
+    end
+    HE -->|"Update gold set\nwhen new patterns found"| UE
+    LJO -->|"Novel failures feed back\ninto dev eval suite"| LJ
+
+    style Offline fill:#F0F9FF,stroke:#7DD3FC
+    style Online fill:#F0FDF4,stroke:#86EFAC

@@ -1,0 +1,40 @@
+flowchart TD
+    subgraph Input["INPUT"]
+        IT["Input text\n(e.g., complaint)"]
+        MO["Model output\n(e.g., predicted themes)"]
+        GS["Gold standard\n(optional — for calibration)"]
+    end
+
+    subgraph JudgePrompt["JUDGE PROMPT"]
+        RP["Role definition\n'You are an expert evaluator'"]
+        CR["Criteria\n(binary YES/NO per dimension)"]
+        EX["Examples\n(positive + negative per criterion)"]
+        COT["Chain-of-thought instruction\n'Reason before verdict'"]
+    end
+
+    subgraph Output["OUTPUT"]
+        RS["Reasoning\nscratchpad"]
+        VD["Verdict\n{c1: YES, c2: NO, ...}"]
+    end
+
+    subgraph Validation["VALIDATION (against human labels)"]
+        HL["Human labels\n(gold set)"]
+        KP["Cohen kappa\nper criterion"]
+        TH{"kappa\n> 0.6?"}
+        OK["Judge approved\nfor production use"]
+        RF["Refine criteria\nadd examples"]
+    end
+
+    IT & MO --> JudgePrompt
+    JudgePrompt --> RS --> VD
+    VD --> Validation
+    GS --> HL --> KP
+    KP --> TH
+    TH -->|Yes| OK
+    TH -->|No| RF --> JudgePrompt
+
+    style JudgePrompt fill:#7C3AED,color:#fff
+    style Output fill:#15803D,color:#fff
+    style Validation fill:#1D4ED8,color:#fff
+    style RF fill:#DC2626,color:#fff
+    style OK fill:#15803D,color:#fff

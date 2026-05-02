@@ -88,6 +88,19 @@ def main() -> int:
                 )
                 break
 
+    # Unrendered Mermaid blocks: every ```mermaid fence in wiki/*.md must have
+    # been pre-rendered to SVG, otherwise it shows as raw text in viewers like
+    # Databricks Repos that lack a Mermaid extension. See tools/render_mermaid.py.
+    MERMAID_FENCE = re.compile(r"^```mermaid\s*$", re.MULTILINE)
+    for p in articles:
+        body = p.read_text(encoding="utf-8", errors="ignore")
+        n = len(MERMAID_FENCE.findall(body))
+        if n:
+            issues.append(
+                f"{n} unrendered Mermaid block(s) in wiki/{p.relative_to(WIKI).as_posix()} "
+                f"(run: python3 tools/render_mermaid.py)"
+            )
+
     if not issues:
         print("OK — wiki is clean")
         return 0

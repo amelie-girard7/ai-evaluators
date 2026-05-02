@@ -15,22 +15,7 @@ Three fundamentally different types of evaluation exist, each serving a differen
 
 ## Decision tree: which eval type to use?
 
-```mermaid
-flowchart TD
-    Q1{Is there a known\ncorrect answer?}
-    Q1 -->|Yes| A[Unit Eval\nDeterministic check]
-    Q1 -->|No| Q2{Is the quality\nnuanced / contextual?}
-    Q2 -->|Yes, but scalable| B[LLM-as-Judge\nCriteria-based scoring]
-    Q2 -->|High stakes /\nedge case| C[Human Eval\nGold standard]
-    B --> D{Validated against\nhuman labels?}
-    D -->|No| C
-    D -->|Yes, kappa > 0.6| B
-
-    style A fill:#15803D,color:#fff
-    style B fill:#1D4ED8,color:#fff
-    style C fill:#C2410C,color:#fff
-```
-
+![Unit Eval\nDeterministic check](../Diagrams/auto/eval-types-overview-1-73f93167.svg)
 ---
 
 ## Comparison at a glance
@@ -51,22 +36,7 @@ flowchart TD
 
 The correct architecture is not a choice between these three — it is a **layered system** where each type serves a different role:
 
-```mermaid
-graph TB
-    subgraph Offline["Offline Evaluation"]
-        UE[Unit Evals\nRun on every commit] --> LJ[LLM Judge\nRun on dev set daily]
-        LJ --> HE[Human Eval\nRun on disagreements weekly]
-    end
-    subgraph Online["Online Evaluation"]
-        Prod[Production traffic] --> Sample[1-2% sampled] --> LJO[LLM Judge\nContinuous]
-    end
-    HE -->|"Update gold set\nwhen new patterns found"| UE
-    LJO -->|"Novel failures feed back\ninto dev eval suite"| LJ
-
-    style Offline fill:#F0F9FF,stroke:#7DD3FC
-    style Online fill:#F0FDF4,stroke:#86EFAC
-```
-
+!["Offline Evaluation"](../Diagrams/auto/eval-types-overview-2-cea1508c.svg)
 ---
 
 ## Applied to our use cases

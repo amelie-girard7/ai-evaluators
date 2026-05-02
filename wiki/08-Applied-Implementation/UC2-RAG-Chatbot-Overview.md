@@ -28,31 +28,7 @@ sources:
 
 ## Architecture
 
-```mermaid
-graph TD
-    subgraph User
-        Q[User question\nNatural language]
-    end
-    subgraph Retrieval
-        EMB[Embed query] --> VS[Vector similarity search\nComplaint DB] --> MF[Metadata filter\nRegion, date, theme] --> CK[Top-k chunks\nComplaint records]
-    end
-    subgraph Generation
-        SP[System prompt\nCitation + scope rules] --> CTX[Context assembly\nQuestion + retrieved chunks] --> LLM[LLM\nAnswer synthesis] --> ANS[Structured answer\nWith citations]
-    end
-    subgraph Evaluation
-        CK -.-> E1[Context Precision] & E2[Context Recall]
-        ANS -.-> E3[Faithfulness] & E4[Relevance] & E5[Correctness] & E6[Completeness]
-    end
-
-    Q --> EMB
-    CK --> CTX
-    ANS --> User
-
-    style LLM fill:#15803D,color:#fff
-    style E3 fill:#DC2626,color:#fff
-    style E5 fill:#DC2626,color:#fff
-```
-
+![User question\nNatural language](../Diagrams/auto/uc2-rag-chatbot-overview-1-4003fd60.svg)
 ---
 
 ## Key design constraints (regulatory context)
