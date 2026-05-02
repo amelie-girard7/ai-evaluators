@@ -1,0 +1,13 @@
+flowchart TD
+    Change[Engineer changes<br/>prompt or code] --> Unit[Unit evals run<br/>seconds, free]
+    Unit -->|fail| Fix[Fix and retry]
+    Unit -->|pass| Judge[LLM-as-judge runs<br/>on dev set]
+    Judge --> Compare[Compare new score<br/>to baseline]
+    Compare -->|regression| Errors[Error analysis:<br/>read 20 failures]
+    Errors --> Cluster[Cluster failures<br/>into themes] --> Change
+    Compare -->|improvement| Validate[Re-validate judge<br/>against PDE labels]
+    Validate --> Kappa{Kappa > 0.6?}
+    Kappa -->|No| Refine[Refine judge prompt<br/>or criteria] --> Validate
+    Kappa -->|Yes| Phase4[Ready for Pre-release]
+    style Change fill:#7C3AED,color:#fff
+    style Phase4 fill:#15803D,color:#fff

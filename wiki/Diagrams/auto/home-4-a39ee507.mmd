@@ -1,0 +1,10 @@
+flowchart TD
+    A[List personas × scenarios ×<br/>failure modes with the PDE] --> B[Generate synthetic inputs<br/>covering each cell]
+    B --> C[PDE labels 50–100<br/>synthetic outputs by hand]
+    C --> D[Build the<br/>Minimum Viable Eval harness]
+    D --> E[Run baseline prompt<br/>through the harness]
+    E --> F{Stable score?}
+    F -->|No| G[Refine criteria<br/>or examples] --> C
+    F -->|Yes| H[Phase 2 complete:<br/>baseline + dataset + harness]
+    style A fill:#7C3AED,color:#fff
+    style H fill:#15803D,color:#fff

@@ -12,63 +12,12 @@ unsourced: true
 
 ---
 
-```mermaid
-flowchart TD
-    START(["New failures\naccumulate"]) --> S1
-
-    S1["Step 1: Collect failures\nAll outputs below eval threshold\nTarget: 50-200 cases\nStratify by theme, date, source"]
-
-    S1 --> S2["Step 2: Read the data\nManually read 20-50 cases\nBefore ANY automation\nForm hypotheses about root causes\n'Do not trust your dashboard'"]
-
-    S2 --> S3["Step 3: Cluster by root cause\nGroup by WHY, not by symptom\nCommon root causes:\n- Prompt ambiguity\n- Taxonomy gap\n- Multi-label blind spot\n- Retrieval failure\n- Training data gap"]
-
-    S3 --> S4["Step 4: Prioritise\nScore = Frequency × Severity × Fixability\nFix highest-impact cluster first\nNOT the easiest one"]
-
-    S4 --> S5["Step 5: Hypothesise and test fix\nPropose targeted fix\nTest on failing cluster ONLY\nVerify no regression on others"]
-
-    S5 --> D1{Did fix\nwork?}
-
-    D1 -->|"Yes — cluster improved\nno regression"| DEPLOY["Deploy fix\nAdd cases to gold set\nDocument root cause\nMonitor for recurrence"]
-    D1 -->|"No — cluster unchanged\nor regressed"| S2
-
-    DEPLOY --> MONITOR["Monitor production\n1-2% sampling\nAlert on drift"] --> START
-
-    style S1 fill:#1D4ED8,color:#fff
-    style S2 fill:#7C3AED,color:#fff
-    style S3 fill:#C2410C,color:#fff
-    style S4 fill:#15803D,color:#fff
-    style S5 fill:#0E7490,color:#fff
-    style DEPLOY fill:#0F172A,color:#fff
-    style MONITOR fill:#374151,color:#fff
-```
-
+!["New failures\naccumulate"](auto/error-analysis-workflow-1-10c51566.svg)
 ---
 
 ## Root cause taxonomy for both use cases
 
-```mermaid
-mindmap
-  root((Root Cause\nCategories))
-    Prompt-caused
-      Multi-label blind spot UC1
-      Incomplete answer UC2
-      Indirect language missed UC1
-    Retrieval-caused
-      Geography not normalised UC2
-      Date range ambiguity UC2
-      Index incomplete UC2
-    Taxonomy-caused
-      Theme boundary overlap UC1
-      Novel complaint type UC1
-      Confidentiality not in scope UC1
-    Model-caused
-      Hallucinated calculation UC2
-      Overconfident on edge case UC1
-    Data-caused
-      Gold set too narrow UC1
-      Test set not stratified UC2
-```
-
+![Diagram 2](auto/error-analysis-workflow-2-09d5ddc5.svg)
 ---
 
 ## Prioritisation scorecard

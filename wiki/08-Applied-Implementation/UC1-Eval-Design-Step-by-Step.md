@@ -15,28 +15,7 @@ The 8-step process for building a production-grade eval suite for complaint them
 
 ## The 8-step process
 
-```mermaid
-flowchart TD
-    S1["1. Define criteria\nper theme\n(not generic quality)"] --> S2["2. Build gold set\n300-500 complaints\n2+ expert annotators"]
-    S2 --> S3["3. Implement unit evals\nExact match, set coverage\ntaxonomy compliance, format"]
-    S3 --> S4["4. Design LLM judge\nBinary YES/NO criteria\nChain-of-thought + examples"]
-    S4 --> S5["5. Validate judge\nvs gold set\nKappa > 0.6 per criterion"]
-    S5 --> D1{Kappa\n> 0.6?}
-    D1 -->|No| E1["Refine criteria\nAdd examples"] --> S4
-    D1 -->|Yes| S6["6. Error analysis\nCluster failures\nPrioritise by impact"]
-    S6 --> S7["7. CI/CD integration\nRun on every\nprompt change"]
-    S7 --> S8["8. Online eval sampling\n1-2% production traffic\nAlert on drift"]
-
-    style S1 fill:#1D4ED8,color:#fff
-    style S2 fill:#2563EB,color:#fff
-    style S3 fill:#7C3AED,color:#fff
-    style S4 fill:#0E7490,color:#fff
-    style S5 fill:#15803D,color:#fff
-    style S6 fill:#C2410C,color:#fff
-    style S7 fill:#92400E,color:#fff
-    style S8 fill:#0F172A,color:#fff
-```
-
+!["1. Define criteria\nper theme\n(not generic quality)"](../Diagrams/auto/uc1-eval-design-step-by-step-1-c8ca4954.svg)
 ---
 
 ## Step 1: Define criteria per theme

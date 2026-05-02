@@ -1,0 +1,27 @@
+block-beta
+    columns 1
+    block:ROLE["1. ROLE DEFINITION"]:1
+        r["You are an expert domain evaluator. Your role is to assess a specific aspect."]
+    end
+    block:INPUTS["2. TASK + INPUTS"]:1
+        i["Input: input_text. Model output. Context if needed."]
+    end
+    block:CRITERIA["3. CRITERIA — one per line, binary"]:1
+        c["C1: specific binary question — YES or NO. C2: specific binary question — YES or NO."]
+    end
+    block:EXAMPLES["4. EXAMPLES per criterion"]:1
+        e["C1 POSITIVE: example yields YES. C1 NEGATIVE: example yields NO. C1 BOUNDARY: example yields explanation."]
+    end
+    block:COT["5. REASONING INSTRUCTION"]:1
+        t["Think step by step through each criterion before giving your verdict."]
+    end
+    block:OUTPUT["6. STRUCTURED OUTPUT"]:1
+        o["JSON output: c1 = YES or NO. c2 = YES or NO. reasoning explains the verdict."]
+    end
+
+    style ROLE fill:#1D4ED8,color:#fff
+    style INPUTS fill:#2563EB,color:#fff
+    style CRITERIA fill:#7C3AED,color:#fff
+    style EXAMPLES fill:#0E7490,color:#fff
+    style COT fill:#15803D,color:#fff
+    style OUTPUT fill:#0F172A,color:#fff

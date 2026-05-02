@@ -23,16 +23,7 @@ MLflow Tracing supports:
 
 ## Observability Workflow
 
-```mermaid
-graph TD
-    A[Application Execution] --> B[Trace Logging]
-    B --> C[Trace Storage]
-    C --> D[Trace Analysis]
-    D --> E[Debugging/Improvement]
-    E --> F[Re-deployment]
-    F --> A
-```
-
+![Application Execution](../Diagrams/auto/mlflow-tracing-genai-observability-1-befea8cf.svg)
 ## Next Steps
 
 - [10-minute tracing demo](tutorial-evaluate-and-improve-a-genai-application.md) - Get started with tracing in Databricks

@@ -112,12 +112,24 @@ Frontier long-context models can hold the whole INDEX + several articles in cont
 - Use temperature 0.2 and `num_ctx` ≥ 16384.
 - If the merged article would exceed ~3000 tokens, split it into a parent + child article rather than letting it sprawl.
 
+## Diagrams — render to SVG, embed as image references
+
+Mermaid renders in some viewers (Obsidian, Azure DevOps, GitHub) and not others (Databricks Repos file viewer). To survive every renderer, every diagram in `wiki/` ships in two forms:
+
+1. The original Mermaid source, kept under `wiki/Diagrams/auto/<file-slug>-<index>-<hash>.mmd`.
+2. The rendered SVG at the same name with `.svg`, referenced from the article as `![alt](relative/path.svg)`.
+
+Article `.md` files do **not** contain ` ```mermaid ` fences. Authors write the Mermaid source either in a `.mmd` file directly, or as a fenced block that they immediately convert by running `python3 tools/render_mermaid.py`. The renderer is idempotent and uses `mmdc` (`@mermaid-js/mermaid-cli`) under the hood.
+
+`tools/lint.py` flags any unrendered ` ```mermaid ` fence as a lint error.
+
 ## Hard rules (do not violate)
 
 1. Never delete from `raw/`. Mark, don't remove.
 2. Never edit `wiki/LOG.md` history; only append.
 3. Never invent source citations. Every claim in `wiki/` must trace to a file in `raw/` (or be marked `# unsourced` for the human to verify).
 4. Never embed binaries in the repo; link to them.
+5. Never commit a `wiki/` article containing a ` ```mermaid ` fence — pre-render via `tools/render_mermaid.py` first.
 
 ## Schema co-evolution
 

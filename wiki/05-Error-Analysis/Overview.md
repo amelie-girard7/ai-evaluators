@@ -29,28 +29,7 @@ Error analysis takes 2–4 hours and often produces a single-line prompt change 
 
 ## The 5-step framework
 
-```mermaid
-flowchart TD
-    S1["Step 1\nCollect failures\n50-200 cases\nbelow threshold"]
-    S2["Step 2\nRead the data manually\n20-50 cases\nbefore any automation"]
-    S3["Step 3\nCluster by root cause\nNot by symptom"]
-    S4["Step 4\nPrioritise by impact\nFrequency x Severity x Fixability"]
-    S5["Step 5\nHypothesize fix\nTest on cluster\nVerify no regression"]
-
-    S1 --> S2 --> S3 --> S4 --> S5
-    S5 -->|"Fix works"| DEPLOY["Deploy + monitor"]
-    S5 -->|"Fix fails"| S2
-
-    DEPLOY -->|"New failures accumulate"| S1
-
-    style S1 fill:#1D4ED8,color:#fff
-    style S2 fill:#7C3AED,color:#fff
-    style S3 fill:#C2410C,color:#fff
-    style S4 fill:#15803D,color:#fff
-    style S5 fill:#0E7490,color:#fff
-    style DEPLOY fill:#0F172A,color:#fff
-```
-
+!["Step 1\nCollect failures\n50-200 cases\nbelow threshold"](../Diagrams/auto/overview-1-490fccc5.svg)
 ---
 
 ## The critical step: reading the data (Step 2)

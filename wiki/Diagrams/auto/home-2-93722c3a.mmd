@@ -1,0 +1,13 @@
+flowchart LR
+    P1[1 Design<br/>Define what good means]
+    P2[2 Bootstrap<br/>Create the first eval set]
+    P3[3 Develop<br/>Iterate against the eval set]
+    P4[4 Pre-release<br/>Regression-gate the change]
+    P5[5 Production<br/>Watch real traffic]
+    P1 --> P2 --> P3 --> P4 --> P5
+    P5 -. novel failures rejoin the dataset .-> P2
+    style P1 fill:#1D4ED8,color:#fff
+    style P2 fill:#2563EB,color:#fff
+    style P3 fill:#3B82F6,color:#fff
+    style P4 fill:#15803D,color:#fff
+    style P5 fill:#16A34A,color:#fff

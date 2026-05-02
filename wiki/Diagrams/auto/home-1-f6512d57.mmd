@@ -1,0 +1,10 @@
+flowchart LR
+    subgraph T[Traditional software]
+        T1[Known input] --> T2[Deterministic logic] --> T3[Predictable output] --> T4[Pass/fail test]
+    end
+    subgraph A[AI application]
+        A1[Open-ended input] --> A2[Probabilistic model] --> A3[Variable output] --> A4[Quality judgment?]
+        A4 -.drift over time.-> A2
+    end
+    style T fill:#E0F2FE,stroke:#0284C7
+    style A fill:#FEF3C7,stroke:#D97706

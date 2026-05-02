@@ -1,0 +1,17 @@
+graph TD
+    subgraph BAD["GENERIC APPROACH (avoid)"]
+        GA["Generic prompt:\n'Rate this output 1-5'\nor 'Is this helpful?'"]
+        GL["Likert scale\n1 — 2 — 3 — 4 — 5"]
+        GR["Result:\nCohen kappa 0.2–0.4\nLow reliability\nNot actionable"]
+    end
+
+    subgraph GOOD["CRITERIA-BASED APPROACH (recommended)"]
+        TA["Task-specific prompt:\nDefine exact binary criteria\nfor your specific task"]
+        TC["Criterion 1: YES/NO\nCriterion 2: YES/NO\nCriterion 3: YES/NO"]
+        TR["Result:\nCohen kappa 0.6–0.9\nHigh reliability\nDirectly actionable"]
+    end
+
+    style BAD fill:#FEF2F2,stroke:#DC2626
+    style GOOD fill:#F0FDF4,stroke:#15803D
+    style GR fill:#DC2626,color:#fff
+    style TR fill:#15803D,color:#fff

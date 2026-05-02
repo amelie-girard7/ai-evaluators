@@ -1,0 +1,28 @@
+graph TD
+    subgraph "Input"
+        C[Complaint text]
+    end
+    subgraph "LLM Classifier"
+        M[Model output\nJSON list of themes]
+    end
+    subgraph "Unit Eval Assertions"
+        E1{Exact match\nAll predicted themes\n== gold themes?}
+        E2{Set containment\nAll required themes\npresent in output?}
+        E3{Taxonomy compliance\nNo invented themes\nin output?}
+        E4{Format check\nOutput is valid JSON\nwith required keys?}
+        E5{Negation check\nNo forbidden themes\nfor this complaint type?}
+    end
+
+    C --> M --> E1 & E2 & E3 & E4 & E5
+
+    E1 -->|Pass/Fail| R1[Result]
+    E2 -->|Pass/Fail| R2[Result]
+    E3 -->|Pass/Fail| R3[Result]
+    E4 -->|Pass/Fail| R4[Result]
+    E5 -->|Pass/Fail| R5[Result]
+
+    style E1 fill:#15803D,color:#fff
+    style E2 fill:#16A34A,color:#fff
+    style E3 fill:#4ADE80,color:#1e3a8a
+    style E4 fill:#86EFAC,color:#1e3a8a
+    style E5 fill:#BBF7D0,color:#1e3a8a

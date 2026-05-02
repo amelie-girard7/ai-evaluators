@@ -1,0 +1,41 @@
+flowchart LR
+    Q["User Query\n'Complaints Western Sydney\n2025-2026?'"]
+
+    subgraph Retrieval["RETRIEVAL STAGE"]
+        EMB["Embed query"]
+        VS["Vector search\nComplaint DB"]
+        MF["Metadata filter\nRegion + Date"]
+        CK["Top-k chunks\nComplaint records"]
+        EMB --> VS --> MF --> CK
+    end
+
+    subgraph Generation["GENERATION STAGE"]
+        ASM["Context assembly\nQuery + chunks"]
+        LLM["LLM synthesis"]
+        ANS["Answer\n'147 complaints\nfrom W. Sydney'"]
+        ASM --> LLM --> ANS
+    end
+
+    subgraph RetEvals["RETRIEVAL EVALS"]
+        E1["1. Context Precision\nRelevant retrieved / Total retrieved\nTarget: > 85%"]
+        E2["2. Context Recall\nRelevant retrieved / Total relevant in DB\nTarget: > 90%"]
+    end
+
+    subgraph GenEvals["GENERATION EVALS"]
+        E3["3. Faithfulness\nSupported claims / Total claims\nTarget: 100% | CRITICAL"]
+        E4["4. Relevance\nAnswer addresses the question asked\nTarget: > 0.85 cosine sim"]
+        E5["5. Correctness\nMatches ground-truth answer\nTarget: exact match | CRITICAL"]
+        E6["6. Completeness\nCovered aspects / Required aspects\nTarget: 1.0 for multi-part"]
+    end
+
+    Q --> Retrieval
+    CK --> Generation
+    CK -.->|"Eval"| E1 & E2
+    ANS -.->|"Eval"| E3 & E4 & E5 & E6
+
+    style E3 fill:#DC2626,color:#fff
+    style E5 fill:#DC2626,color:#fff
+    style E1 fill:#7C3AED,color:#fff
+    style E2 fill:#0891B2,color:#fff
+    style E4 fill:#EA580C,color:#fff
+    style E6 fill:#B45309,color:#fff

@@ -1,0 +1,22 @@
+mindmap
+  root((LLM Judge\nFailure Modes))
+    Positional Bias
+      Judge favours first option listed
+      Fix: randomise order between runs
+      Fix: average two runs
+    Verbosity Bias
+      Longer = higher score regardless of quality
+      Fix: separate criteria for length vs accuracy
+    Self-Preference
+      Same model family rates own outputs higher
+      Measured: 8-15% inflation
+      Fix: use different model family as judge
+    Vague Criteria
+      Generic questions yield kappa 0.2-0.4
+      Fix: task-specific binary criteria
+    Overconfidence on Edge Cases
+      Miscalibrated on ambiguous inputs
+      Fix: add targeted examples for known edge cases
+    Silent Drift
+      Model update changes judge without notice
+      Fix: re-validate quarterly

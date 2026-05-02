@@ -1,0 +1,14 @@
+graph LR
+    L0["Level 0\nVibe Checks\n(Manual, ad hoc)"]
+    L1["Level 1\nUnit Evals\n(Automated, deterministic)"]
+    L2["Level 2\nLLM-as-Judge\n(Automated, nuanced)"]
+    L3["Level 3\nOnline Evals\n(Production, continuous)"]
+
+    L0 -->|"Add a gold set\n+ CI gate"| L1
+    L1 -->|"Add LLM judge\n+ validation"| L2
+    L2 -->|"Add production\nsampling + alerts"| L3
+
+    style L0 fill:#DC2626,color:#fff
+    style L1 fill:#D97706,color:#fff
+    style L2 fill:#2563EB,color:#fff
+    style L3 fill:#15803D,color:#fff

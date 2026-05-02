@@ -1,0 +1,11 @@
+flowchart TD
+    PR[Pull request opened] --> Frozen[Run new version against<br/>frozen regression test set]
+    Frozen --> Score{Every criterion<br/>above threshold?}
+    Score -->|No| Block[Block the PR<br/>back to Develop]
+    Score -->|Yes| Sample[PDE spot-checks<br/>10% of test outputs]
+    Sample --> Sign{PDE signs off?}
+    Sign -->|No| Block
+    Sign -->|Yes| Merge[Merge and tag<br/>release]
+    style PR fill:#7C3AED,color:#fff
+    style Merge fill:#15803D,color:#fff
+    style Block fill:#DC2626,color:#fff

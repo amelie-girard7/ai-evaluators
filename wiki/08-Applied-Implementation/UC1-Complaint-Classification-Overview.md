@@ -22,32 +22,7 @@ A regulatory body receives over 50,000 formal complaints per year about property
 
 ## System architecture
 
-```mermaid
-graph LR
-    subgraph Ingestion
-        RC[Raw complaints\n50k/year] --> PP[Pre-processing\nClean, deduplicate] --> SS[Sampling\nStratified / random]
-    end
-    subgraph Classification
-        PT[Prompt template\nTaxonomy + few-shot] --> LLM[LLM Classifier\nClaude / GPT / Gemini] --> OUT[Structured output\nThemes + confidence]
-    end
-    subgraph Evaluation
-        GS[Gold set\n200-500 human labels] --> JG[LLM Judge\nCriteria-based] --> MET[Metrics\nF1 per theme, kappa]
-        MET --> EA[Error analysis\nCluster failures]
-        EA --> PI[Prompt iteration\nVersion controlled]
-        PI --> LLM
-    end
-    subgraph Production
-        OUT --> LOG[Logging\nAll outputs] --> MON[Monitoring\nDrift alerts] --> ACT[Action\nAlert / rollback]
-    end
-
-    SS --> PT
-    GS --> JG
-
-    style LLM fill:#15803D,color:#fff
-    style JG fill:#1D4ED8,color:#fff
-    style EA fill:#C2410C,color:#fff
-```
-
+![Raw complaints\n50k/year](../Diagrams/auto/uc1-complaint-classification-overview-1-3a956034.svg)
 ---
 
 ## Deidentified examples

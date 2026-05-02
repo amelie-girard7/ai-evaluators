@@ -1,0 +1,10 @@
+flowchart LR
+    Q[User question] --> R[Retriever] --> D[Documents] --> G[Generator] --> A[Answer]
+    R -. eval 1: Context Recall .-> D
+    R -. eval 2: Context Precision .-> D
+    G -. eval 3: Faithfulness .-> A
+    G -. eval 4: Answer Relevance .-> A
+    Q -. eval 5: Question Coverage .-> A
+    Q -. eval 6: Noise Sensitivity .-> A
+    style R fill:#1D4ED8,color:#fff
+    style G fill:#7C3AED,color:#fff

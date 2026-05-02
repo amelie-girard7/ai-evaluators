@@ -17,25 +17,7 @@ A judge that has not been validated against human labels is not a judge — it i
 
 ## The calibration pipeline
 
-```mermaid
-flowchart LR
-    GS["Gold Set\n200-500 complaints\nwith human labels"]
-    JR["Run LLM Judge\non full gold set"]
-    CM["Compute agreement\nCohen kappa per criterion\nFP/FN rates\nConfusion matrix"]
-    FA["Analyse failures\nWhere does judge fail?\nWhat patterns?"]
-    RC["Refine criteria\nAdd examples for\nfailure patterns"]
-    DP["Deploy judge\nkappa > 0.6 per criterion"]
-    MN["Monitor drift\nRe-validate quarterly\nor after model updates"]
-
-    GS --> JR --> CM --> FA
-    FA --> RC --> JR
-    CM -->|"kappa > 0.6\nall criteria"| DP --> MN
-    MN -->|"kappa drops"| RC
-
-    style DP fill:#15803D,color:#fff
-    style GS fill:#1D4ED8,color:#fff
-```
-
+!["Gold Set\n200-500 complaints\nwith human labels"](../Diagrams/auto/validation-protocol-1-2f1bc8d4.svg)
 ---
 
 ## Cohen kappa interpretation
