@@ -1,0 +1,193 @@
+<svg viewBox="0 0 1080 780" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1080" height="780" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="540" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#1E293B">LLM-as-Judge: Design, Validation and Failure Modes</text>
+  <text x="540" y="58" text-anchor="middle" font-size="12" fill="#64748B">Applied to Use Cases 1 (Complaint Classification) and 2 (Chatbot RAG QA)</text>
+
+  <!-- ======= SECTION A: JUDGE DESIGN ======= -->
+  <rect x="20" y="70" width="340" height="370" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="20" y="70" width="340" height="32" rx="10" fill="#1E40AF"/>
+  <rect x="20" y="90" width="340" height="12" fill="#1E40AF"/>
+  <text x="190" y="91" text-anchor="middle" font-size="13" font-weight="bold" fill="white">A. JUDGE DESIGN (Hamel Husain)</text>
+
+  <!-- Step 1 -->
+  <rect x="35" y="115" width="310" height="55" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="55" y="135" font-size="11" font-weight="bold" fill="#1D4ED8">Step 1: Define task-specific criteria</text>
+  <text x="55" y="151" font-size="10" fill="#1E3A8A">Not "is this good?" but "does output label match the</text>
+  <text x="55" y="163" font-size="10" fill="#1E3A8A">taxonomy AND is reasoning grounded in complaint text?"</text>
+
+  <!-- Step 2 -->
+  <rect x="35" y="180" width="310" height="55" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="55" y="200" font-size="11" font-weight="bold" fill="#1D4ED8">Step 2: Write a criteria-based judge prompt</text>
+  <text x="55" y="216" font-size="10" fill="#1E3A8A">One criterion per dimension. Use binary YES/NO not</text>
+  <text x="55" y="228" font-size="10" fill="#1E3A8A">1-5 scale. Provide positive and negative examples.</text>
+
+  <!-- Step 3 -->
+  <rect x="35" y="245" width="310" height="55" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="55" y="265" font-size="11" font-weight="bold" fill="#1D4ED8">Step 3: Validate against human labels</text>
+  <text x="55" y="281" font-size="10" fill="#1E3A8A">Compute: agreement rate, Cohen kappa, false positive</text>
+  <text x="55" y="293" font-size="10" fill="#1E3A8A">rate. Target: kappa greater than 0.6 before trusting judge.</text>
+
+  <!-- Step 4 -->
+  <rect x="35" y="310" width="310" height="55" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="55" y="330" font-size="11" font-weight="bold" fill="#1D4ED8">Step 4: Monitor judge drift over time</text>
+  <text x="55" y="346" font-size="10" fill="#1E3A8A">Re-validate periodically. LLM updates change judge</text>
+  <text x="55" y="358" font-size="10" fill="#1E3A8A">behaviour without notice (eugeneyan.com finding).</text>
+
+  <!-- Step 5 -->
+  <rect x="35" y="375" width="310" height="50" rx="6" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1"/>
+  <text x="55" y="395" font-size="11" font-weight="bold" fill="#1D4ED8">Step 5: Chain-of-thought scratchpad</text>
+  <text x="55" y="411" font-size="10" fill="#1E3A8A">Ask judge to reason before verdict. Improves accuracy</text>
+  <text x="55" y="423" font-size="10" fill="#1E3A8A">and makes failures interpretable.</text>
+
+  <!-- ======= SECTION B: JUDGE PROMPT ANATOMY ======= -->
+  <rect x="375" y="70" width="340" height="370" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="375" y="70" width="340" height="32" rx="10" fill="#7C3AED"/>
+  <rect x="375" y="90" width="340" height="12" fill="#7C3AED"/>
+  <text x="545" y="91" text-anchor="middle" font-size="13" font-weight="bold" fill="white">B. JUDGE PROMPT ANATOMY</text>
+
+  <!-- Prompt breakdown boxes -->
+  <rect x="390" y="115" width="310" height="42" rx="5" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="405" y="133" font-size="10" font-weight="bold" fill="#5B21B6">ROLE DEFINITION</text>
+  <text x="405" y="150" font-size="9.5" fill="#6D28D9">You are an expert NSW property law evaluator.</text>
+
+  <rect x="390" y="165" width="310" height="55" rx="5" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="405" y="183" font-size="10" font-weight="bold" fill="#5B21B6">TASK + INPUTS</text>
+  <text x="405" y="199" font-size="9.5" fill="#6D28D9">Complaint text: [COMPLAINT]</text>
+  <text x="405" y="213" font-size="9.5" fill="#6D28D9">Predicted themes: [THEMES]</text>
+
+  <rect x="390" y="228" width="310" height="65" rx="5" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="405" y="246" font-size="10" font-weight="bold" fill="#5B21B6">CRITERIA (one per line)</text>
+  <text x="405" y="262" font-size="9.5" fill="#6D28D9">C1: Theme matches official taxonomy? (YES/NO)</text>
+  <text x="405" y="276" font-size="9.5" fill="#6D28D9">C2: All relevant themes captured? (YES/NO)</text>
+  <text x="405" y="290" font-size="9.5" fill="#6D28D9">C3: No hallucinated themes present? (YES/NO)</text>
+
+  <rect x="390" y="301" width="310" height="42" rx="5" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="405" y="319" font-size="10" font-weight="bold" fill="#5B21B6">REASONING SCRATCHPAD</text>
+  <text x="405" y="336" font-size="9.5" fill="#6D28D9">Think step by step before giving your verdict.</text>
+
+  <rect x="390" y="351" width="310" height="42" rx="5" fill="#EDE9FE" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="405" y="369" font-size="10" font-weight="bold" fill="#5B21B6">STRUCTURED OUTPUT</text>
+  <text x="405" y="386" font-size="9.5" fill="#6D28D9">Return JSON: {"c1": "YES", "c2": "NO", "c3": "YES"}</text>
+
+  <!-- Bias warning box -->
+  <rect x="390" y="401" width="310" height="30" rx="5" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="545" y="421" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400E">Avoid: positional bias, verbosity bias, self-preference</text>
+
+  <!-- ======= SECTION C: FAILURE MODES ======= -->
+  <rect x="730" y="70" width="330" height="370" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="730" y="70" width="330" height="32" rx="10" fill="#DC2626"/>
+  <rect x="730" y="90" width="330" height="12" fill="#DC2626"/>
+  <text x="895" y="91" text-anchor="middle" font-size="13" font-weight="bold" fill="white">C. FAILURE MODES TO AVOID</text>
+
+  <!-- Failure mode boxes -->
+  <rect x="745" y="115" width="300" height="48" rx="5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="760" y="135" font-size="10.5" font-weight="bold" fill="#991B1B">Sycophancy / Positional Bias</text>
+  <text x="760" y="151" font-size="9.5" fill="#7F1D1D">Judge favours first option listed. Fix: randomise order,</text>
+  <text x="760" y="163" font-size="9.5" fill="#7F1D1D">run twice and average (Hamel / eugeneyan).</text>
+
+  <rect x="745" y="171" width="300" height="48" rx="5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="760" y="191" font-size="10.5" font-weight="bold" fill="#991B1B">Verbosity Bias</text>
+  <text x="760" y="207" font-size="9.5" fill="#7F1D1D">Longer outputs score better regardless of quality.</text>
+  <text x="760" y="219" font-size="9.5" fill="#7F1D1D">Fix: separate criteria for length vs. accuracy.</text>
+
+  <rect x="745" y="227" width="300" height="48" rx="5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="760" y="247" font-size="10.5" font-weight="bold" fill="#991B1B">Self-Preference (same model judges itself)</text>
+  <text x="760" y="263" font-size="9.5" fill="#7F1D1D">GPT-4 judging GPT-4 outputs inflates scores 8-15%.</text>
+  <text x="760" y="275" font-size="9.5" fill="#7F1D1D">Fix: use a different model family as judge.</text>
+
+  <rect x="745" y="283" width="300" height="48" rx="5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="760" y="303" font-size="10.5" font-weight="bold" fill="#991B1B">Vague Criteria</text>
+  <text x="760" y="319" font-size="9.5" fill="#7F1D1D">Generic "is this helpful?" yields low inter-rater agreement.</text>
+  <text x="760" y="331" font-size="9.5" fill="#7F1D1D">Fix: task-specific binary criteria per Decodingai.com.</text>
+
+  <rect x="745" y="339" width="300" height="48" rx="5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="760" y="359" font-size="10.5" font-weight="bold" fill="#991B1B">Treating LLM Judge as Ground Truth</text>
+  <text x="760" y="375" font-size="9.5" fill="#7F1D1D">Judge accuracy degrades on edge cases. Fix: always</text>
+  <text x="760" y="387" font-size="9.5" fill="#7F1D1D">maintain a human-labelled gold set for calibration.</text>
+
+  <!-- ======= BOTTOM: VALIDATION FLOW ======= -->
+  <rect x="20" y="455" width="1040" height="200" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="20" y="455" width="1040" height="32" rx="10" fill="#0F172A"/>
+  <rect x="20" y="475" width="1040" height="12" fill="#0F172A"/>
+  <text x="540" y="476" text-anchor="middle" font-size="13" font-weight="bold" fill="white">D. LLM JUDGE VALIDATION PIPELINE (eugeneyan.com framework applied to complaints use cases)</text>
+
+  <!-- Flow boxes -->
+  <!-- Box 1 -->
+  <rect x="35" y="497" width="150" height="70" rx="7" fill="#F0F9FF" stroke="#7DD3FC" stroke-width="1.5"/>
+  <text x="110" y="521" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0C4A6E">1. Build Gold Set</text>
+  <text x="110" y="537" text-anchor="middle" font-size="9.5" fill="#075985">200 complaints</text>
+  <text x="110" y="551" text-anchor="middle" font-size="9.5" fill="#075985">human-labelled</text>
+  <text x="110" y="565" text-anchor="middle" font-size="9.5" fill="#075985">by domain expert</text>
+
+  <!-- Arrow -->
+  <line x1="185" y1="532" x2="215" y2="532" stroke="#64748B" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- Box 2 -->
+  <rect x="215" y="497" width="150" height="70" rx="7" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="290" y="521" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#14532D">2. Run LLM Judge</text>
+  <text x="290" y="537" text-anchor="middle" font-size="9.5" fill="#166534">Apply judge prompt</text>
+  <text x="290" y="551" text-anchor="middle" font-size="9.5" fill="#166534">to all 200 items</text>
+  <text x="290" y="565" text-anchor="middle" font-size="9.5" fill="#166534">Record verdicts</text>
+
+  <!-- Arrow -->
+  <line x1="365" y1="532" x2="395" y2="532" stroke="#64748B" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- Box 3 -->
+  <rect x="395" y="497" width="150" height="70" rx="7" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
+  <text x="470" y="521" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#78350F">3. Measure Agreement</text>
+  <text x="470" y="537" text-anchor="middle" font-size="9.5" fill="#92400E">Cohen kappa, accuracy</text>
+  <text x="470" y="551" text-anchor="middle" font-size="9.5" fill="#92400E">FP / FN rates</text>
+  <text x="470" y="565" text-anchor="middle" font-size="9.5" fill="#92400E">Confusion matrix</text>
+
+  <!-- Arrow -->
+  <line x1="545" y1="532" x2="575" y2="532" stroke="#64748B" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- Box 4 -->
+  <rect x="575" y="497" width="150" height="70" rx="7" fill="#FFF1F2" stroke="#FDA4AF" stroke-width="1.5"/>
+  <text x="650" y="521" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#881337">4. Analyse Failures</text>
+  <text x="650" y="537" text-anchor="middle" font-size="9.5" fill="#9F1239">Where does judge fail?</text>
+  <text x="650" y="551" text-anchor="middle" font-size="9.5" fill="#9F1239">Multi-theme edge cases</text>
+  <text x="650" y="565" text-anchor="middle" font-size="9.5" fill="#9F1239">Ambiguous complaints</text>
+
+  <!-- Arrow -->
+  <line x1="725" y1="532" x2="755" y2="532" stroke="#64748B" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- Box 5 -->
+  <rect x="755" y="497" width="150" height="70" rx="7" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1.5"/>
+  <text x="830" y="521" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4C1D95">5. Refine Criteria</text>
+  <text x="830" y="537" text-anchor="middle" font-size="9.5" fill="#5B21B6">Add examples for</text>
+  <text x="830" y="551" text-anchor="middle" font-size="9.5" fill="#5B21B6">failure categories</text>
+  <text x="830" y="565" text-anchor="middle" font-size="9.5" fill="#5B21B6">Iterate prompt</text>
+
+  <!-- Arrow -->
+  <line x1="905" y1="532" x2="935" y2="532" stroke="#64748B" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- Box 6 -->
+  <rect x="935" y="497" width="110" height="70" rx="7" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+  <text x="990" y="521" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#065F46">6. Deploy</text>
+  <text x="990" y="537" text-anchor="middle" font-size="9.5" fill="#064E3B">kappa gt 0.6</text>
+  <text x="990" y="551" text-anchor="middle" font-size="9.5" fill="#064E3B">Re-validate</text>
+  <text x="990" y="565" text-anchor="middle" font-size="9.5" fill="#064E3B">quarterly</text>
+
+  <!-- Key insight bar -->
+  <rect x="35" y="585" width="1010" height="55" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="55" y="605" font-size="11" font-weight="bold" fill="#1E293B">Key insight (Hamel Husain / Decodingai):</text>
+  <text x="55" y="623" font-size="10" fill="#475569">"An LLM judge is only as good as your criteria definition. Invest time in criteria, not model selection. A weaker model with great criteria beats a frontier model with vague criteria."</text>
+  <text x="55" y="638" font-size="10" fill="#475569">For complaint classification: each theme in your taxonomy needs its own criteria + at least 2 positive and 2 negative examples in the judge prompt.</text>
+
+  <!-- Legend / notes at bottom -->
+  <rect x="20" y="665" width="1040" height="100" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="40" y="685" font-size="11" font-weight="bold" fill="#334155">Complaint Theme Judge - Example Criteria Mapping (Use Case 1)</text>
+  <text x="40" y="703" font-size="10" fill="#475569">Theme: "Underquoting" -> C: "Does the complaint mention a property advertised below eventual sale price AND reference agent pricing conduct?" (YES/NO)</text>
+  <text x="40" y="719" font-size="10" fill="#475569">Theme: "Misleading Advertising" -> C: "Does the complaint allege the property was marketed with inaccurate or misleading information?" (YES/NO)</text>
+  <text x="40" y="735" font-size="10" fill="#475569">Theme: "Agent failure to act honestly" -> C: "Does the complaint explicitly reference dishonest, unfair or deceptive conduct by the agent or strata manager?" (YES/NO)</text>
+  <text x="40" y="751" font-size="10" fill="#64748B">Source: Hamel Husain - LLM Judge; eugeneyan.com - Evaluating LLM Evaluators; Decodingai.com - 5-Star Lie; Decodingai - Mirage of Generic Metrics</text>
+
+  <defs>
+    <marker id="arrowB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+  </defs>
+</svg>

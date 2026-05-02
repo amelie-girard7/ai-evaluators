@@ -1,0 +1,235 @@
+<svg viewBox="0 0 1100 800" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect width="1100" height="800" fill="#F8FAFC" rx="12"/>
+
+  <!-- Title -->
+  <text x="550" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#1E293B">The 6 RAG Evals Framework</text>
+  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#64748B">Applied to Use Case 2: Complaints Chatbot ("How many complaints from Western Sydney in 2025-2026?")</text>
+
+  <!-- ======= RAG PIPELINE FLOW (TOP) ======= -->
+  <rect x="20" y="70" width="1060" height="80" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
+  <text x="40" y="93" font-size="11" font-weight="bold" fill="#0F172A">RAG PIPELINE FLOW</text>
+
+  <!-- User question box -->
+  <rect x="30" y="100" width="130" height="38" rx="6" fill="#1E40AF" stroke="#1E3A8A" stroke-width="1.5"/>
+  <text x="95" y="115" text-anchor="middle" font-size="9.5" font-weight="bold" fill="white">User Question</text>
+  <text x="95" y="130" text-anchor="middle" font-size="9" fill="#BFDBFE">"Complaints 2025-26?"</text>
+
+  <line x1="160" y1="119" x2="185" y2="119" stroke="#64748B" stroke-width="2" marker-end="url(#arrowC)"/>
+
+  <!-- Retrieval box -->
+  <rect x="185" y="100" width="130" height="38" rx="6" fill="#7C3AED" stroke="#6D28D9" stroke-width="1.5"/>
+  <text x="250" y="115" text-anchor="middle" font-size="9.5" font-weight="bold" fill="white">Retrieval</text>
+  <text x="250" y="130" text-anchor="middle" font-size="9" fill="#E9D5FF">Vector search on DB</text>
+
+  <line x1="315" y1="119" x2="340" y2="119" stroke="#64748B" stroke-width="2" marker-end="url(#arrowC)"/>
+
+  <!-- Retrieved context -->
+  <rect x="340" y="100" width="150" height="38" rx="6" fill="#0891B2" stroke="#0E7490" stroke-width="1.5"/>
+  <text x="415" y="115" text-anchor="middle" font-size="9.5" font-weight="bold" fill="white">Retrieved Context</text>
+  <text x="415" y="130" text-anchor="middle" font-size="9" fill="#CFFAFE">Top-k complaint records</text>
+
+  <line x1="490" y1="119" x2="515" y2="119" stroke="#64748B" stroke-width="2" marker-end="url(#arrowC)"/>
+
+  <!-- LLM generation -->
+  <rect x="515" y="100" width="150" height="38" rx="6" fill="#16A34A" stroke="#15803D" stroke-width="1.5"/>
+  <text x="590" y="115" text-anchor="middle" font-size="9.5" font-weight="bold" fill="white">LLM Generation</text>
+  <text x="590" y="130" text-anchor="middle" font-size="9" fill="#BBF7D0">Synthesise answer</text>
+
+  <line x1="665" y1="119" x2="690" y2="119" stroke="#64748B" stroke-width="2" marker-end="url(#arrowC)"/>
+
+  <!-- Answer -->
+  <rect x="690" y="100" width="150" height="38" rx="6" fill="#DC2626" stroke="#B91C1C" stroke-width="1.5"/>
+  <text x="765" y="115" text-anchor="middle" font-size="9.5" font-weight="bold" fill="white">Answer to User</text>
+  <text x="765" y="130" text-anchor="middle" font-size="9" fill="#FECACA">"147 from W. Sydney"</text>
+
+  <line x1="840" y1="119" x2="865" y2="119" stroke="#64748B" stroke-width="2" marker-end="url(#arrowC)"/>
+
+  <!-- Evaluation label -->
+  <rect x="865" y="100" width="200" height="38" rx="6" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+  <text x="965" y="115" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1C1917">6 RAG Evals applied here</text>
+  <text x="965" y="130" text-anchor="middle" font-size="9" fill="#1C1917">Retrieval + Generation metrics</text>
+
+  <!-- ======= 6 EVAL CARDS ======= -->
+  <!-- Row 1: 3 cards -->
+
+  <!-- Card 1: Context Precision -->
+  <rect x="20" y="170" width="330" height="165" rx="10" fill="white" stroke="#7C3AED" stroke-width="2"/>
+  <rect x="20" y="170" width="330" height="36" rx="10" fill="#7C3AED"/>
+  <rect x="20" y="193" width="330" height="13" fill="#7C3AED"/>
+  <text x="185" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="white">1. Context Precision</text>
+  <text x="185" y="206" text-anchor="middle" font-size="10" fill="#E9D5FF">RETRIEVAL METRIC</text>
+
+  <text x="35" y="228" font-size="11" font-weight="bold" fill="#4C1D95">What it measures:</text>
+  <text x="35" y="244" font-size="10" fill="#374151">Of the chunks retrieved, what fraction are</text>
+  <text x="35" y="258" font-size="10" fill="#374151">actually relevant to answering the question?</text>
+
+  <rect x="35" y="265" width="300" height="30" rx="5" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1"/>
+  <text x="185" y="285" text-anchor="middle" font-size="10" fill="#5B21B6">Precision = Relevant retrieved / Total retrieved</text>
+
+  <text x="35" y="315" font-size="10" fill="#374151">Complaint chatbot: Are retrieved records about</text>
+  <text x="35" y="327" font-size="10" fill="#374151">Western Sydney or cluttered with other regions?</text>
+
+  <!-- Card 2: Context Recall -->
+  <rect x="385" y="170" width="330" height="165" rx="10" fill="white" stroke="#0891B2" stroke-width="2"/>
+  <rect x="385" y="170" width="330" height="36" rx="10" fill="#0891B2"/>
+  <rect x="385" y="193" width="330" height="13" fill="#0891B2"/>
+  <text x="550" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="white">2. Context Recall</text>
+  <text x="550" y="206" text-anchor="middle" font-size="10" fill="#CFFAFE">RETRIEVAL METRIC</text>
+
+  <text x="400" y="228" font-size="11" font-weight="bold" fill="#164E63">What it measures:</text>
+  <text x="400" y="244" font-size="10" fill="#374151">Of all the relevant chunks that exist, how</text>
+  <text x="400" y="258" font-size="10" fill="#374151">many did the retrieval system actually find?</text>
+
+  <rect x="400" y="265" width="300" height="30" rx="5" fill="#ECFEFF" stroke="#A5F3FC" stroke-width="1"/>
+  <text x="550" y="285" text-anchor="middle" font-size="10" fill="#164E63">Recall = Relevant retrieved / Total relevant in DB</text>
+
+  <text x="400" y="315" font-size="10" fill="#374151">Complaint chatbot: Did we find ALL Western</text>
+  <text x="400" y="327" font-size="10" fill="#374151">Sydney records from 2025-26 in our index?</text>
+
+  <!-- Card 3: Answer Faithfulness -->
+  <rect x="750" y="170" width="330" height="165" rx="10" fill="white" stroke="#16A34A" stroke-width="2"/>
+  <rect x="750" y="170" width="330" height="36" rx="10" fill="#16A34A"/>
+  <rect x="750" y="193" width="330" height="13" fill="#16A34A"/>
+  <text x="915" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3. Answer Faithfulness</text>
+  <text x="915" y="206" text-anchor="middle" font-size="10" fill="#BBF7D0">GENERATION METRIC</text>
+
+  <text x="765" y="228" font-size="11" font-weight="bold" fill="#14532D">What it measures:</text>
+  <text x="765" y="244" font-size="10" fill="#374151">Is every claim in the answer supported by</text>
+  <text x="765" y="258" font-size="10" fill="#374151">the retrieved context? (No hallucination)</text>
+
+  <rect x="765" y="265" width="300" height="30" rx="5" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+  <text x="915" y="285" text-anchor="middle" font-size="10" fill="#14532D">Faithfulness = Supported claims / Total claims</text>
+
+  <text x="765" y="315" font-size="10" fill="#374151">Complaint chatbot: Did the bot invent a number</text>
+  <text x="765" y="327" font-size="10" fill="#374151">not in the retrieved complaint records?</text>
+
+  <!-- Row 2: 3 cards -->
+
+  <!-- Card 4: Answer Relevance -->
+  <rect x="20" y="355" width="330" height="165" rx="10" fill="white" stroke="#EA580C" stroke-width="2"/>
+  <rect x="20" y="355" width="330" height="36" rx="10" fill="#EA580C"/>
+  <rect x="20" y="378" width="330" height="13" fill="#EA580C"/>
+  <text x="185" y="379" text-anchor="middle" font-size="12" font-weight="bold" fill="white">4. Answer Relevance</text>
+  <text x="185" y="391" text-anchor="middle" font-size="10" fill="#FFEDD5">GENERATION METRIC</text>
+
+  <text x="35" y="413" font-size="11" font-weight="bold" fill="#7C2D12">What it measures:</text>
+  <text x="35" y="429" font-size="10" fill="#374151">Does the answer actually address what the</text>
+  <text x="35" y="443" font-size="10" fill="#374151">user asked? Not faithful to context but to query.</text>
+
+  <rect x="35" y="450" width="300" height="30" rx="5" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1"/>
+  <text x="185" y="470" text-anchor="middle" font-size="10" fill="#7C2D12">Score: cosine sim (generated Qs vs original Q)</text>
+
+  <text x="35" y="500" font-size="10" fill="#374151">Chatbot: Did the answer address the date range</text>
+  <text x="35" y="512" font-size="10" fill="#374151">and region asked, or drift to unrelated content?</text>
+
+  <!-- Card 5: Answer Correctness -->
+  <rect x="385" y="355" width="330" height="165" rx="10" fill="white" stroke="#DC2626" stroke-width="2"/>
+  <rect x="385" y="355" width="330" height="36" rx="10" fill="#DC2626"/>
+  <rect x="385" y="378" width="330" height="13" fill="#DC2626"/>
+  <text x="550" y="379" text-anchor="middle" font-size="12" font-weight="bold" fill="white">5. Answer Correctness</text>
+  <text x="550" y="391" text-anchor="middle" font-size="10" fill="#FECACA">GENERATION METRIC</text>
+
+  <text x="400" y="413" font-size="11" font-weight="bold" fill="#7F1D1D">What it measures:</text>
+  <text x="400" y="429" font-size="10" fill="#374151">Is the answer factually correct against a</text>
+  <text x="400" y="443" font-size="10" fill="#374151">known ground-truth answer? (End-to-end)</text>
+
+  <rect x="400" y="450" width="300" height="30" rx="5" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+  <text x="550" y="470" text-anchor="middle" font-size="10" fill="#7F1D1D">Correctness = F1(predicted vs reference answer)</text>
+
+  <text x="400" y="500" font-size="10" fill="#374151">Chatbot: Does "147 complaints" match the true</text>
+  <text x="400" y="512" font-size="10" fill="#374151">count in the database for that region and period?</text>
+
+  <!-- Card 6: Answer Completeness -->
+  <rect x="750" y="355" width="330" height="165" rx="10" fill="white" stroke="#B45309" stroke-width="2"/>
+  <rect x="750" y="355" width="330" height="36" rx="10" fill="#B45309"/>
+  <rect x="750" y="378" width="330" height="13" fill="#B45309"/>
+  <text x="915" y="379" text-anchor="middle" font-size="12" font-weight="bold" fill="white">6. Answer Completeness</text>
+  <text x="915" y="391" text-anchor="middle" font-size="10" fill="#FDE68A">GENERATION METRIC</text>
+
+  <text x="765" y="413" font-size="11" font-weight="bold" fill="#78350F">What it measures:</text>
+  <text x="765" y="429" font-size="10" fill="#374151">Did the answer cover all aspects of the question</text>
+  <text x="765" y="443" font-size="10" fill="#374151">or miss important sub-components?</text>
+
+  <rect x="765" y="450" width="300" height="30" rx="5" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1"/>
+  <text x="915" y="470" text-anchor="middle" font-size="10" fill="#78350F">Completeness = Covered aspects / Total required</text>
+
+  <text x="765" y="500" font-size="10" fill="#374151">Chatbot: If user asked "nature AND volume", did</text>
+  <text x="765" y="512" font-size="10" fill="#374151">the answer provide both dimensions?</text>
+
+  <!-- ======= BOTTOM: MAPPING TABLE ======= -->
+  <rect x="20" y="535" width="1060" height="240" rx="10" fill="white" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="20" y="535" width="1060" height="32" rx="10" fill="#0F172A"/>
+  <rect x="20" y="555" width="1060" height="12" fill="#0F172A"/>
+  <text x="550" y="556" text-anchor="middle" font-size="13" font-weight="bold" fill="white">WHERE EACH EVAL LIVES IN THE PIPELINE + WHICH TO PRIORITISE (jxnl.co / Decodingai)</text>
+
+  <!-- Header row -->
+  <rect x="30" y="577" width="160" height="28" rx="4" fill="#1E293B"/>
+  <text x="110" y="596" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Eval</text>
+  <rect x="195" y="577" width="100" height="28" rx="4" fill="#1E293B"/>
+  <text x="245" y="596" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Component</text>
+  <rect x="300" y="577" width="130" height="28" rx="4" fill="#1E293B"/>
+  <text x="365" y="596" text-anchor="middle" font-size="10" font-weight="bold" fill="white">When to measure</text>
+  <rect x="435" y="577" width="200" height="28" rx="4" fill="#1E293B"/>
+  <text x="535" y="596" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Fix when failing</text>
+  <rect x="640" y="577" width="90" height="28" rx="4" fill="#1E293B"/>
+  <text x="685" y="596" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Priority</text>
+  <rect x="735" y="577" width="330" height="28" rx="4" fill="#1E293B"/>
+  <text x="900" y="596" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Chatbot Example Target</text>
+
+  <!-- Data rows -->
+  <rect x="30" y="609" width="1040" height="22" rx="3" fill="#F0F9FF"/>
+  <text x="110" y="624" text-anchor="middle" font-size="9.5" fill="#0C4A6E">Context Precision</text>
+  <text x="245" y="624" text-anchor="middle" font-size="9.5" fill="#0C4A6E">Retrieval</text>
+  <text x="365" y="624" text-anchor="middle" font-size="9.5" fill="#0C4A6E">Chunk design change</text>
+  <text x="535" y="624" text-anchor="middle" font-size="9.5" fill="#0C4A6E">Better chunking / metadata filters</text>
+  <text x="685" y="624" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7C3AED">HIGH</text>
+  <text x="900" y="624" text-anchor="middle" font-size="9.5" fill="#0C4A6E">Greater than 85% of retrieved chunks relevant to query</text>
+
+  <rect x="30" y="633" width="1040" height="22" rx="3" fill="#ECFEFF"/>
+  <text x="110" y="648" text-anchor="middle" font-size="9.5" fill="#164E63">Context Recall</text>
+  <text x="245" y="648" text-anchor="middle" font-size="9.5" fill="#164E63">Retrieval</text>
+  <text x="365" y="648" text-anchor="middle" font-size="9.5" fill="#164E63">Index / embedding change</text>
+  <text x="535" y="648" text-anchor="middle" font-size="9.5" fill="#164E63">Re-index, improve embeddings</text>
+  <text x="685" y="648" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#0891B2">HIGH</text>
+  <text x="900" y="648" text-anchor="middle" font-size="9.5" fill="#164E63">Greater than 90% of relevant records found</text>
+
+  <rect x="30" y="657" width="1040" height="22" rx="3" fill="#DCFCE7"/>
+  <text x="110" y="672" text-anchor="middle" font-size="9.5" fill="#14532D">Answer Faithfulness</text>
+  <text x="245" y="672" text-anchor="middle" font-size="9.5" fill="#14532D">Generation</text>
+  <text x="365" y="672" text-anchor="middle" font-size="9.5" fill="#14532D">Always (hallucination guard)</text>
+  <text x="535" y="672" text-anchor="middle" font-size="9.5" fill="#14532D">Constrained generation, cite sources</text>
+  <text x="685" y="672" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#16A34A">CRITICAL</text>
+  <text x="900" y="672" text-anchor="middle" font-size="9.5" fill="#14532D">100% claims grounded in retrieved records</text>
+
+  <rect x="30" y="681" width="1040" height="22" rx="3" fill="#FFF7ED"/>
+  <text x="110" y="696" text-anchor="middle" font-size="9.5" fill="#7C2D12">Answer Relevance</text>
+  <text x="245" y="696" text-anchor="middle" font-size="9.5" fill="#7C2D12">Generation</text>
+  <text x="365" y="696" text-anchor="middle" font-size="9.5" fill="#7C2D12">Query understanding issues</text>
+  <text x="535" y="696" text-anchor="middle" font-size="9.5" fill="#7C2D12">Improve system prompt, few-shot</text>
+  <text x="685" y="696" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#EA580C">MEDIUM</text>
+  <text x="900" y="696" text-anchor="middle" font-size="9.5" fill="#7C2D12">Answer explicitly addresses region and date range</text>
+
+  <rect x="30" y="705" width="1040" height="22" rx="3" fill="#FEF2F2"/>
+  <text x="110" y="720" text-anchor="middle" font-size="9.5" fill="#7F1D1D">Answer Correctness</text>
+  <text x="245" y="720" text-anchor="middle" font-size="9.5" fill="#7F1D1D">Generation</text>
+  <text x="365" y="720" text-anchor="middle" font-size="9.5" fill="#7F1D1D">When ground truth available</text>
+  <text x="535" y="720" text-anchor="middle" font-size="9.5" fill="#7F1D1D">Fix retrieval or generation</text>
+  <text x="685" y="720" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#DC2626">CRITICAL</text>
+  <text x="900" y="720" text-anchor="middle" font-size="9.5" fill="#7F1D1D">Count matches database query output exactly</text>
+
+  <rect x="30" y="729" width="1040" height="22" rx="3" fill="#FFFBEB"/>
+  <text x="110" y="744" text-anchor="middle" font-size="9.5" fill="#78350F">Answer Completeness</text>
+  <text x="245" y="744" text-anchor="middle" font-size="9.5" fill="#78350F">Generation</text>
+  <text x="365" y="744" text-anchor="middle" font-size="9.5" fill="#78350F">Multi-part questions</text>
+  <text x="535" y="744" text-anchor="middle" font-size="9.5" fill="#78350F">Richer context, structured output</text>
+  <text x="685" y="744" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#B45309">MEDIUM</text>
+  <text x="900" y="744" text-anchor="middle" font-size="9.5" fill="#78350F">All question dimensions (nature + volume) addressed</text>
+
+  <text x="40" y="772" font-size="10" fill="#64748B">Source: Jason Liu (jxnl.co) - There Are Only 6 RAG Evals | Anthropic - Demystifying Evals for AI Agents | Decodingai.com - Integrating AI Evals</text>
+
+  <defs>
+    <marker id="arrowC" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+  </defs>
+</svg>
