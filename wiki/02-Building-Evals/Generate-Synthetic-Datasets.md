@@ -25,7 +25,7 @@ Avoid mode collapse by structuring synthetic data around **business-specific dim
 - **Context complexity** (e.g., "single document", "multi-source")
 - **Edge cases** (e.g., "ambiguous query", "missing data")
 
-![Define dimensions](../Diagrams/auto/generate-synthetic-datasets-1-f5a313cb.svg)
+![Define dimensions](../Diagrams/auto/generate-synthetic-datasets-1-f5a313cb.png)
 ---
 
 ### Strategy 2: Use Production Data as a Template

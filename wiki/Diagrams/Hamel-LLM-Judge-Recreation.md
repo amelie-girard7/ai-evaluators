@@ -18,42 +18,42 @@ unsourced: true
 
 *Recreated from hamel.dev — the primary pipeline diagram showing how an LLM judge evaluates outputs*
 
-!["INPUT"](auto/hamel-llm-judge-recreation-1-448712ac.svg)
+!["INPUT"](auto/hamel-llm-judge-recreation-1-448712ac.png)
 ---
 
 ## Diagram 2: Criteria-Based Evaluation vs Generic Scoring
 
 *Recreated — hamel.dev's comparison of task-specific binary criteria vs generic Likert-scale approaches*
 
-!["GENERIC APPROACH (avoid)"](auto/hamel-llm-judge-recreation-2-662080ba.svg)
+!["GENERIC APPROACH (avoid)"](auto/hamel-llm-judge-recreation-2-662080ba.png)
 ---
 
 ## Diagram 3: Failure Mode Taxonomy
 
 *Recreated — hamel.dev's taxonomy of LLM judge failure modes*
 
-![Diagram 3](auto/hamel-llm-judge-recreation-3-48d7b291.svg)
+![Diagram 3](auto/hamel-llm-judge-recreation-3-48d7b291.png)
 ---
 
 ## Diagram 4: The Validation Loop (eugeneyan.com + Hamel combined)
 
 *Recreated — the iterative validation process for getting a judge to production quality*
 
-![Diagram 4](auto/hamel-llm-judge-recreation-4-c3d39f6f.svg)
+![Diagram 4](auto/hamel-llm-judge-recreation-4-c3d39f6f.png)
 ---
 
 ## Diagram 5: Judge Prompt Anatomy
 
 *Recreated — the structural components of an effective LLM judge prompt*
 
-!["1. ROLE DEFINITION"](auto/hamel-llm-judge-recreation-1-b1b8bd95.svg)
+!["1. ROLE DEFINITION"](auto/hamel-llm-judge-recreation-1-b1b8bd95.png)
 ---
 
 ## Diagram 6: Agreement Rate vs Criteria Specificity (hamel.dev finding)
 
 *Recreated — empirical relationship between criteria specificity and inter-rater agreement*
 
-![0.25, 0.42, 0.68, 0.84](auto/hamel-llm-judge-recreation-6-bc4dfaa1.svg)
+![0.25, 0.42, 0.68, 0.84](auto/hamel-llm-judge-recreation-6-bc4dfaa1.png)
 > **Key insight from Hamel Husain:** The relationship between criteria specificity and judge reliability is not linear — it is step-function. Generic criteria plateau at kappa ~0.3. Binary criteria jump immediately to 0.6+. Examples push it further to 0.8+.
 
 ---

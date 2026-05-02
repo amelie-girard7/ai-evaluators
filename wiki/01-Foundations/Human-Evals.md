@@ -15,7 +15,7 @@ Human evaluation is the gold standard. It is also expensive and slow. Use it str
 
 ## When human eval is required
 
-![New LLM system\nbeing built](../Diagrams/auto/human-evals-1-10b79d98.svg)
+![New LLM system\nbeing built](../Diagrams/auto/human-evals-1-10b79d98.png)
 ---
 
 ## Human eval cadence (recommended)

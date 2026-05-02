@@ -15,7 +15,7 @@ The evaluation and monitoring component of MLflow 3 is designed to help you iter
 
 ## Evaluation and Monitoring Workflow
 
-![Development](../Diagrams/auto/evaluate-and-monitor-ai-agents-1-834530d7.svg)
+![Development](../Diagrams/auto/evaluate-and-monitor-ai-agents-1-834530d7.png)
 ## Key Features
 
 | Feature | Description |

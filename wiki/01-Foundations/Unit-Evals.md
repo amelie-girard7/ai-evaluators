@@ -26,7 +26,7 @@ A unit eval has three properties:
 
 ## Unit eval types for complaint classification (UC1)
 
-![Complaint text](../Diagrams/auto/unit-evals-1-49d5aff8.svg)
+![Complaint text](../Diagrams/auto/unit-evals-1-49d5aff8.png)
 ---
 
 ## Example unit eval implementations (Python)

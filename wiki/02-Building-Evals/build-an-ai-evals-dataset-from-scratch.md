@@ -100,7 +100,7 @@ Use error analysis to:
 - **Refine evaluators** to catch real-world issues
 
 ### Error Analysis Flywheel
-![Collect Traces](../Diagrams/auto/build-an-ai-evals-dataset-from-scratch-1-461cb91e.svg)
+![Collect Traces](../Diagrams/auto/build-an-ai-evals-dataset-from-scratch-1-461cb91e.png)
 ---
 
 ## Step 6: Transition to Specialized Evaluators

@@ -29,7 +29,7 @@ Error analysis takes 2–4 hours and often produces a single-line prompt change 
 
 ## The 5-step framework
 
-!["Step 1\nCollect failures\n50-200 cases\nbelow threshold"](../Diagrams/auto/overview-1-490fccc5.svg)
+!["Step 1\nCollect failures\n50-200 cases\nbelow threshold"](../Diagrams/auto/overview-1-490fccc5.png)
 ---
 
 ## The critical step: reading the data (Step 2)

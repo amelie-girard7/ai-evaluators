@@ -23,7 +23,7 @@ MLflow Tracing supports:
 
 ## Observability Workflow
 
-![Application Execution](../Diagrams/auto/mlflow-tracing-genai-observability-1-befea8cf.svg)
+![Application Execution](../Diagrams/auto/mlflow-tracing-genai-observability-1-befea8cf.png)
 ## Next Steps
 
 - [10-minute tracing demo](tutorial-evaluate-and-improve-a-genai-application.md) - Get started with tracing in Databricks

@@ -17,7 +17,7 @@ A judge that has not been validated against human labels is not a judge — it i
 
 ## The calibration pipeline
 
-!["Gold Set\n200-500 complaints\nwith human labels"](../Diagrams/auto/validation-protocol-1-2f1bc8d4.svg)
+!["Gold Set\n200-500 complaints\nwith human labels"](../Diagrams/auto/validation-protocol-1-2f1bc8d4.png)
 ---
 
 ## Cohen kappa interpretation

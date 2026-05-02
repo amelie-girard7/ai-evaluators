@@ -50,7 +50,7 @@ For a chatbot answering regulatory queries, "good" means:
 
 ## The evaluation purpose hierarchy
 
-![Catch regressions before deployment](../Diagrams/auto/why-evals-matter-1-95e046a6.svg)
+![Catch regressions before deployment](../Diagrams/auto/why-evals-matter-1-95e046a6.png)
 ---
 
 ## Evals are NOT all you need

@@ -15,7 +15,7 @@ The 8-step process for building a production-grade eval suite for complaint them
 
 ## The 8-step process
 
-!["1. Define criteria\nper theme\n(not generic quality)"](../Diagrams/auto/uc1-eval-design-step-by-step-1-c8ca4954.svg)
+!["1. Define criteria\nper theme\n(not generic quality)"](../Diagrams/auto/uc1-eval-design-step-by-step-1-c8ca4954.png)
 ---
 
 ## Step 1: Define criteria per theme
