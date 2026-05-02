@@ -21,7 +21,7 @@ The Louvain algorithm may produce **internally disconnected communities**, espec
 ### Example
 Consider a community where moving a single node causes the remaining nodes to form disconnected subgraphs. The Louvain algorithm may fail to detect this, leading to partitions that are **structurally invalid** for analysis.
 
-![Initial Partition](../Diagrams/auto/leiden-technique-1-6a7c0215.svg)
+![Initial Partition](../Diagrams/auto/leiden-technique-1-6a7c0215.png)
 This issue undermines the reliability of community detection in large and complex networks.
 
 ---
@@ -51,7 +51,7 @@ The Leiden algorithm builds on the Louvain framework but introduces critical imp
 4. **Refinement**: Apply a **random neighbor move** to ensure connectedness and avoid local optima.
 5. **Iteration**: Repeat until no further improvements are possible.
 
-![Initialization](../Diagrams/auto/leiden-technique-2-6f56ea7e.svg)
+![Initialization](../Diagrams/auto/leiden-technique-2-6f56ea7e.png)
 This process ensures that communities are both **high-quality** and **structurally sound**.
 
 ---

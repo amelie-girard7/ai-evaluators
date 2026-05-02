@@ -226,5 +226,5 @@ print(comparison)
 
 ## Offline Monitoring Workflow
 
-![Deployed App](../Diagrams/auto/tutorial-evaluate-and-improve-a-genai-application-1-e836644b.svg)
+![Deployed App](../Diagrams/auto/tutorial-evaluate-and-improve-a-genai-application-1-e836644b.png)
 For a shorter introduction to evaluation, see the Databricks 10-minute demo source in `raw/web/`.

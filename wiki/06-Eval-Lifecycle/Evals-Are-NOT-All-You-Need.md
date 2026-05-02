@@ -30,7 +30,7 @@ Traditional software testing assumes predictable inputs and deterministic output
 
 But AI products are fundamentally different:
 
-![Traditional Software](../Diagrams/auto/evals-are-not-all-you-need-1-80c35442.svg)
+![Traditional Software](../Diagrams/auto/evals-are-not-all-you-need-1-80c35442.png)
 **Key differences**:
 - User inputs are unbounded (e.g., "Find a pet-friendly hotel in Austin for next weekend")
 - Outputs are probabilistic (same input may yield different results)
@@ -86,7 +86,7 @@ AI product quality requires a system that addresses:
   - Kappa checks for judge calibration
   - [Validation Protocol](../03-LLM-Judges/Validation-Protocol.md)
 
-![Offline Quality](../Diagrams/auto/evals-are-not-all-you-need-2-b5e68874.svg)
+![Offline Quality](../Diagrams/auto/evals-are-not-all-you-need-2-b5e68874.png)
 ---
 
 ## The Mirage of "Good Evals"

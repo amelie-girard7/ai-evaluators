@@ -22,7 +22,7 @@ A regulatory body receives over 50,000 formal complaints per year about property
 
 ## System architecture
 
-![Raw complaints\n50k/year](../Diagrams/auto/uc1-complaint-classification-overview-1-3a956034.svg)
+![Raw complaints\n50k/year](../Diagrams/auto/uc1-complaint-classification-overview-1-3a956034.png)
 ---
 
 ## Deidentified examples

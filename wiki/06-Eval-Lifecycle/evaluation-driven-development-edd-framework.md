@@ -26,7 +26,7 @@ Key principles:
 
 ## The Pre-Launch Data Flywheel
 
-!["Minimum Viable Product (MVP)"](../Diagrams/auto/evaluation-driven-development-edd-framework-1-5522943d.svg)
+!["Minimum Viable Product (MVP)"](../Diagrams/auto/evaluation-driven-development-edd-framework-1-5522943d.png)
 **Step-by-Step Process**:
 1. **MVP**: Develop a basic version of your AI system (e.g., RAG chatbot)
 2. **Synthetic Queries**: Generate test queries based on user personas and scenarios
@@ -40,7 +40,7 @@ This loop ensures continuous improvement before user data is available.
 
 ## Why Traditional Testing Fails for AI
 
-![Traditional Software](../Diagrams/auto/evaluation-driven-development-edd-framework-2-80c35442.svg)
+![Traditional Software](../Diagrams/auto/evaluation-driven-development-edd-framework-2-80c35442.png)
 **Key Differences**:
 - **Inputs**: AI systems handle unbounded, natural language queries
 - **Outputs**: Probabilistic and context-dependent

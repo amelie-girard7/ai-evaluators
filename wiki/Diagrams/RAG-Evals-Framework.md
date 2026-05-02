@@ -12,12 +12,12 @@ unsourced: true
 
 ---
 
-!["User Query\n'Complaints Western Sydney\n2025-2026?'"](auto/rag-evals-framework-1-b89acb8b.svg)
+!["User Query\n'Complaints Western Sydney\n2025-2026?'"](auto/rag-evals-framework-1-b89acb8b.png)
 ---
 
 ## Fix decision tree: when an eval fails
 
-!["An eval is failing"](auto/rag-evals-framework-2-f170f8e2.svg)
+!["An eval is failing"](auto/rag-evals-framework-2-f170f8e2.png)
 ---
 
 *Source: Jason Liu (jxnl.co) — There Are Only 6 RAG Evals | Anthropic — Demystifying Evals for AI Agents*

@@ -17,7 +17,7 @@ Teams that add more metrics without covering these six are measuring noise. Team
 
 ## The 6 evals mapped to the RAG pipeline
 
-!["User query\n'Complaints from\nWestern Sydney\n2025-26?'"](../Diagrams/auto/uc2-the-6-rag-evals-1-33996cbd.svg)
+!["User query\n'Complaints from\nWestern Sydney\n2025-26?'"](../Diagrams/auto/uc2-the-6-rag-evals-1-33996cbd.png)
 ---
 
 ## Eval 1: Context Precision (Retrieval)

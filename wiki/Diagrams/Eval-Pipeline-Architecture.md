@@ -13,7 +13,7 @@ unsourced: true
 
 ---
 
-!["DATA INGESTION"](auto/eval-pipeline-architecture-1-cc5a579d.svg)
+!["DATA INGESTION"](auto/eval-pipeline-architecture-1-cc5a579d.png)
 ---
 
 ## Design principles encoded in this diagram

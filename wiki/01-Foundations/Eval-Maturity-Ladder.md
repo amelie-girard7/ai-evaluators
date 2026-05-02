@@ -15,7 +15,7 @@ Understanding where your team sits determines what to build next. Most teams und
 
 ## The four levels
 
-!["Level 0\nVibe Checks\n(Manual, ad hoc)"](../Diagrams/auto/eval-maturity-ladder-1-dcaa250a.svg)
+!["Level 0\nVibe Checks\n(Manual, ad hoc)"](../Diagrams/auto/eval-maturity-ladder-1-dcaa250a.png)
 ---
 
 ## Level descriptions

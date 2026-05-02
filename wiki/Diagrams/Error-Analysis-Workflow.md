@@ -12,12 +12,12 @@ unsourced: true
 
 ---
 
-!["New failures\naccumulate"](auto/error-analysis-workflow-1-10c51566.svg)
+!["New failures\naccumulate"](auto/error-analysis-workflow-1-10c51566.png)
 ---
 
 ## Root cause taxonomy for both use cases
 
-![Diagram 2](auto/error-analysis-workflow-2-09d5ddc5.svg)
+![Diagram 2](auto/error-analysis-workflow-2-09d5ddc5.png)
 ---
 
 ## Prioritisation scorecard

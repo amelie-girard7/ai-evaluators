@@ -28,7 +28,7 @@ sources:
 
 ## Architecture
 
-![User question\nNatural language](../Diagrams/auto/uc2-rag-chatbot-overview-1-4003fd60.svg)
+![User question\nNatural language](../Diagrams/auto/uc2-rag-chatbot-overview-1-4003fd60.png)
 ---
 
 ## Key design constraints (regulatory context)

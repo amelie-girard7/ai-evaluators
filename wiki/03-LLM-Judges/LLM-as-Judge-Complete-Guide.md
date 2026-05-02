@@ -92,7 +92,7 @@ Automate testing with an **evaluation harness** that:
 - Executes custom evaluators
 - Aggregates results and generates reports
 
-![Load Tasks](../Diagrams/auto/llm-as-judge-complete-guide-1-2fcc58e1.svg)
+![Load Tasks](../Diagrams/auto/llm-as-judge-complete-guide-1-2fcc58e1.png)
 > **Tip**: Use platforms like [Validation Protocol](Validation-Protocol.md) or Opik for scalable implementation.
 
 ---

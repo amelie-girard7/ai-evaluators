@@ -25,7 +25,7 @@ This article is based on insights from Alejandro Aboy, Senior Data Engineer at W
 
 Tools like Opik or Langfuse provide default metrics such as *Hallucination*, *AnswerRelevance*, and *ContextRecall*. However, relying on these without aligning them to your specific use case can lead to misleading conclusions.
 
-![Default Metrics](../Diagrams/auto/behind-the-scenes-of-ai-observability-in-production-1-7ec351e5.svg)
+![Default Metrics](../Diagrams/auto/behind-the-scenes-of-ai-observability-in-production-1-7ec351e5.png)
 > **Example**: To evaluate hallucination in documentation links, a binary metric was used: *Check if `search_knowledge` tool was called and verify if the URL in the output matches the tool output the agent used.*
 
 ---

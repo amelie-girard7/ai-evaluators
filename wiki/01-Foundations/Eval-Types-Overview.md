@@ -15,7 +15,7 @@ Three fundamentally different types of evaluation exist, each serving a differen
 
 ## Decision tree: which eval type to use?
 
-![Unit Eval\nDeterministic check](../Diagrams/auto/eval-types-overview-1-73f93167.svg)
+![Unit Eval\nDeterministic check](../Diagrams/auto/eval-types-overview-1-73f93167.png)
 ---
 
 ## Comparison at a glance
@@ -36,7 +36,7 @@ Three fundamentally different types of evaluation exist, each serving a differen
 
 The correct architecture is not a choice between these three — it is a **layered system** where each type serves a different role:
 
-!["Offline Evaluation"](../Diagrams/auto/eval-types-overview-2-cea1508c.svg)
+!["Offline Evaluation"](../Diagrams/auto/eval-types-overview-2-cea1508c.png)
 ---
 
 ## Applied to our use cases

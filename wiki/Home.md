@@ -38,7 +38,7 @@ Traditional software is deterministic: the same input produces the same output, 
 
 **AI evaluation** is the discipline of turning subjective quality judgments ("does this answer feel right?") into measurable, auditable evidence ("84% of complaints were classified using only valid taxonomy terms last week, down from 91% the week before"). Without it, teams operate on what the field calls **"vibe checking"** — the founder reads ten outputs, decides things look fine, and ships. Vibe checking does not survive contact with real users.
 
-![Traditional software](Diagrams/auto/home-1-f6512d57.svg)
+![Traditional software](Diagrams/auto/home-1-f6512d57.png)
 > *"Without evals, you are flying blind. With bad evals, you are flying with a broken altimeter."* — Hamel Husain
 
 Deeper reading: [Why Evals Matter](01-Foundations/Why-Evals-Matter.md), [Eval Types Overview](01-Foundations/Eval-Types-Overview.md), [Mirage of Generic Metrics](04-Metrics-and-Scoring/Mirage-of-Generic-Metrics.md).
@@ -49,7 +49,7 @@ Deeper reading: [Why Evals Matter](01-Foundations/Why-Evals-Matter.md), [Eval Ty
 
 AI evaluation runs across five phases that map onto how a feature actually moves from idea to live traffic. The phases are not stages in a Gantt chart — they are recurring activities. Every prompt change re-enters Develop; every released version gets monitored in Production; every novel failure spotted in Production loops back to refresh the Bootstrap dataset. The lifecycle is a circle, not a line.
 
-![1 Design Define what good means](Diagrams/auto/home-2-93722c3a.svg)
+![1 Design Define what good means](Diagrams/auto/home-2-93722c3a.png)
 In one sentence each:
 
 1. **Design** — agree on what "good" means before writing any code.
@@ -68,7 +68,7 @@ The next section walks each phase in depth.
 
 The most common cause of a failed AI eval programme is starting too late. Teams build the model, deploy it, then try to figure out how to measure it — by which point everyone has formed a private opinion of what the system "should" do, and those opinions disagree. Design phase prevents this by writing down the answer before code exists.
 
-![Identify the Principal Domain Expert](Diagrams/auto/home-3-d8faf501.svg)
+![Identify the Principal Domain Expert](Diagrams/auto/home-3-d8faf501.png)
 **Concepts introduced here:**
 
 - **Principal Domain Expert (PDE)** — *the single person whose judgment defines whether the AI's output is acceptable for this use case.* For a complaint classifier, the PDE is a regulatory officer. For a medical chatbot, a clinician. For a legal assistant, a lawyer. Teams that try to crowd-source "good" across a committee usually end up with criteria so vague nobody can apply them.
@@ -91,7 +91,7 @@ Deeper reading: [Why Evals Matter](01-Foundations/Why-Evals-Matter.md), [Eval Ma
 
 When a feature is brand new, there is no production traffic to learn from. Teams that wait for "real data" never start. The Bootstrap phase manufactures the dataset using **synthetic data** — model-generated inputs designed to cover the personas, scenarios, and failure modes the PDE expects in production — and pairs each synthetic input with a label produced by hand.
 
-![List personas × scenarios × failure modes with the PDE](Diagrams/auto/home-4-a39ee507.svg)
+![List personas × scenarios × failure modes with the PDE](Diagrams/auto/home-4-a39ee507.png)
 **Concepts introduced here:**
 
 - **Synthetic data** — *AI-generated inputs designed to fill gaps that real traffic has not produced yet.* Used correctly, it accelerates the cold start. Used naively, it produces an eval set that only tests inputs the model is already good at — because the same kind of model wrote them. The discipline is to generate against an explicit **persona × scenario × failure-mode** matrix rather than freeform.
@@ -115,7 +115,7 @@ Deeper reading: [build an ai evals dataset from scratch](02-Building-Evals/build
 
 Once the harness produces a stable score, every change to the application — a new prompt, a different model, a tweaked retrieval setting — is judged by whether the score moves up or down. Development becomes empirical instead of intuitive. This is the phase where most of the engineering effort lives, and where two distinct types of evaluator do the work: cheap deterministic checks called **unit evals**, and a second AI scoring the first AI, called an **LLM-as-judge**.
 
-![Engineer changes prompt or code](Diagrams/auto/home-5-728fe7de.svg)
+![Engineer changes prompt or code](Diagrams/auto/home-5-728fe7de.png)
 **Concepts introduced here:**
 
 - **Unit eval** — *a deterministic, code-only check that returns true or false in milliseconds.* Examples: "the JSON parses", "the predicted theme appears in the official taxonomy", "the answer mentions the queried date range". Unit evals are free, fast, and unforgiving — exactly the qualities a regression test needs.
@@ -140,7 +140,7 @@ Deeper reading: [LLM as Judge Complete Guide](03-LLM-Judges/LLM-as-Judge-Complet
 
 Develop optimises against a known set of examples — the dev set. That creates a subtle hazard: prompts get tuned until they pass the dev set, even when the underlying behaviour has not generalised. Pre-release exists to catch this. The team holds back a **regression test set** the engineer never sees during Develop, runs the new version against it, and only promotes the change if the score clears a threshold *and* the PDE personally signs off on a sampled fraction.
 
-![Pull request opened](Diagrams/auto/home-6-b600767b.svg)
+![Pull request opened](Diagrams/auto/home-6-b600767b.png)
 **Concepts introduced here:**
 
 - **Regression test set** — *a curated set of inputs and expected outcomes locked at a point in time, used to verify a new version does not silently break behaviour the previous version got right.* The defining property is that the engineer cannot peek at it during Develop. If the engineer can see it, they will tune to it, and its purpose collapses.
@@ -161,7 +161,7 @@ Deeper reading: [Integrating Evals](06-Eval-Lifecycle/Integrating-Evals.md), [Ev
 
 A version that passes Pre-release is not a finished system; it is a hypothesis. Production turns the hypothesis into evidence by sampling a slice of live traffic — typically 1–2% — and running the same judge that gated the release. Scores are tracked over time. When they fall, alerts fire. When the on-call engineer triages the alert, novel failure modes are added to the dataset, which feeds back into the next Bootstrap–Develop–Pre-release pass. That feedback arrow is what makes the lifecycle a loop instead of a one-way pipeline.
 
-![Live user traffic](Diagrams/auto/home-7-935f58b5.svg)
+![Live user traffic](Diagrams/auto/home-7-935f58b5.png)
 **Concepts introduced here:**
 
 - **Sampling rate** — *the fraction of live traffic on which the judge runs.* Industry practice settles around 1–2%; higher rates produce sharper drift signals but cost more in tokens and latency.
@@ -189,7 +189,7 @@ The five-phase lifecycle holds for any AI application. Two architectures add spe
 
 A RAG system answers user questions by first retrieving documents from a corpus and then asking a language model to compose an answer grounded in those documents. The lifecycle is the same; the criteria are richer because two pipeline stages can fail independently — retrieval can return the wrong documents, or the model can ignore the right ones. The field has settled on six specific evals that together cover the failure surface.
 
-![User question](Diagrams/auto/home-8-f1efdfd3.svg)
+![User question](Diagrams/auto/home-8-f1efdfd3.png)
 The six evals, in plain language:
 
 1. **Context Recall** — did the retriever fetch the documents that actually contain the answer?

@@ -37,7 +37,7 @@ For example, baseline RAG fails to answer the query *"What has Novorossiya done?
 
 GraphRAG improves upon baseline RAG by introducing a **knowledge graph layer** that captures relationships between entities and concepts. This process involves:
 
-![Private Dataset](../Diagrams/auto/graphrag-introduction-1-cd6598e2.svg)
+![Private Dataset](../Diagrams/auto/graphrag-introduction-1-cd6598e2.png)
 **Key Components**:
 - **Knowledge Graph Construction**: The LLM parses the private dataset to create a graph of entities, relationships, and attributes.
 - **Graph Machine Learning**: Algorithms analyze the graph to identify patterns, hierarchies, and connections.
