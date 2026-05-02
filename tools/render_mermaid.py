@@ -1,16 +1,19 @@
-"""Pre-render every ```mermaid block in wiki/*.md to SVG via mmdc, replace the
+"""Pre-render every ```mermaid block in wiki/*.md to PNG via mmdc, replace the
 fenced block in the source .md with an image reference. Idempotent: only
 re-renders blocks whose source hash has changed.
 
+PNG (not SVG) because Databricks Repos' Markdown previewer does not render SVG
+inline. PNG renders in every viewer we care about.
+
 Output layout:
-  wiki/Diagrams/auto/<file-slug>-<index>.png   - rendered diagram
-  wiki/Diagrams/auto/<file-slug>-<index>.mmd   - source kept editable
+  wiki/Diagrams/auto/<file-slug>-<index>-<hash>.png   - rendered at 1600px wide
+  wiki/Diagrams/auto/<file-slug>-<index>-<hash>.mmd   - source kept editable
 
 Usage:
   python3 tools/render_mermaid.py            # render + rewrite .md files
   python3 tools/render_mermaid.py --check    # report pending blocks, exit 1 if any
 
-Requires mmdc on PATH (verified: /opt/homebrew/bin/mmdc).
+Requires mmdc on PATH.
 """
 from __future__ import annotations
 
