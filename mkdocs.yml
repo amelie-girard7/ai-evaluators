@@ -1,0 +1,135 @@
+site_name: AI Evaluators
+site_description: A comprehensive guide to evaluating AI systems — from LLM judges to RAG pipelines to agentic workflows.
+site_author: Amelie Girard
+site_url: https://amelie-girard7.github.io/ai-evaluators/
+
+repo_url: https://github.com/amelie-girard7/ai-evaluators
+repo_name: amelie-girard7/ai-evaluators
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.mark
+  - pymdownx.critic
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/amelie-girard7
+  generator: false
+
+copyright: Copyright &copy; 2025–2026 Amelie Girard
+
+nav:
+  - Home: index.md
+  - Foundations:
+    - Why Evals Matter: foundations/why-evals-matter.md
+    - Eval Types Overview: foundations/eval-types-overview.md
+    - Eval Maturity Ladder: foundations/eval-maturity-ladder.md
+    - Unit Evals: foundations/unit-evals.md
+    - Human Evals: foundations/human-evals.md
+  - Building Evals:
+    - Build a Dataset from Scratch: building-evals/build-dataset-from-scratch.md
+    - Generate Synthetic Datasets: building-evals/generate-synthetic-datasets.md
+  - LLM Judges:
+    - "LLM-as-Judge: Complete Guide": llm-judges/llm-as-judge-complete-guide.md
+    - Validation Protocol: llm-judges/validation-protocol.md
+  - Metrics & Scoring:
+    - Binary vs Likert Scales: metrics/binary-vs-likert.md
+    - The Mirage of Generic Metrics: metrics/mirage-of-generic-metrics.md
+  - Error Analysis:
+    - Overview: error-analysis/overview.md
+    - Case Studies: error-analysis/case-studies.md
+  - Eval Lifecycle:
+    - Integrating Evals: lifecycle/integrating-evals.md
+    - Evaluation-Driven Development: lifecycle/evaluation-driven-development.md
+    - "Evals Are NOT All You Need": lifecycle/evals-are-not-all-you-need.md
+    - Observability in Production: lifecycle/observability-in-production.md
+  - Agent Evals:
+    - Demystifying Agent Evals: agent-evals/demystifying-agent-evals.md
+  - Applied Implementation:
+    - "UC1: Complaint Classification": applied/uc1-complaint-classification.md
+    - "UC1: Eval Design Step by Step": applied/uc1-eval-design-step-by-step.md
+    - "UC2: RAG Chatbot Overview": applied/uc2-rag-chatbot-overview.md
+    - "UC2: The 6 RAG Evals": applied/uc2-the-6-rag-evals.md
+  - Tools & Platforms:
+    - MLflow Evaluation Datasets: tools/mlflow-evaluation-datasets.md
+    - MLflow Tracing & Observability: tools/mlflow-tracing-observability.md
+    - Evaluate & Monitor AI Agents: tools/evaluate-monitor-agents.md
+    - "Tutorial: Evaluate & Improve GenAI": tools/tutorial-evaluate-and-improve.md
+  - Checklists:
+    - Eval Design Checklist: checklists/eval-design.md
+    - LLM Judge Quality: checklists/llm-judge-quality.md
+    - Error Analysis: checklists/error-analysis.md
+    - RAG Eval Coverage: checklists/rag-eval-coverage.md
+  - Diagrams:
+    - Eval Pipeline Architecture: diagrams/eval-pipeline-architecture.md
+    - Error Analysis Workflow: diagrams/error-analysis-workflow.md
+    - RAG Evals Framework: diagrams/rag-evals-framework.md
+    - LLM Judge Recreation: diagrams/hamel-llm-judge-recreation.md
+  - References: references.md
