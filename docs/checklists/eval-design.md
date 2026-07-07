@@ -18,7 +18,7 @@ Use this before writing the first line of code or the first prompt. The discipli
 
 ---
 
-## UC1 — Complaint Classifier specific
+## UC1 — Client Feedback Classifier specific
 
 - [ ] All 8+ taxonomy themes have written definitions
 - [ ] Each theme has inclusion and exclusion criteria

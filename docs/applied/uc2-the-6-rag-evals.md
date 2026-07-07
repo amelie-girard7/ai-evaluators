@@ -8,7 +8,7 @@ Teams that add more metrics without covering these six are measuring noise. Team
 
 ## The 6 evals mapped to the RAG pipeline
 
-!["User query\n'Complaints from\nWestern Sydney\n2025-26?'"](../assets/diagrams/uc2-the-6-rag-evals-1-33996cbd.png)
+!["User query\n'Client Feedbacks from\nWestern Sydney\n2025-26?'"](../assets/diagrams/uc2-the-6-rag-evals-1-33996cbd.png)
 ---
 
 ## Eval 1: Context Precision (Retrieval)
@@ -25,7 +25,7 @@ Chatbot: Are retrieved records from Western Sydney, or cluttered with other regi
 
 **Formula:** `Recall = Relevant retrieved / Total relevant in DB` | **Target:** > 90%
 
-Chatbot: Did retrieval find ALL Western Sydney 2025-26 complaints, or are some missing?
+Chatbot: Did retrieval find ALL Western Sydney 2025-26 client feedback, or are some missing?
 
 **Fix when failing:** Re-index; increase top-k; add keyword fallback for geographic terms.
 
@@ -69,7 +69,7 @@ Chatbot: If user asked "nature AND volume", did the answer address both?
 
 | Priority | Eval | Why |
 |---|---|---|
-| CRITICAL | Faithfulness | Hallucination in regulatory context is catastrophic |
+| CRITICAL | Faithfulness | Hallucination in business-critical context is catastrophic |
 | CRITICAL | Correctness | Wrong facts destroy trust and decisions |
 | HIGH | Context Recall | Missing records = missing data |
 | HIGH | Context Precision | Noisy retrieval degrades all downstream quality |

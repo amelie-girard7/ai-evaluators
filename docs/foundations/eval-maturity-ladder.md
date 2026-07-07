@@ -16,7 +16,7 @@ Manual inspection of a handful of examples before each release. No systematic co
 
 **Signs you're here:** "We look at a few outputs and it seems fine." "We test it ourselves before shipping."
 
-**Cost of staying here:** You will ship regressions. The complaint classifier will silently miss the Underquoting theme on 20% of cases and no one will know until a regulator asks.
+**Cost of staying here:** You will ship regressions. The client feedback classifier will silently miss the Billing Discrepancy theme on 20% of cases and no one will know until a stakeholder asks.
 
 ---
 
@@ -28,7 +28,7 @@ A curated set of known input–output pairs. Automated checks on every code chan
 2. Write automated assertions (exact match, set match, regex checks)
 3. Run on every pull request; block merges on regression
 
-**For UC1:** A set of 200 complaints with agreed theme labels. Automated check that every output includes only valid taxonomy terms and no hallucinated themes.
+**For UC1:** A set of 200 client feedback with agreed theme labels. Automated check that every output includes only valid taxonomy terms and no hallucinated themes.
 
 ---
 
@@ -40,7 +40,7 @@ A second LLM evaluates outputs against criteria you define. Scales to thousands 
 - Criteria specific to your task (not generic "is this good?")
 - Cohen kappa > 0.6 between judge and human labels before trusting it
 
-**For UC1:** The judge evaluates whether each predicted theme is justified by the complaint text, and whether all applicable themes have been captured.
+**For UC1:** The judge evaluates whether each predicted theme is justified by the feedback text, and whether all applicable themes have been captured.
 
 ---
 
@@ -50,7 +50,7 @@ Production traffic is sampled and evaluated continuously. Drift is detected auto
 **What this gives you:**
 - Early warning when model updates change output quality
 - Data on real user queries that expose gaps in your offline test set
-- Continuous calibration of your gold set as complaint types evolve
+- Continuous calibration of your gold set as feedback types evolve
 
 ---
 

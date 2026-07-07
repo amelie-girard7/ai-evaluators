@@ -1,6 +1,6 @@
 # Diagram: Eval Pipeline Architecture
 
-*Full end-to-end evaluation pipeline for the complaint classification system (UC1).*
+*Full end-to-end evaluation pipeline for the client feedback classification system (UC1).*
 *The standalone SVG version of this diagram is also available in the course materials.*
 
 ---

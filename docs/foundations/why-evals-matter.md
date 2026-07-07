@@ -6,7 +6,7 @@
 
 ## The core problem
 
-LLM outputs exist on a spectrum of quality. Unlike traditional software tests that pass or fail deterministically, a complaint classifier that labels themes or a chatbot that answers regulatory queries produces outputs that can be correct, partially correct, or wrong in subtle ways that a simple pass/fail test cannot capture.
+LLM outputs exist on a spectrum of quality. Unlike traditional software tests that pass or fail deterministically, client feedback classifier that labels themes or a chatbot that answers business queries produces outputs that can be correct, partially correct, or wrong in subtle ways that a simple pass/fail test cannot capture.
 
 Without systematic evaluation, teams discover failures **reactively** — after users have already been harmed by incorrect outputs. The goal of evaluation engineering is to move failure discovery from production to development.
 
@@ -16,20 +16,20 @@ Without systematic evaluation, teams discover failures **reactively** — after 
 
 | System | Silent failure mode | Business consequence |
 |---|---|---|
-| **UC1: Complaint classifier** | Underquoting theme missed on 15% of complaints | Regulatory reports misrepresent prevalence; wrong workload routing |
-| **UC2: RAG chatbot** | Hallucinated complaint count for Western Sydney | Decision-maker acts on incorrect data; trust in system destroyed |
+| **UC1: Client Feedback classifier** | Billing Discrepancy theme missed on 15% of client feedback | Business reports misrepresent prevalence; wrong workload routing |
+| **UC2: RAG chatbot** | Hallucinated feedback count for Western Sydney | Decision-maker acts on incorrect data; trust in system destroyed |
 
 ---
 
 ## The fundamental question: what does "good" mean?
 
-For a classifier labelling 50,000 complaints per year, "good" means:
-- Correct themes applied according to regulatory taxonomy definitions
+For a classifier labelling 50,000 client feedback per year, "good" means:
+- Correct themes applied according to internal taxonomy definitions
 - All relevant themes captured (multi-label completeness)
 - No fabricated themes appear in output
 - Consistent enough for downstream analytics
 
-For a chatbot answering regulatory queries, "good" means:
+For a chatbot answering business queries, "good" means:
 - Factually correct against source data
 - Grounded in retrieved records (no hallucination)
 - Responsive to the specific question asked
@@ -60,7 +60,7 @@ From Reganti & Badam (O'Reilly, 2025): evaluation scores are necessary but not s
 - Error analysis to understand root causes
 - Ongoing taxonomy maintenance as the domain evolves
 
-> **Applied to UC1:** A complaint labelling system serving a regulatory body must combine automated evals (accuracy, precision, recall per theme), human review of edge cases, and ongoing monitoring of label distribution drift as new types of complaints emerge.
+> **Applied to UC1:** A feedback labelling system serving an organisation must combine automated evals (accuracy, precision, recall per theme), human review of edge cases, and ongoing monitoring of label distribution drift as new types of client feedback emerge.
 
 ---
 

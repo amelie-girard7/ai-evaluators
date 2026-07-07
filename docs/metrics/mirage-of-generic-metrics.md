@@ -7,9 +7,9 @@ Decodingai.com's 'The Mirage of Generic AI Metrics' identifies a critical mistak
 ## 8.1 Defining Task-Specific Metrics for Each Use Case
 The correct approach is to start with the business outcome and work backwards to the metrics:
 
-Complaint Classification: Business outcome is accurate regulatory categorisation. Metrics: F1 per taxonomy theme (not overall accuracy), multi-label coverage rate, taxonomy compliance rate (no invented themes), human kappa validation.
+Client Feedback Classification: Business outcome is accurate business categorisation. Metrics: F1 per taxonomy theme (not overall accuracy), multi-label coverage rate, taxonomy compliance rate (no invented themes), human kappa validation.
 
-RAG Chatbot: Business outcome is accurate and complete answers to regulatory queries. Metrics: the 6 RAG evals (precision, recall, faithfulness, relevance, correctness, completeness), calibrated for the specific complaint domain.
+RAG Chatbot: Business outcome is accurate and complete answers to business queries. Metrics: the 6 RAG evals (precision, recall, faithfulness, relevance, correctness, completeness), calibrated for the specific client feedback domain.
 
 Off-the-shelf metrics like BLEU are appropriate as a sanity check but should never be used as the primary evaluation signal for production AI systems.
 

@@ -6,8 +6,8 @@ Anthropic's 'Demystifying Evals for AI Agents' identifies a fundamental challeng
 
 ## 10.1 The Three Levels of Agent Evaluation
 
-## 10.2 Applying Agent Evals to the Complaints Chatbot
-The complaints chatbot is a simple two-step agent: retrieve then generate. But even this simple pipeline requires trajectory evaluation:
+## 10.2 Applying Agent Evals to the Client Feedback Chatbot
+The client feedback chatbot is a simple two-step agent: retrieve then generate. But even this simple pipeline requires trajectory evaluation:
 
 - Step 1 eval: Did the retrieval query include the correct region filter and date range?
 - Step 2 eval: Did the generation use only information from the retrieved context?

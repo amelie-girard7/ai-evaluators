@@ -113,7 +113,7 @@ nav:
   - Agent Evals:
     - Demystifying Agent Evals: agent-evals/demystifying-agent-evals.md
   - Applied Implementation:
-    - "UC1: Complaint Classification": applied/uc1-complaint-classification.md
+    - "UC1: Client Feedback Classification": applied/uc1-client-feedback-classification.md
     - "UC1: Eval Design Step by Step": applied/uc1-eval-design-step-by-step.md
     - "UC2: RAG Chatbot Overview": applied/uc2-rag-chatbot-overview.md
     - "UC2: The 6 RAG Evals": applied/uc2-the-6-rag-evals.md

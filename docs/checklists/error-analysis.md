@@ -7,7 +7,7 @@ Run this before starting any error analysis session. The structure prevents the 
 ## Before the session
 
 - [ ] Minimum **50 failure cases** collected (below eval threshold)
-- [ ] Cases stratified — not all from the same complaint type or date range
+- [ ] Cases stratified — not all from the same feedback type or date range
 - [ ] Ground truth available for each case (gold label or verified answer)
 - [ ] Session blocked in calendar — allow **2–4 hours minimum**
 

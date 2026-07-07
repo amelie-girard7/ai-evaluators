@@ -1,10 +1,10 @@
 # Diagram: RAG Evals Framework
 
-*The 6 RAG evals mapped to the complaints chatbot pipeline.*
+*The 6 RAG evals mapped to the client feedback chatbot pipeline.*
 
 ---
 
-!["User Query\n'Complaints Western Sydney\n2025-2026?'"](../assets/diagrams/rag-evals-framework-1-b89acb8b.png)
+!["User Query\n'Client Feedbacks Western Sydney\n2025-2026?'"](../assets/diagrams/rag-evals-framework-1-b89acb8b.png)
 ---
 
 ## Fix decision tree: when an eval fails

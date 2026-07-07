@@ -37,12 +37,12 @@ Steps to reduce disagreement:
 
 ## Human eval for our use cases
 
-### UC1 — Complaint Classifier
-Reviewers need: the full complaint text, the predicted theme list, the taxonomy with definitions, and a simple YES/NO form per criterion. Do **not** show reviewers the model's reasoning — it anchors their judgment.
+### UC1 — Client Feedback Classifier
+Reviewers need: the full feedback text, the predicted theme list, the taxonomy with definitions, and a simple YES/NO form per criterion. Do **not** show reviewers the model's reasoning — it anchors their judgment.
 
 ### UC2 — RAG Chatbot
 Reviewers need: the question, the retrieved context chunks, and the generated answer. They evaluate: (1) Is the answer factually correct? (2) Is every claim supported by the retrieved context? (3) Does the answer fully address the question?
 
 ---
 
-*Back: [LLM-as-Judge](../llm-judges/llm-as-judge-complete-guide.md) | Next section: [UC1 Overview](../applied/uc1-complaint-classification.md)*
+*Back: [LLM-as-Judge](../llm-judges/llm-as-judge-complete-guide.md) | Next section: [UC1 Overview](../applied/uc1-client-feedback-classification.md)*

@@ -110,7 +110,7 @@ The most effective synthetic data generation starts with **defining dimensions**
 | Dimension | Example Values |
 |---------|----------------|
 | User Persona | "First-time user", "Expert", "Adversarial" |
-| Query Type | "Fact-check", "Request", "Complaint" |
+| Query Type | "Fact-check", "Request", "Client Feedback" |
 | Context Complexity | "Single document", "Multi-source", "No context" |
 | Failure Mode | "Hallucination", "Missing data", "Ambiguity" |
 

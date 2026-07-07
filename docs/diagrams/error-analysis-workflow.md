@@ -18,7 +18,7 @@
 |---|---|---|---|---|---|
 | Multi-label gap (UC1) | 3 | 3 | 3 | **9** | Prompt: allow list output |
 | Hallucinated % (UC2) | 3 | 3 | 3 | **9** | Prompt: citation required |
-| Underquoting/Advertising boundary (UC1) | 2 | 2 | 3 | **12→6** | Add boundary examples |
+| Billing Discrepancy/Advertising boundary (UC1) | 2 | 2 | 3 | **12→6** | Add boundary examples |
 | Geography not normalised (UC2) | 2 | 3 | 2 | **12→8** | Engineering: normalise index |
 | Indirect honesty language (UC1) | 2 | 3 | 3 | **18→7** | Add few-shot examples |
 

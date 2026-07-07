@@ -8,7 +8,7 @@ A judge that has not been validated against human labels is not a judge — it i
 
 ## The calibration pipeline
 
-![Gold Set - 200-500 complaints with human labels](../assets/diagrams/validation-protocol-1-2f1bc8d4.png)
+![Gold Set - 200-500 client feedback with human labels](../assets/diagrams/validation-protocol-1-2f1bc8d4.png)
 ---
 
 ## Cohen kappa interpretation
@@ -71,7 +71,7 @@ print(results)
 - [ ] Compute kappa per criterion and compare to previous quarter
 - [ ] If kappa drops > 0.1 on any criterion: flag for investigation
 - [ ] Check if LLM provider updated the model — this is the most common cause of drift
-- [ ] Review any new complaint types added since last validation
+- [ ] Review any new feedback types added since last validation
 - [ ] Update gold set with cases from the last quarter's error analysis sessions
 
 ---

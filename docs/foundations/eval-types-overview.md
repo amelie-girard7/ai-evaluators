@@ -32,15 +32,15 @@ The correct architecture is not a choice between these three — it is a **layer
 
 ## Applied to our use cases
 
-### UC1 — Complaint Classifier
-- **Unit evals:** 200 complaints with verified theme labels; exact match + taxonomy compliance check
+### UC1 — Client Feedback Classifier
+- **Unit evals:** 200 client feedback with verified theme labels; exact match + taxonomy compliance check
 - **LLM judge:** Criteria-based judge for multi-label coverage and theme justification; runs nightly on dev set
 - **Human eval:** Domain expert reviews 50 judge disagreements per month; updates gold set
 
 ### UC2 — RAG Chatbot
-- **Unit evals:** Known query–answer pairs (e.g., "How many complaints 2025-26?" → exact count)
+- **Unit evals:** Known query–answer pairs (e.g., "How many client feedback 2025-26?" → exact count)
 - **LLM judge:** Faithfulness check (are all claims grounded in retrieved context?); relevance check
-- **Human eval:** Regulatory staff review 20 sampled responses per week
+- **Human eval:** Business staff review 20 sampled responses per week
 
 ---
 

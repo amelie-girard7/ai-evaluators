@@ -15,9 +15,9 @@ A unit eval has three properties:
 
 ---
 
-## Unit eval types for complaint classification (UC1)
+## Unit eval types for client feedback classification (UC1)
 
-![Complaint text](../assets/diagrams/unit-evals-1-49d5aff8.png)
+![Client Feedback text](../assets/diagrams/unit-evals-1-49d5aff8.png)
 ---
 
 ## Example unit eval implementations (Python)
@@ -27,9 +27,9 @@ import json
 from typing import List
 
 VALID_THEMES = {
-    "Unsatisfactory behaviour by strata manager/agent",
+    "Unsatisfactory behaviour by service provider",
     "Agent failure to act honestly / fairly",
-    "Underquoting",
+    "Billing Discrepancy",
     "Advertising at misleading prices",
     "Misleading advertising",
     "Failure to disclose material facts",
@@ -69,7 +69,7 @@ def run_unit_evals(gold_set: List[dict], predictions: List[dict]) -> dict:
 
 | Eval | Assertion | Example |
 |---|---|---|
-| Count exact match | `predicted_count == ground_truth_count` | "147 complaints" == DB query result |
+| Count exact match | `predicted_count == ground_truth_count` | "147 client feedback" == DB query result |
 | Date range parsed | Response contains explicit date range | Output mentions "2025-2026" |
 | Region filter applied | Response references queried region | "Western Sydney" appears in answer |
 | No hallucination marker | Response does not claim certainty without retrieval | Fails if "definitely" without citation |

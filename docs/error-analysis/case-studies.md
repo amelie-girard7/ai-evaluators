@@ -4,39 +4,39 @@ Applied to both use cases. Each cluster shows the root cause, a representative e
 
 ---
 
-## UC1 — Complaint Classifier: Error Clusters
+## UC1 — Client Feedback Classifier: Error Clusters
 
-### Cluster A: Single-label output on multi-theme complaints
-**Frequency:** Very high (affects ~35% of multi-theme complaints)
+### Cluster A: Single-label output on multi-theme client feedback
+**Frequency:** Very high (affects ~35% of multi-theme client feedback)
 **Root cause:** Prompt says "identify the primary theme" — model returns one theme even when multiple apply
 **Representative failure:**
-- Input: Example 2 complaint (rejected offer + guide not updated)
+- Input: Example 2 feedback (rejected offer + guide not updated)
 - Gold: 5 themes
-- Predicted: `["Underquoting"]` only
+- Predicted: `["Billing Discrepancy"]` only
 
-**Fix:** Rewrite prompt: *"A complaint may have multiple applicable themes. Return ALL themes that are supported by the complaint text."* Change output schema from `string` to `list[string]`.
+**Fix:** Rewrite prompt: *"A feedback may have multiple applicable themes. Return ALL themes that are supported by the feedback text."* Change output schema from `string` to `list[string]`.
 **Outcome:** Fixed 34% of all failures in one prompt change.
 
 ---
 
-### Cluster B: Underquoting vs Advertising at misleading prices confusion
-**Frequency:** Medium (~18% of underquoting complaints)
+### Cluster B: Billing Discrepancy vs Advertising at misleading prices confusion
+**Frequency:** Medium (~18% of billing-related client feedback)
 **Root cause:** Taxonomy definitions overlap; no boundary examples in prompt
 **Representative failure:**
-- Input: Example 1 complaint (multiple guide increases, sold $750k above original guide)
-- Gold: Both "Underquoting" AND "Advertising at misleading prices"
-- Predicted: "Underquoting" only (missed "Advertising at misleading prices")
+- Input: Example 1 feedback (multiple guide increases, sold $750k above original guide)
+- Gold: Both "Billing Discrepancy" AND "Advertising at misleading prices"
+- Predicted: "Billing Discrepancy" only (missed "Advertising at misleading prices")
 
-**Fix:** Add to prompt: *"Underquoting relates to the gap between guide and likely/eventual selling price. Advertising at misleading prices applies when the advertised price itself creates a false impression, regardless of the underquoting definition. Both can apply simultaneously."* Add 3 boundary examples.
+**Fix:** Add to prompt: *"Billing Discrepancy relates to the gap between guide and likely/eventual selling price. Advertising at misleading prices applies when the advertised price itself creates a false impression, regardless of the billing discrepancy definition. Both can apply simultaneously."* Add 3 boundary examples.
 **Outcome:** Reduced this cluster by 71%.
 
 ---
 
 ### Cluster C: Agent honesty theme missed when language is indirect
-**Frequency:** Medium (~15% of honesty-related complaints)
+**Frequency:** Medium (~15% of honesty-related client feedback)
 **Root cause:** Complainants use polite language; "Agent failed to be transparent" vs "Agent was dishonest"
 **Representative failure:**
-- Input: Complaint where complainant says agent "was not forthcoming" with price information
+- Input: Client Feedback where complainant says agent "was not forthcoming" with price information
 - Gold: "Agent failure to act honestly / fairly"
 - Predicted: Nothing in this theme category
 
@@ -47,22 +47,22 @@ Applied to both use cases. Each cluster shows the root cause, a representative e
 
 ---
 
-### Cluster D: Novel complaint type — confidentiality request
+### Cluster D: Novel feedback type — confidentiality request
 **Frequency:** Low but emerging (~3%)
-**Root cause:** Complainants include a request for confidentiality in the complaint text; model sometimes flags this as a separate theme
-**Fix:** Add to taxonomy exclusion list: "Confidentiality requests are procedural, not a complaint theme. Do not classify this as a theme."
+**Root cause:** Complainants include a request for confidentiality in the feedback text; model sometimes flags this as a separate theme
+**Fix:** Add to taxonomy exclusion list: "Confidentiality requests are procedural, not a feedback item theme. Do not classify this as a theme."
 
 ---
 
 ## UC2 — RAG Chatbot: Error Clusters
 
 ### Cluster A: Hallucinated theme percentages
-**Frequency:** High when user asks "what proportion of complaints relate to X?"
+**Frequency:** High when user asks "what proportion of client feedback relate to X?"
 **Root cause:** Retrieved records contain counts but not percentages; LLM calculates percentages not present in context
 **Fix:** System prompt addition: *"If the user asks for proportions or percentages, calculate them from the retrieved counts and explicitly state the calculation. Do not invent percentages. If you cannot calculate from the retrieved data, state that you do not have sufficient information."*
 **Outcome:** Eliminated 100% of hallucinated percentage cases.
 
-### Cluster B: Wrong complaint count (off by varying amounts)
+### Cluster B: Wrong feedback count (off by varying amounts)
 **Root cause:** Metadata filter for "Western Sydney" not normalised — some records tagged with suburb names, others with LGA names, others with postcodes
 **This is a retrieval (infrastructure) problem, not a prompt problem.**
 **Fix:** Engineering change — normalise all geographic metadata to a standard postcode list at ingestion time. Rebuild index.

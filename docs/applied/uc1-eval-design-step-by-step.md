@@ -1,6 +1,6 @@
 # UC1: Eval Design — Step by Step
 
-The 8-step process for building a production-grade eval suite for complaint theme classification.
+The 8-step process for building a production-grade eval suite for client feedback classification.
 
 ---
 
@@ -24,8 +24,8 @@ Definition: [Plain language definition]
 Applies when: [Inclusion criteria]
 Does NOT apply when: [Exclusion criteria]
 Boundary with [adjacent theme]: [How to distinguish]
-Positive examples: [2-3 complaint excerpts that clearly apply]
-Negative examples: [2-3 complaint excerpts that do not apply]
+Positive examples: [2-3 feedback excerpts that clearly apply]
+Negative examples: [2-3 feedback excerpts that do not apply]
 Edge cases: [Known ambiguous situations + resolution]
 ```
 
@@ -33,7 +33,7 @@ Edge cases: [Known ambiguous situations + resolution]
 
 ## Step 2: Build the gold set
 
-- **Target size:** 300–500 complaints for initial gold set
+- **Target size:** 300–500 client feedback for initial gold set
 - **Annotation process:** 2 domain experts label independently; resolve disagreements in a joint session
 - **Documentation:** Record the reasoning for every disagreement resolution — this becomes your criteria refinement
 - **Stratification:** Ensure representation of each theme, multi-theme combinations, and edge cases
@@ -46,9 +46,9 @@ Edge cases: [Known ambiguous situations + resolution]
 ```python
 # Core unit evals for UC1
 VALID_THEMES = {
-    "Unsatisfactory behaviour by strata manager/agent",
+    "Unsatisfactory behaviour by service provider",
     "Agent failure to act honestly / fairly",
-    "Underquoting",
+    "Billing Discrepancy",
     "Advertising at misleading prices",
     "Misleading advertising",
     "Failure to disclose material facts",
@@ -96,16 +96,16 @@ Every prompt change triggers the full eval suite. Merges are blocked if:
 ```python
 import random
 
-def should_eval_online(complaint_id: str, sample_rate: float = 0.02) -> bool:
-    """Sample ~2% of production complaints for online eval."""
+def should_eval_online(feedback_id: str, sample_rate: float = 0.02) -> bool:
+    """Sample ~2% of production client feedback for online eval."""
     return random.random() < sample_rate
 
-def online_eval_pipeline(complaint: dict, predicted_themes: list) -> dict:
-    """Run LLM judge on a sampled production complaint and log results."""
-    if not should_eval_online(complaint["id"]):
+def online_eval_pipeline(feedback: dict, predicted_themes: list) -> dict:
+    """Run LLM judge on a sampled production feedback and log results."""
+    if not should_eval_online(feedback["id"]):
         return None
-    score = run_llm_judge(complaint["text"], predicted_themes)
-    log_eval_result(complaint["id"], score)
+    score = run_llm_judge(feedback["text"], predicted_themes)
+    log_eval_result(feedback["id"], score)
     check_drift_alert(score)
     return score
 ```

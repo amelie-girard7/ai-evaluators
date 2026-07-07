@@ -22,7 +22,7 @@ Decodingai.com's framework for integrating evaluations into the AI application l
 - Run full eval suite on held-out test set (not seen during development)
 - Conduct human review of 10% of test set outputs
 - Verify LLM judge kappa is above threshold
-- Stress-test with adversarial examples (edge cases, ambiguous complaints)
+- Stress-test with adversarial examples (edge cases, ambiguous client feedback)
 - Get domain expert sign-off on taxonomy coverage and accuracy
 
 ## 9.4 Phase 4: Production (After Launch)

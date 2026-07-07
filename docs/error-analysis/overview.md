@@ -40,9 +40,9 @@ You cannot outsource this step to an LLM summariser. The act of reading is the a
 
 | Cluster | Frequency | Business severity | Fixability | Priority score | Action |
 |---|---|---|---|---|---|
-| Multi-label gap | High | High (regulatory reports wrong) | High (prompt change) | 9 | Fix first |
+| Multi-label gap | High | High (business reports wrong) | High (prompt change) | 9 | Fix first |
 | Taxonomy boundary confusion | Medium | Medium | Medium (add examples) | 6 | Fix second |
-| Indirect language missed | Low | High (underquoting cases) | High (few-shot) | 7 | Fix third |
+| Indirect language missed | Low | High (billing discrepancy cases) | High (few-shot) | 7 | Fix third |
 | Novel theme type | Low | Low | Low (taxonomy expansion) | 2 | Backlog |
 
 **Priority score** = Frequency (1-3) × Severity (1-3) × Fixability (1-3)
@@ -51,7 +51,7 @@ You cannot outsource this step to an LLM summariser. The act of reading is the a
 
 ## Detailed use-case case studies
 
-See: [Case Studies](case-studies.md) — error analysis applied to both UC1 (complaint classifier) and UC2 (RAG chatbot)
+See: [Case Studies](case-studies.md) — error analysis applied to both UC1 (client feedback classifier) and UC2 (RAG chatbot)
 
 ---
 
