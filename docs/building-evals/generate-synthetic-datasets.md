@@ -1,6 +1,6 @@
 # Generate Synthetic Datasets for AI Evals
 
-> *"Synthetic data is the missing piece in your evals pipeline. It fills gaps in production data, expands edge cases, and unlocks the full potential of your evaluation framework."* — Decoding AI Series
+> *"Synthetic data is the missing piece in your evals pipeline. It fills gaps in production data, expands edge cases, and unlocks the full potential of your evaluation framework."* - Decoding AI Series
 
 ---
 

@@ -2,16 +2,16 @@
 
 Unit evals are the foundation of any evaluation system. They are deterministic, fast, and free. Most teams underinvest in them.
 
-> *"Most teams jump to LLM judges too quickly. Build your unit evals first. They catch 60–70% of failures at 1% of the cost."* — Hamel Husain
+> *"Most teams jump to LLM judges too quickly. Build your unit evals first. They catch 60–70% of failures at 1% of the cost."* - Hamel Husain
 
 ---
 
 ## What makes a good unit eval?
 
 A unit eval has three properties:
-1. **Known correct answer** — verified by a domain expert, not assumed
-2. **Automated assertion** — runs in CI/CD without human intervention
-3. **Failure is actionable** — when it fails, you know exactly what broke and why
+1. **Known correct answer** - verified by a domain expert, not assumed
+2. **Automated assertion** - runs in CI/CD without human intervention
+3. **Failure is actionable** - when it fails, you know exactly what broke and why
 
 ---
 
@@ -81,11 +81,11 @@ def run_unit_evals(gold_set: List[dict], predictions: List[dict]) -> dict:
 
 A gold set is only as good as the process used to build it.
 
-1. **Start with 50 examples** before scaling — validate the process first
-2. **Use 2+ domain experts** per example — resolve disagreements explicitly
-3. **Document the reasoning** for borderline cases — this becomes your criteria specification
-4. **Stratify by case type** — don't let common cases dominate; include edge cases proportionally
-5. **Treat it as a living document** — add to it every time error analysis reveals a new failure cluster
+1. **Start with 50 examples** before scaling - validate the process first
+2. **Use 2+ domain experts** per example - resolve disagreements explicitly
+3. **Document the reasoning** for borderline cases - this becomes your criteria specification
+4. **Stratify by case type** - don't let common cases dominate; include edge cases proportionally
+5. **Treat it as a living document** - add to it every time error analysis reveals a new failure cluster
 
 ---
 

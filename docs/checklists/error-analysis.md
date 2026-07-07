@@ -7,16 +7,16 @@ Run this before starting any error analysis session. The structure prevents the 
 ## Before the session
 
 - [ ] Minimum **50 failure cases** collected (below eval threshold)
-- [ ] Cases stratified — not all from the same feedback type or date range
+- [ ] Cases stratified - not all from the same feedback type or date range
 - [ ] Ground truth available for each case (gold label or verified answer)
-- [ ] Session blocked in calendar — allow **2–4 hours minimum**
+- [ ] Session blocked in calendar - allow **2–4 hours minimum**
 
 ## During the session
 
 ### Step 1: Read before you cluster
 - [ ] Manually read **at least 20 cases** before opening any clustering tool
 - [ ] Write down 3–5 hypotheses about root causes after reading
-- [ ] Note any cases that seem "different" — edge cases often reveal taxonomy gaps
+- [ ] Note any cases that seem "different" - edge cases often reveal taxonomy gaps
 
 ### Step 2: Cluster by root cause
 - [ ] Group cases by **why** they failed, not by **how** they failed

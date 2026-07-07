@@ -1,6 +1,6 @@
 # Diagram: Error Analysis Workflow
 
-*The 5-step error analysis loop — the highest ROI technique in AI engineering.*
+*The 5-step error analysis loop - the highest ROI technique in AI engineering.*
 
 ---
 
@@ -24,6 +24,6 @@
 
 ---
 
-*Source: Hamel Husain — Error Analysis (YouTube) | Highest ROI Technique article*
+*Source: Hamel Husain - Error Analysis (YouTube) | Highest ROI Technique article*
 
 *Back to: [Diagrams index](eval-pipeline-architecture)*

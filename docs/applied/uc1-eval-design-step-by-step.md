@@ -1,4 +1,4 @@
-# UC1: Eval Design — Step by Step
+# UC1: Eval Design - Step by Step
 
 The 8-step process for building a production-grade eval suite for client feedback classification.
 
@@ -35,7 +35,7 @@ Edge cases: [Known ambiguous situations + resolution]
 
 - **Target size:** 300–500 client feedback for initial gold set
 - **Annotation process:** 2 domain experts label independently; resolve disagreements in a joint session
-- **Documentation:** Record the reasoning for every disagreement resolution — this becomes your criteria refinement
+- **Documentation:** Record the reasoning for every disagreement resolution - this becomes your criteria refinement
 - **Stratification:** Ensure representation of each theme, multi-theme combinations, and edge cases
 - **Hold out 20%** as a test set unseen during prompt development
 
@@ -63,7 +63,7 @@ def assert_theme_coverage(predicted_themes: list, required_themes: list) -> bool
     return set(required_themes).issubset(set(predicted_themes))
 
 def assert_no_hallucination(predicted_themes: list) -> bool:
-    # Stricter than taxonomy compliance — also checks for theme fragments / partial matches
+    # Stricter than taxonomy compliance - also checks for theme fragments / partial matches
     return all(any(t == v for v in VALID_THEMES) for t in predicted_themes)
 ```
 

@@ -1,4 +1,4 @@
-# UC2: RAG Chatbot — Overview
+# UC2: RAG Chatbot - Overview
 
 > **System:** Conversational chatbot allowing internal staff to query client feedback data without writing SQL
 > **Backend:** Vector database over client feedback records; LLM synthesises natural language answers
@@ -24,10 +24,10 @@
 
 ## Key design constraints (business-critical context)
 
-- **Zero hallucination tolerance** — incorrect counts or trends could influence business decisions
-- **Transparency required** — every factual claim must cite the source feedback record
-- **Date range precision** — FY 2025-26 vs calendar year must be explicitly disambiguated
-- **Geography normalisation** — "Western Sydney" is not a single entity; must be normalised to postcodes or LGAs at indexing time
+- **Zero hallucination tolerance** - incorrect counts or trends could influence business decisions
+- **Transparency required** - every factual claim must cite the source feedback record
+- **Date range precision** - FY 2025-26 vs calendar year must be explicitly disambiguated
+- **Geography normalisation** - "Western Sydney" is not a single entity; must be normalised to postcodes or LGAs at indexing time
 
 ---
 

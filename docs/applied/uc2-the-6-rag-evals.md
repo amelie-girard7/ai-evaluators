@@ -1,6 +1,6 @@
 # The 6 RAG Evals
 
-> *"There are only 6 RAG evals."* — Jason Liu, [jxnl.co](https://jxnl.co/writing/2025/05/19/there-are-only-6-rag-evals/) *(site blocked at build time)*
+> *"There are only 6 RAG evals."* - Jason Liu, [jxnl.co](https://jxnl.co/writing/2025/05/19/there-are-only-6-rag-evals/) *(site blocked at build time)*
 
 Teams that add more metrics without covering these six are measuring noise. Teams that skip any of these six have blind spots that produce production failures.
 
@@ -31,7 +31,7 @@ Chatbot: Did retrieval find ALL Western Sydney 2025-26 client feedback, or are s
 
 ---
 
-## Eval 3: Answer Faithfulness (Generation) — CRITICAL
+## Eval 3: Answer Faithfulness (Generation) - CRITICAL
 
 **Formula:** `Faithfulness = Supported claims / Total claims` | **Target:** 100%
 
@@ -49,7 +49,7 @@ Chatbot: Did the answer stay on Western Sydney or drift to state-wide data?
 
 ---
 
-## Eval 5: Answer Correctness (Generation) — CRITICAL
+## Eval 5: Answer Correctness (Generation) - CRITICAL
 
 **Measurement:** Exact match (counts); semantic F1 (descriptions) | **Target:** Exact for counts
 

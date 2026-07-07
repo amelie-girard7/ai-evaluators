@@ -4,11 +4,11 @@ Applied to both use cases. Each cluster shows the root cause, a representative e
 
 ---
 
-## UC1 — Client Feedback Classifier: Error Clusters
+## UC1 - Client Feedback Classifier: Error Clusters
 
 ### Cluster A: Single-label output on multi-theme client feedback
 **Frequency:** Very high (affects ~35% of multi-theme client feedback)
-**Root cause:** Prompt says "identify the primary theme" — model returns one theme even when multiple apply
+**Root cause:** Prompt says "identify the primary theme" - model returns one theme even when multiple apply
 **Representative failure:**
 - Input: Example 2 feedback (rejected offer + guide not updated)
 - Gold: 5 themes
@@ -47,14 +47,14 @@ Applied to both use cases. Each cluster shows the root cause, a representative e
 
 ---
 
-### Cluster D: Novel feedback type — confidentiality request
+### Cluster D: Novel feedback type - confidentiality request
 **Frequency:** Low but emerging (~3%)
 **Root cause:** Complainants include a request for confidentiality in the feedback text; model sometimes flags this as a separate theme
 **Fix:** Add to taxonomy exclusion list: "Confidentiality requests are procedural, not a feedback item theme. Do not classify this as a theme."
 
 ---
 
-## UC2 — RAG Chatbot: Error Clusters
+## UC2 - RAG Chatbot: Error Clusters
 
 ### Cluster A: Hallucinated theme percentages
 **Frequency:** High when user asks "what proportion of client feedback relate to X?"
@@ -63,11 +63,11 @@ Applied to both use cases. Each cluster shows the root cause, a representative e
 **Outcome:** Eliminated 100% of hallucinated percentage cases.
 
 ### Cluster B: Wrong feedback count (off by varying amounts)
-**Root cause:** Metadata filter for "Western Sydney" not normalised — some records tagged with suburb names, others with LGA names, others with postcodes
+**Root cause:** Metadata filter for "Western Sydney" not normalised - some records tagged with suburb names, others with LGA names, others with postcodes
 **This is a retrieval (infrastructure) problem, not a prompt problem.**
-**Fix:** Engineering change — normalise all geographic metadata to a standard postcode list at ingestion time. Rebuild index.
+**Fix:** Engineering change - normalise all geographic metadata to a standard postcode list at ingestion time. Rebuild index.
 
-### Cluster C: Date range misinterpretation — FY vs calendar year
+### Cluster C: Date range misinterpretation - FY vs calendar year
 **Frequency:** Medium
 **Root cause:** "2025-2026" interpreted as either FY (Jul 2025–Jun 2026) or calendar span (Jan 2025–Dec 2026)
 **Fix:** Add to system prompt: *"When a user references a year range like '2025-2026', interpret this as financial year (July 2025 to June 2026) unless the user explicitly specifies otherwise. Confirm the date range in your response."*

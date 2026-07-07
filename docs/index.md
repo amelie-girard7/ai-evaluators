@@ -1,11 +1,11 @@
 ---
-title: AI Evaluators — A Practitioner's Guide
+title: AI Evaluators - A Complete Guide
 description: End-to-end guide to evaluating AI systems, from LLM judges to RAG pipelines to agentic workflows.
 ---
 
 # AI Evaluators
 
-**A practitioner's guide to evaluating AI systems in production.**
+**A complete guide to evaluating AI systems in production.**
 
 ---
 
@@ -15,7 +15,7 @@ description: End-to-end guide to evaluating AI systems, from LLM judges to RAG p
 
     ---
 
-    Without evaluation, teams operate on "vibe checking" — reading ten outputs and deciding things look fine. That does not survive contact with real users.
+    Without evaluation, teams operate on "vibe checking" - reading ten outputs and deciding things look fine. That does not survive contact with real users.
 
     [:octicons-arrow-right-24: Foundations](foundations/why-evals-matter.md)
 
@@ -31,7 +31,7 @@ description: End-to-end guide to evaluating AI systems, from LLM judges to RAG p
 
     ---
 
-    A second language model scoring the first against written criteria. Scales human judgment to thousands of examples — with known failure modes and mitigations.
+    A second language model scoring the first against written criteria. Scales human judgment to thousands of examples - with known failure modes and mitigations.
 
     [:octicons-arrow-right-24: LLM Judges](llm-judges/llm-as-judge-complete-guide.md)
 
@@ -50,7 +50,7 @@ description: End-to-end guide to evaluating AI systems, from LLM judges to RAG p
 ## The AI Evaluation Lifecycle
 
 > *"Without evals, you are flying blind. With bad evals, you are flying with a broken altimeter."*
-> — Hamel Husain
+> - Hamel Husain
 
 ```mermaid
 flowchart LR
@@ -100,7 +100,7 @@ AI applications break the three properties of traditional software: **determinis
 
 ### RAG Applications
 
-RAG systems fail in two independent stages — retrieval can return wrong documents, or the model can ignore right ones. Six metrics cover the full failure surface:
+RAG systems fail in two independent stages - retrieval can return wrong documents, or the model can ignore right ones. Six metrics cover the full failure surface:
 
 ```mermaid
 flowchart TD
@@ -125,7 +125,7 @@ flowchart TD
 
 ### Agentic Systems
 
-Agents take multiple steps — calling tools, reading outputs, deciding the next action. Evaluation must assess the entire **trajectory**, not just the final output.
+Agents take multiple steps - calling tools, reading outputs, deciding the next action. Evaluation must assess the entire **trajectory**, not just the final output.
 
 [:octicons-arrow-right-24: Demystifying Agent Evals](agent-evals/demystifying-agent-evals.md)
 

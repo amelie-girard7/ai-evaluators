@@ -1,6 +1,6 @@
 # Evals Are NOT All You Need
 
-> *"Evals are only important in the context of product quality, and product quality is a process."* — Anonymous AI Product Lead
+> *"Evals are only important in the context of product quality, and product quality is a process."* - Anonymous AI Product Lead
 
 ---
 
@@ -26,7 +26,7 @@ But AI products are fundamentally different:
 **Key differences**:
 - User inputs are unbounded (e.g., "Find a pet-friendly hotel in Austin for next weekend")
 - Outputs are probabilistic (same input may yield different results)
-- No stack traces — only confident-sounding answers that may be wrong
+- No stack traces - only confident-sounding answers that may be wrong
 
 This creates a feedback loop where:
 1. **Offline quality** is hard to estimate (can't anticipate all inputs)

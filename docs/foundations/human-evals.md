@@ -27,9 +27,9 @@ High disagreement between human annotators is a signal that your **criteria need
 
 Steps to reduce disagreement:
 1. Write explicit definitions for each theme with inclusion and exclusion examples
-2. Conduct a calibration session — annotators label the same 20 examples, then discuss disagreements
+2. Conduct a calibration session - annotators label the same 20 examples, then discuss disagreements
 3. Document resolution rules for known boundary cases
-4. Track disagreement rate over time — it should decrease as definitions improve
+4. Track disagreement rate over time - it should decrease as definitions improve
 
 **Target:** Inter-annotator agreement (Cohen kappa) > 0.7 before using a gold set to validate your LLM judge.
 
@@ -37,10 +37,10 @@ Steps to reduce disagreement:
 
 ## Human eval for our use cases
 
-### UC1 — Client Feedback Classifier
-Reviewers need: the full feedback text, the predicted theme list, the taxonomy with definitions, and a simple YES/NO form per criterion. Do **not** show reviewers the model's reasoning — it anchors their judgment.
+### UC1 - Client Feedback Classifier
+Reviewers need: the full feedback text, the predicted theme list, the taxonomy with definitions, and a simple YES/NO form per criterion. Do **not** show reviewers the model's reasoning - it anchors their judgment.
 
-### UC2 — RAG Chatbot
+### UC2 - RAG Chatbot
 Reviewers need: the question, the retrieved context chunks, and the generated answer. They evaluate: (1) Is the answer factually correct? (2) Is every claim supported by the retrieved context? (3) Does the answer fully address the question?
 
 ---

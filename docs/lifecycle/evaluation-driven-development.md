@@ -1,6 +1,6 @@
 # Evaluation-Driven Development (EDD) Framework
 
-> *"Evaluation is the compass that guides AI product development from vague ideas to measurable outcomes."* — Hugo, LLM Software Engineering Advisor
+> *"Evaluation is the compass that guides AI product development from vague ideas to measurable outcomes."* - Hugo, LLM Software Engineering Advisor
 
 ---
 
@@ -37,7 +37,7 @@ This loop ensures continuous improvement before user data is available.
 **Key Differences**:
 - **Inputs**: AI systems handle unbounded, natural language queries
 - **Outputs**: Probabilistic and context-dependent
-- **Error Signals**: No stack traces — only confident-sounding but potentially incorrect answers
+- **Error Signals**: No stack traces - only confident-sounding but potentially incorrect answers
 
 EDD addresses these challenges by focusing on **business-aligned metrics** and **synthetic data validation**.
 
@@ -65,7 +65,7 @@ An effective evaluation harness should track four key areas:
 
 ## From "Vibes" to Structured Evaluation
 
-Initial evaluation often relies on **subjective "vibes"** — e.g., "That answer feels wrong." While useful for intuition, these are inconsistent and untrackable.
+Initial evaluation often relies on **subjective "vibes"** - e.g., "That answer feels wrong." While useful for intuition, these are inconsistent and untrackable.
 
 EDD replaces this with:
 - **Objective metrics** (e.g., precision, recall, latency)

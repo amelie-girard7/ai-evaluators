@@ -12,7 +12,7 @@ Most AI teams skip building datasets and jump straight to evaluation criteria or
 - **Unrealistic expectations** that the technology can't meet
 - **Missed failure modes** that users actually care about
 
-The solution is **error analysis** — a flywheel process that starts with 20–50 real traces and iteratively grows your dataset and evaluators.
+The solution is **error analysis** - a flywheel process that starts with 20–50 real traces and iteratively grows your dataset and evaluators.
 
 ---
 
@@ -108,8 +108,8 @@ As understanding deepens, move from **generic evaluators** to **specialized ones
 
 ## Next Steps
 
-- [LLM-as-Judge: Complete Guide](../llm-judges/llm-as-judge-complete-guide.md) — Learn Critique Shadowing
-- [Generate Synthetic Datasets](generate-synthetic-datasets.md) — Fill gaps with synthetic data
-- [Error Analysis: The Highest ROI Technique](../error-analysis/overview.md) — Deep dive into error clustering
+- [LLM-as-Judge: Complete Guide](../llm-judges/llm-as-judge-complete-guide.md) - Learn Critique Shadowing
+- [Generate Synthetic Datasets](generate-synthetic-datasets.md) - Fill gaps with synthetic data
+- [Error Analysis: The Highest ROI Technique](../error-analysis/overview.md) - Deep dive into error clustering
 
 ---

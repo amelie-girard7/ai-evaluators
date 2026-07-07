@@ -8,7 +8,7 @@ A deep dive into the challenges and solutions for implementing AI observability 
 
 ![](https://substackcdn.com/image/fetch/$s_!7ae_!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbe933f21-cabc-42a3-8663-a5e83cd57c86_3680x4468.png)
 
-This article is based on insights from Alejandro Aboy, Senior Data Engineer at Workpath, who led the implementation of AI observability for the *Workpath AI Companion* — an agent capable of calling 50+ tools, performing RAG searches, and managing workflows.
+This article is based on insights from Alejandro Aboy, Senior Data Engineer at Workpath, who led the implementation of AI observability for the *Workpath AI Companion* - an agent capable of calling 50+ tools, performing RAG searches, and managing workflows.
 
 ---
 
@@ -73,12 +73,12 @@ The framework evolved from addressing real-world issues in the Workpath AI Compa
 - Incorrect tool calls based on misinterpreted user data
 - Suggesting out-of-scope actions
 
-> **Key Takeaway**: Observability is not just about metrics — it's about creating a feedback loop that drives continuous improvement.
+> **Key Takeaway**: Observability is not just about metrics - it's about creating a feedback loop that drives continuous improvement.
 
 ---
 
 ## Recommended Reading
 
-- [Binary vs Likert](../metrics/binary-vs-likert.md) — Why binary metrics outperform Likert scales
-- [The Mirage of Generic AI Metrics](../metrics/mirage-of-generic-metrics.md) — How to build task-specific evaluation criteria
-- [LLM-as-Judge: Complete Guide](../llm-judges/llm-as-judge-complete-guide.md) — Hamel Husain's Critique Shadowing method
+- [Binary vs Likert](../metrics/binary-vs-likert.md) - Why binary metrics outperform Likert scales
+- [The Mirage of Generic AI Metrics](../metrics/mirage-of-generic-metrics.md) - How to build task-specific evaluation criteria
+- [LLM-as-Judge: Complete Guide](../llm-judges/llm-as-judge-complete-guide.md) - Hamel Husain's Critique Shadowing method

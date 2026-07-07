@@ -1,6 +1,6 @@
 # Why Evaluations Matter
 
-> *"Without evals, you are flying blind. With bad evals, you are flying with a broken altimeter."* — Hamel Husain
+> *"Without evals, you are flying blind. With bad evals, you are flying with a broken altimeter."* - Hamel Husain
 
 ---
 
@@ -8,7 +8,7 @@
 
 LLM outputs exist on a spectrum of quality. Unlike traditional software tests that pass or fail deterministically, client feedback classifier that labels themes or a chatbot that answers business queries produces outputs that can be correct, partially correct, or wrong in subtle ways that a simple pass/fail test cannot capture.
 
-Without systematic evaluation, teams discover failures **reactively** — after users have already been harmed by incorrect outputs. The goal of evaluation engineering is to move failure discovery from production to development.
+Without systematic evaluation, teams discover failures **reactively** - after users have already been harmed by incorrect outputs. The goal of evaluation engineering is to move failure discovery from production to development.
 
 ---
 
@@ -66,9 +66,9 @@ From Reganti & Badam (O'Reilly, 2025): evaluation scores are necessary but not s
 
 ## Key sources
 
-- Hamel Husain — [LLM Evals FAQ](https://hamel.dev/blog/posts/evals-faq/)
-- Reganti & Badam — [Evals Are NOT All You Need](https://www.oreilly.com/radar/evals-are-not-all-you-need/) (O'Reilly, 2025)
-- Habib — [Why Your AI Product Needs Evals](https://humanloop.com/blog/why-your-product-needs-evals) (Humanloop, 2024)
+- Hamel Husain - [LLM Evals FAQ](https://hamel.dev/blog/posts/evals-faq/)
+- Reganti & Badam - [Evals Are NOT All You Need](https://www.oreilly.com/radar/evals-are-not-all-you-need/) (O'Reilly, 2025)
+- Habib - [Why Your AI Product Needs Evals](https://humanloop.com/blog/why-your-product-needs-evals) (Humanloop, 2024)
 
 ---
 

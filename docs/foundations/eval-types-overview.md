@@ -25,19 +25,19 @@ Three fundamentally different types of evaluation exist, each serving a differen
 
 ## Using all three together
 
-The correct architecture is not a choice between these three — it is a **layered system** where each type serves a different role:
+The correct architecture is not a choice between these three - it is a **layered system** where each type serves a different role:
 
 !["Offline Evaluation"](../assets/diagrams/eval-types-overview-2-cea1508c.png)
 ---
 
 ## Applied to our use cases
 
-### UC1 — Client Feedback Classifier
+### UC1 - Client Feedback Classifier
 - **Unit evals:** 200 client feedback with verified theme labels; exact match + taxonomy compliance check
 - **LLM judge:** Criteria-based judge for multi-label coverage and theme justification; runs nightly on dev set
 - **Human eval:** Domain expert reviews 50 judge disagreements per month; updates gold set
 
-### UC2 — RAG Chatbot
+### UC2 - RAG Chatbot
 - **Unit evals:** Known query–answer pairs (e.g., "How many client feedback 2025-26?" → exact count)
 - **LLM judge:** Faithfulness check (are all claims grounded in retrieved context?); relevance check
 - **Human eval:** Business staff review 20 sampled responses per week

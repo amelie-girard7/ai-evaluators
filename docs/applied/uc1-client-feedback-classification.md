@@ -1,7 +1,7 @@
-# UC1: Client Feedback Classification — Overview
+# UC1: Client Feedback Classification - Overview
 
 > **System:** LLM classifier assigning business themes to 50,000+ formal property client feedback per year
-> **Domain:** Professional services — client interactions, service quality, billing practices
+> **Domain:** Professional services - client interactions, service quality, billing practices
 
 ---
 

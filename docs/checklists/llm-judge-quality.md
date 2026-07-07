@@ -1,13 +1,13 @@
 # Checklist: LLM Judge Quality
 
-Before deploying an LLM judge for automated scoring, verify all items below. An unvalidated judge is not a judge — it is a guess at scale.
+Before deploying an LLM judge for automated scoring, verify all items below. An unvalidated judge is not a judge - it is a guess at scale.
 
 ---
 
 ## Design checklist
 
-- [ ] All criteria are **binary (YES/NO)** — not Likert, not open-ended
-- [ ] Each criterion addresses **one dimension only** — no bundling
+- [ ] All criteria are **binary (YES/NO)** - not Likert, not open-ended
+- [ ] Each criterion addresses **one dimension only** - no bundling
 - [ ] Each criterion has **at least 2 positive examples** (correct → YES)
 - [ ] Each criterion has **at least 2 negative examples** (wrong → NO)
 - [ ] Known edge case clusters have **boundary examples** in the prompt
@@ -37,7 +37,7 @@ Before deploying an LLM judge for automated scoring, verify all items below. An 
 
 | Kappa | Status | Action |
 |---|---|---|
-| < 0.4 | Poor | Do not deploy — rewrite criteria |
+| < 0.4 | Poor | Do not deploy - rewrite criteria |
 | 0.4–0.6 | Moderate | Analyse disagreements; add examples |
-| 0.6–0.8 | Good | Deploy — monitor quarterly |
-| > 0.8 | Excellent | Deploy — monitor bi-annually |
+| 0.6–0.8 | Good | Deploy - monitor quarterly |
+| > 0.8 | Excellent | Deploy - monitor bi-annually |

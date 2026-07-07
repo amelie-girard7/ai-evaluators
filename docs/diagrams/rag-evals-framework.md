@@ -12,6 +12,6 @@
 !["An eval is failing"](../assets/diagrams/rag-evals-framework-2-f170f8e2.png)
 ---
 
-*Source: Jason Liu (jxnl.co) — There Are Only 6 RAG Evals | Anthropic — Demystifying Evals for AI Agents*
+*Source: Jason Liu (jxnl.co) - There Are Only 6 RAG Evals | Anthropic - Demystifying Evals for AI Agents*
 
 *Next diagram: [Error Analysis Workflow](error-analysis-workflow)*

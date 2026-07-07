@@ -1,6 +1,6 @@
 # Using LLM-as-a-Judge For Evaluation: A Complete Guide
 
-> *"The solution is Critique Shadowing: aligning evaluation with domain expertise to avoid drowning in unactionable metrics."* — Hamel Husain
+> *"The solution is Critique Shadowing: aligning evaluation with domain expertise to avoid drowning in unactionable metrics."* - Hamel Husain
 
 ---
 
@@ -18,7 +18,7 @@ The result? Teams waste time on metrics that don't matter, while critical failur
 
 ## Step 1: Find The Principal Domain Expert
 
-Identify the **Principal Domain Expert** (PDE) — the individual whose judgment defines success for your AI product. This could be:
+Identify the **Principal Domain Expert** (PDE) - the individual whose judgment defines success for your AI product. This could be:
 
 - A **psychologist** for a mental health chatbot
 - A **customer service director** for a support agent
@@ -103,4 +103,4 @@ Automate testing with an **evaluation harness** that:
 
 ## Conclusion
 
-LLM-as-judge evaluations are powerful — but only when aligned with domain expertise and business goals. By following Critique Shadowing and building a dataset-driven evaluation system, teams can avoid the trap of "vibe checks" and focus on what truly matters. Start small, iterate, and let the data guide you.
+LLM-as-judge evaluations are powerful - but only when aligned with domain expertise and business goals. By following Critique Shadowing and building a dataset-driven evaluation system, teams can avoid the trap of "vibe checks" and focus on what truly matters. Start small, iterate, and let the data guide you.

@@ -25,14 +25,14 @@ All source materials that inform this guide, organized by category with key cont
 |---|---|---|---|
 | 9 | Hamel Husain | [Error Analysis (YouTube)](https://www.youtube.com/watch?v=e2i6JbU2R-s) | Practical walkthrough of error analysis; the discipline of reading data manually |
 | 11 | Hamel Husain | [LLM Judges Aren't the Shortcut You Think (YouTube)](https://www.youtube.com/watch?v=sEMYSSS6Ims) | Practical judge design; common pitfalls; calibration walkthrough |
-| — | Lenny's Podcast | [Why AI evals are the hottest new skill for product builders](https://www.youtube.com/watch?v=BsWxPI9UM4c) | End-to-end overview of eval programme design for product teams |
+| - | Lenny's Podcast | [Why AI evals are the hottest new skill for product builders](https://www.youtube.com/watch?v=BsWxPI9UM4c) | End-to-end overview of eval programme design for product teams |
 
 ### Academic & Books
 
 | # | Author | Title | Key Contribution |
 |---|---|---|---|
-| — | Reganti, A. N. & Badam, K. (2025) | [Evals Are NOT All You Need](https://www.oreilly.com/radar/evals-are-not-all-you-need/) | O'Reilly. Evaluation alone does not produce quality — process around it does |
-| — | Habib, R. (2024) | [Why Your AI Product Needs Evals with Hamel Husain](https://humanloop.com/blog/why-your-product-needs-evals) | Humanloop Blog. Integration of evals into product development workflow |
+| - | Reganti, A. N. & Badam, K. (2025) | [Evals Are NOT All You Need](https://www.oreilly.com/radar/evals-are-not-all-you-need/) | O'Reilly. Evaluation alone does not produce quality - process around it does |
+| - | Habib, R. (2024) | [Why Your AI Product Needs Evals with Hamel Husain](https://humanloop.com/blog/why-your-product-needs-evals) | Humanloop Blog. Integration of evals into product development workflow |
 
 ---
 
@@ -41,7 +41,7 @@ All source materials that inform this guide, organized by category with key cont
 | Platform | Resource | Coverage in This Guide |
 |---|---|---|
 | Databricks / MLflow | [Building MLflow Evaluation Datasets](https://docs.databricks.com/) | [MLflow Evaluation Datasets](tools/mlflow-evaluation-datasets.md) |
-| Databricks / MLflow | [MLflow Tracing — GenAI Observability](https://docs.databricks.com/) | [MLflow Tracing & Observability](tools/mlflow-tracing-observability.md) |
+| Databricks / MLflow | [MLflow Tracing - GenAI Observability](https://docs.databricks.com/) | [MLflow Tracing & Observability](tools/mlflow-tracing-observability.md) |
 | Databricks / MLflow | [Evaluate and Monitor AI Agents](https://docs.databricks.com/) | [Evaluate & Monitor AI Agents](tools/evaluate-monitor-agents.md) |
 
 ---
@@ -51,11 +51,11 @@ All source materials that inform this guide, organized by category with key cont
 ```mermaid
 flowchart TD
     subgraph Sources["Source Materials"]
-        H[Hamel Husain — LLM Judge]
-        A[Anthropic — Agent Evals]
-        J[Jason Liu — 6 RAG Evals]
-        D[Decodingai — Lifecycle]
-        E[Eugene Yan — Judge Reliability]
+        H[Hamel Husain - LLM Judge]
+        A[Anthropic - Agent Evals]
+        J[Jason Liu - 6 RAG Evals]
+        D[Decodingai - Lifecycle]
+        E[Eugene Yan - Judge Reliability]
     end
 
     subgraph Guide["Guide Sections"]
@@ -85,7 +85,7 @@ flowchart TD
 
 When referencing material from this guide, use:
 
-> Girard, A. (2026). *AI Evaluators: A Practitioner's Guide*. Retrieved from [site URL].
+> Girard, A. (2026). *AI Evaluators: A hands-on Guide*. Retrieved from [site URL].
 
 For individual articles within the guide, append the section path:
 

@@ -1,6 +1,6 @@
 # Error Analysis: The Highest ROI Technique
 
-> *"Do not trust your dashboard. Read your data."* — Hamel Husain
+> *"Do not trust your dashboard. Read your data."* - Hamel Husain
 
 Error analysis is the practice of understanding **why** a system fails, not just **how often**. It is the highest ROI activity in AI engineering.
 
@@ -30,7 +30,7 @@ Most teams skip straight to clustering tools. This is a mistake. Reading 20–50
 1. **Intuition about failure patterns** that automated clustering cannot provide
 2. **Hypotheses** about root causes to test against the full failure set
 3. **Edge cases** that reveal taxonomy gaps or prompt ambiguities
-4. **Context** — you understand what the model "sees" vs what a human sees
+4. **Context** - you understand what the model "sees" vs what a human sees
 
 You cannot outsource this step to an LLM summariser. The act of reading is the analysis.
 
@@ -51,7 +51,7 @@ You cannot outsource this step to an LLM summariser. The act of reading is the a
 
 ## Detailed use-case case studies
 
-See: [Case Studies](case-studies.md) — error analysis applied to both UC1 (client feedback classifier) and UC2 (RAG chatbot)
+See: [Case Studies](case-studies.md) - error analysis applied to both UC1 (client feedback classifier) and UC2 (RAG chatbot)
 
 ---
 
