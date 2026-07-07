@@ -60,11 +60,11 @@ flowchart LR
     PR --> P[5. Production]
     P -->|novel failures| B
 
-    style D fill:#E8EAF6,stroke:#3F51B5
-    style B fill:#E3F2FD,stroke:#1976D2
-    style Dev fill:#E8F5E9,stroke:#388E3C
-    style PR fill:#FFF3E0,stroke:#F57C00
-    style P fill:#FCE4EC,stroke:#C2185B
+    style D fill:#7986CB,stroke:#3F51B5,color:#1A1A2E
+    style B fill:#64B5F6,stroke:#1976D2,color:#1A1A2E
+    style Dev fill:#81C784,stroke:#388E3C,color:#1A1A2E
+    style PR fill:#FFB74D,stroke:#F57C00,color:#1A1A2E
+    style P fill:#E57373,stroke:#C2185B,color:#1A1A2E
 ```
 
 | Phase | Key Question | Output |
@@ -88,8 +88,8 @@ flowchart LR
         A1[Open-ended input] --> A2[Probabilistic model] --> A3[Variable output] --> A4["Quality judgment?"]
         A4 -.->|drift over time| A2
     end
-    style T fill:#E0F2FE,stroke:#0284C7
-    style A fill:#FEF3C7,stroke:#D97706
+    style T fill:#64B5F6,stroke:#1565C0,color:#1A1A2E
+    style A fill:#FFB74D,stroke:#E65100,color:#1A1A2E
 ```
 
 AI applications break the three properties of traditional software: **determinism**, **traceable errors**, and **temporal stability**. Evaluation is the discipline of turning subjective quality judgments into measurable, auditable evidence.
@@ -115,10 +115,10 @@ flowchart TD
     A -.-> QC[Question Coverage]
     A -.-> NS[Noise Sensitivity]
 
-    style Q fill:#F3E5F5,stroke:#7B1FA2
-    style R fill:#E3F2FD,stroke:#1565C0
-    style G fill:#E8F5E9,stroke:#2E7D32
-    style A fill:#FFF8E1,stroke:#F9A825
+    style Q fill:#AB47BC,stroke:#6A1B9A,color:#FFFFFF
+    style R fill:#64B5F6,stroke:#1565C0,color:#1A1A2E
+    style G fill:#81C784,stroke:#2E7D32,color:#1A1A2E
+    style A fill:#FFB74D,stroke:#E65100,color:#1A1A2E
 ```
 
 [:octicons-arrow-right-24: The 6 RAG Evals](applied/uc2-the-6-rag-evals.md)

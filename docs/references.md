@@ -75,8 +75,8 @@ flowchart TD
     D --> M
     E --> L
 
-    style Sources fill:#E3F2FD,stroke:#1565C0
-    style Guide fill:#E8F5E9,stroke:#2E7D32
+    style Sources fill:#64B5F6,stroke:#1565C0,color:#1A1A2E
+    style Guide fill:#81C784,stroke:#2E7D32,color:#1A1A2E
 ```
 
 ---

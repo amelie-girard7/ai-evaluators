@@ -64,6 +64,25 @@ blockquote p {
   text-align: center;
 }
 
+/* Force readable text in Mermaid diagrams for both light and dark mode */
+.mermaid .nodeLabel,
+.mermaid .edgeLabel,
+.mermaid .label {
+  color: #1A1A2E !important;
+  fill: #1A1A2E !important;
+}
+
+.mermaid .node rect,
+.mermaid .node polygon,
+.mermaid .node circle {
+  stroke-width: 2px;
+}
+
+/* Mermaid edge labels */
+.mermaid .edgeLabel {
+  background-color: transparent;
+}
+
 /* Image styling for diagrams */
 .md-typeset img {
   border-radius: 8px;
