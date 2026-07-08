@@ -32,7 +32,7 @@ Without systematic evaluation, teams discover failures **reactively** — after 
 
 ## The fundamental question: what does "good" mean?
 
-For a classifier labelling 50,000 complaints per year, "good" means:
+For a classifier labelling 100,000+ client feedback per year, "good" means:
 - Correct themes applied according to regulatory taxonomy definitions
 - All relevant themes captured (multi-label completeness)
 - No fabricated themes appear in output

@@ -37,7 +37,7 @@ _One line per article — used by `query.py` and `compile.py` to route._
 
 ## 08-Applied-Implementation
 - [References](08-Applied-Implementation/References.md) — **References** — All 11 source references with access status, key contribution, and mapping to wiki sections.
-- [UC1 Complaint Classification Overview](08-Applied-Implementation/UC1-Complaint-Classification-Overview.md) — **UC1: Complaint Theme Classification — Overview** — > **System:** LLM classifier assigning regulatory themes to 50,000+ formal property complaints per year
+- [UC1 Complaint Classification Overview](08-Applied-Implementation/UC1-Complaint-Classification-Overview.md) — **UC1: Complaint Theme Classification — Overview** — > **System:** LLM classifier assigning business themes to 100,000+ formal property client feedback per year
 - [UC1 Deidentified Examples](08-Applied-Implementation/UC1-Deidentified-Examples.md) — **Deidentified Complaint Examples** — > **Privacy notice:** All identifying information (agency names, agent names, property addresses, individual names) has 
 - [UC1 Eval Design Step by Step](08-Applied-Implementation/UC1-Eval-Design-Step-by-Step.md) — **UC1: Eval Design — Step by Step** — The 8-step process for building a production-grade eval suite for complaint theme classification.
 - [UC2 RAG Chatbot Overview](08-Applied-Implementation/UC2-RAG-Chatbot-Overview.md) — **UC2: RAG Chatbot — Overview** — > **System:** Conversational chatbot allowing regulatory staff to query complaint data without writing SQL

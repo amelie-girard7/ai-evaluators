@@ -9,14 +9,14 @@ sources:
 
 # UC1: Complaint Theme Classification — Overview
 
-> **System:** LLM classifier assigning regulatory themes to 50,000+ formal property complaints per year
+> **System:** LLM classifier assigning business themes to 100,000+ formal property client feedback per year
 > **Domain:** NSW property law — agents, strata managers, pricing conduct
 
 ---
 
 ## The business problem
 
-A regulatory body receives over 50,000 formal complaints per year about property agents, strata managers, and related conduct. Manually reading and categorising each complaint is not scalable. An LLM-powered classifier must assign one or more themes from a controlled taxonomy to each complaint, enabling analytics, workload routing, and trend reporting.
+A regulatory body receives over 100,000+ formal complaints per year about property agents, strata managers, and related conduct. Manually reading and categorising each complaint is not scalable. An LLM-powered classifier must assign one or more themes from a controlled taxonomy to each complaint, enabling analytics, workload routing, and trend reporting.
 
 ---
 
