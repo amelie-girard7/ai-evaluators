@@ -1,0 +1,130 @@
+/* AI Evaluators - Custom Styles */
+
+:root {
+  --md-admonition-icon--quote: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h3l2-4V7h-6v6h3M6 17h3l2-4V7H5v6h3"/></svg>');
+}
+
+/* Hero section styling */
+.md-content h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Grid cards enhancement */
+.grid.cards > ul > li {
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid.cards > ul > li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] .grid.cards > ul > li:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Blockquote styling for expert quotes */
+blockquote {
+  border-left: 4px solid var(--md-primary-fg-color);
+  background: var(--md-code-bg-color);
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* Table styling */
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background: var(--md-primary-fg-color--light);
+}
+
+/* Mermaid diagram containers */
+.mermaid {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--md-code-bg-color);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Force readable text in Mermaid diagrams for both light and dark mode */
+.mermaid .nodeLabel,
+.mermaid .edgeLabel,
+.mermaid .label {
+  color: #1A1A2E !important;
+  fill: #1A1A2E !important;
+}
+
+.mermaid .node rect,
+.mermaid .node polygon,
+.mermaid .node circle {
+  stroke-width: 2px;
+}
+
+/* Mermaid edge labels */
+.mermaid .edgeLabel {
+  background-color: transparent;
+}
+
+/* Image styling for diagrams */
+.md-typeset img {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset img {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Navigation tabs styling */
+.md-tabs {
+  font-weight: 500;
+}
+
+/* Footer adjustment */
+.md-footer-meta {
+  background: var(--md-footer-bg-color--dark);
+}
+
+/* Checklist-specific styling */
+.md-typeset .task-list-item input[type="checkbox"] {
+  accent-color: var(--md-primary-fg-color);
+}
+
+/* Code block header */
+.md-typeset pre > code {
+  border-radius: 8px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styling */
+@media print {
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer {
+    display: none;
+  }
+}
