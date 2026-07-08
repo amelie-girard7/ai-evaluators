@@ -1,19 +1,19 @@
 # UC1: Client Feedback Classification - Overview
 
-> **System:** LLM classifier assigning business themes to 50,000+ formal property client feedback per year
+> **System:** LLM classifier assigning business themes to 100,000+ formal property client feedback per year
 > **Domain:** Professional services - client interactions, service quality, billing practices
 
 ---
 
 ## The business problem
 
-An organisation receives over 50,000 formal client feedback per year about service delivery and related matters. Manually reading and categorising each item is not scalable. An LLM-powered classifier must assign one or more themes from a controlled taxonomy to each item, enabling analytics, workload routing, and trend reporting.
+An organisation receives over 100,000+ formal client feedback per year about service delivery and related matters. Manually reading and categorising each item is not scalable. An LLM-powered classifier must assign one or more themes from a controlled taxonomy to each item, enabling analytics, workload routing, and trend reporting.
 
 ---
 
 ## System architecture
 
-![Raw client feedback\n50k/year](../assets/diagrams/uc1-complaint-classification-overview-1-3a956034.png)
+![Raw client feedback\n100k+/year](../assets/diagrams/uc1-complaint-classification-overview-1-3a956034.png)
 ---
 
 ## Deidentified examples
@@ -37,10 +37,4 @@ Both illustrative examples share the same 5 themes. The most common failure mode
 | Page | Content |
 |---|---|
 | [Deidentified Examples](deidentified-examples) | Two anonymised feedback examples with correct theme labels |
-| [The Taxonomy](the-taxonomy) | Full theme list with definitions and boundary examples |
 | [Eval Design Step by Step](eval-design-step-by-step) | 8-step process from gold set to CI/CD |
-| [Metrics](metrics) | F1 per theme, kappa, multi-label coverage, cost |
-
----
-
-*Next: [Deidentified Examples](deidentified-examples)*
